@@ -1,0 +1,26 @@
+# Local configuration and generated output
+.env
+.env.*
+!.env.example
+.pytest_cache/
+.verification/
+
+# Python
+backend/.venv/
+backend/__pycache__/
+backend/**/*.py[cod]
+backend/data/
+backend/*.before-*
+*.before-*
+*.broken-*
+
+# Next.js
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/coverage/
+frontend/*.tsbuildinfo
+frontend/next-env.d.ts
+
+# Local recovery snapshots
+backups/
