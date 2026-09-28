@@ -11,7 +11,7 @@ export class CatalogError extends Error {
 
 async function request<T>(path: string, params: Record<string, string>, parse: (v: unknown) => T) {
   try {
-    const url = new URL(`/api/catalog/${path}`, process.env.API_BASE_URL || "http://127.0.0.1:8000");
+    const url = new URL(`/api/catalog/${path}`, process.env.ANI4U_BACKEND_URL || process.env.API_BASE_URL || "http://127.0.0.1:8000");
     url.search = new URLSearchParams(params).toString();
     const response = await fetch(url, { cache: "no-store", headers: { Accept: "application/json" }, signal: AbortSignal.timeout(18_000) });
     if (!response.ok) throw new CatalogError(response.status);
