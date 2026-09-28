@@ -11,7 +11,14 @@ from pathlib import Path
 
 
 def database_path() -> Path:
-    return Path(os.getenv("NOVA_CATALOG_DB", str(Path(__file__).parent / "data" / "catalog.sqlite3")))
+    explicit = os.getenv("NOVA_CATALOG_DB")
+    if explicit:
+        return Path(explicit)
+
+    if os.getenv("VERCEL"):
+        return Path("/tmp/ani4u/catalog.sqlite3")
+
+    return Path(__file__).parent / "data" / "catalog.sqlite3"
 
 
 class CatalogStore:
