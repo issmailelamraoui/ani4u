@@ -1,0 +1,1013 @@
+{
+  "source": "Tsubasanime",
+  "stats": {
+    "working_players_input": 58,
+    "series": 0,
+    "exact_episodes": 0,
+    "movies": 31,
+    "specials": 1,
+    "batches": 3,
+    "collections": 14,
+    "movie_bundles": 3,
+    "unresolved": 0,
+    "exact_stream_entries": 38
+  },
+  "series": [],
+  "movies": [
+    {
+      "title": "Andersen Douwa Ningyohime",
+      "source_posts": [
+        "https://tsubasanime.blogspot.com/2025/08/andersen-douwa-ningyohime.html"
+      ],
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1hvPY0bqW9EarGoxz1S_O_c5SLl8ObliY/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    },
+    {
+      "title": "Ashita Genki ni Nare",
+      "source_posts": [
+        "https://tsubasanime.blogspot.com/2026/07/ashita-genki-ni-nare.html"
+      ],
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1MdDZ9SmZBIH926hzi0H1TPo2V6v-mQ46/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    },
+    {
+      "title": "Daddy Long Legs Ashinaga Ojisan 1979",
+      "source_posts": [
+        "https://tsubasanime.blogspot.com/2026/02/daddy-long-legs-ashinaga-ojisan-1979.html"
+      ],
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1dhTI9mjZatiOn7YOsS-NtiJ_UFEKlzYC/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    },
+    {
+      "title": "Dragon Quest Retsuden: Roto no Monshou",
+      "source_posts": [
+        "https://tsubasanime.blogspot.com/2023/01/dragon-quest-retsuden-roto-no-monshou.html"
+      ],
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1ljPfMM6-gZhXRqu9vl6M3z7_m5dA4XE-/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    },
+    {
+      "title": "Esper Mami Hoshizora No Dancing Doll",
+      "source_posts": [
+        "https://tsubasanime.blogspot.com/2023/11/esper-mami-hoshizora-no-dancing-doll.html"
+      ],
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1BsaKHRTCsEB48yGW_0V77UcfqxkP2kGi/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    },
+    {
+      "title": "Fly! Peek the Whale",
+      "source_posts": [
+        "https://tsubasanime.blogspot.com/2020/08/fly-peek-whale.html"
+      ],
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1c0ZgSmnhdutucDNH5o8Mnp_aA6jcH63C/preview",
+          "tested": true,
+          "working": true
+        },
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1U4HhKnRzVJ2VL3V83Whqc0ULpDFXsU7i/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    },
+    {
+      "title": "Gekijouban Marco Haha wo Tazunete Sanzenri",
+      "source_posts": [
+        "https://tsubasanime.blogspot.com/2024/04/gekijouban-marco-haha-wo-tazunete.html"
+      ],
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1Bd3zDwMlsgQkNU0OtbPcKu6p3T-AsmtF/preview",
+          "tested": true,
+          "working": true
+        },
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1j1JbyZQibBwspGWBbhU7ca7X35MDRCOS/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    },
+    {
+      "title": "Glass no Usagi",
+      "source_posts": [
+        "https://tsubasanime.blogspot.com/2022/04/glass-no-usagi.html"
+      ],
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1v55FWg4iNJz_rlJAmlsob8uL2vZGZ3AN/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    },
+    {
+      "title": "Happy Birthday Inochi Kagayaku Toki",
+      "source_posts": [
+        "https://tsubasanime.blogspot.com/2026/05/happy-birthday-inochi-kagayaku-toki.html"
+      ],
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1g4FgkCLieH9XDeH3Q-y8zCowpo3R6pUv/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    },
+    {
+      "title": "HASHIRE! SHIROI OOKAMI",
+      "source_posts": [
+        "https://tsubasanime.blogspot.com/2021/05/hashire-shiroi-ookami.html"
+      ],
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1aWPEce9w_Nx3LYfMmxR4YpQZa7LfCaUK/preview",
+          "tested": true,
+          "working": true
+        },
+        {
+          "source": "tsubasanime",
+          "host": "ok.ru",
+          "type": "iframe",
+          "url": "https://ok.ru/videoembed/2336290638565",
+          "tested": true,
+          "working": true
+        }
+      ]
+    },
+    {
+      "title": "Hi no Ame ga Furu",
+      "source_posts": [
+        "https://tsubasanime.blogspot.com/2026/03/hi-no-ame-ga-furu.html"
+      ],
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1xM0tzfuB_2GO4zteRdP_j0Zhzw_3FSJ6/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    },
+    {
+      "title": "Hoshizora no Violin",
+      "source_posts": [
+        "https://tsubasanime.blogspot.com/2026/04/hoshizora-no-violin.html"
+      ],
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1bgkwLgSTga4H5SszUMRdIuZmHo3bW-Vd/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    },
+    {
+      "title": "Inochi no Chikyuu: Dioxin no Natsu",
+      "source_posts": [
+        "https://tsubasanime.blogspot.com/2022/03/inochi-no-chikyuu-dioxin-no-natsu.html"
+      ],
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1aLg6v6uxZ-D4d9CYRzpIAOf2_gyu5SoQ/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    },
+    {
+      "title": "JIGOKUDOU REIKAI TSUUSHIN",
+      "source_posts": [
+        "https://tsubasanime.blogspot.com/2022/03/jigokudou-reikai-tsuushin.html"
+      ],
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1AzFPgI8i25FtdQ-9enxjvQCYoe7sxH3U/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    },
+    {
+      "title": "Jin Roh The Wolf Brigade movie",
+      "source_posts": [
+        "https://tsubasanime.blogspot.com/2026/08/jin-roh-wolf-brigade-movie.html"
+      ],
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1Vdms4khbn3KqOvAIPxbUGdnYLEUiSD3A/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    },
+    {
+      "title": "Konchuu Monogatari Mitsubachi Hutch: Yuuki no Melody",
+      "source_posts": [
+        "https://tsubasanime.blogspot.com/2022/11/konchuu-monogatari-mitsubachi-hutch.html"
+      ],
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1SrOytLtouH0TGVvEoxtB0BLYaFtQm5qu/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    },
+    {
+      "title": "Michitekuru Toki no Mukou ni",
+      "source_posts": [
+        "https://tsubasanime.blogspot.com/2026/05/michitekuru-toki-no-mukou-ni.html"
+      ],
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1jaMOU3pkLI0jWIGN3-ng5-AQTwqwsk83/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    },
+    {
+      "title": "Nodoka Mori no Doubutsu Daisakusen",
+      "source_posts": [
+        "https://tsubasanime.blogspot.com/2025/05/nodoka-mori-no-doubutsu-daisakusen.html"
+      ],
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1X1VH7F63o7Hjqi92lAbCyHUvZziTDl7V/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    },
+    {
+      "title": "Ohayou! Spank",
+      "source_posts": [
+        "https://tsubasanime.blogspot.com/2024/04/ohayou-spank.html"
+      ],
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1EKFvVt9UFW-h-B5ar5OsztxsiRH6gOe4/preview",
+          "tested": true,
+          "working": true
+        },
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1G2p4mD6SDpUkGJ9-Is0e7qbU_eAOsPfB/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    },
+    {
+      "title": "Oshin",
+      "source_posts": [
+        "https://tsubasanime.blogspot.com/2025/11/oshin.html"
+      ],
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1drkJVfKBmKyvbrforGExDAbnz3LJ-Ird/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    },
+    {
+      "title": "Raiyantsuuri no Uta",
+      "source_posts": [
+        "https://tsubasanime.blogspot.com/2023/11/raiyantsuuri-no-uta.html"
+      ],
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1LEud8CmI4SfUdbJGQCyT57keR9palbce/preview",
+          "tested": true,
+          "working": true
+        },
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1xtqJSyWZskiG7ZeuqzNZSttQVCN41OTN/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    },
+    {
+      "title": "Robot Carnival",
+      "source_posts": [
+        "https://tsubasanime.blogspot.com/2026/08/robot-carnival.html"
+      ],
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/16Y1Xxfoz1M5KAgDLd5vFprwlBvH56yGp/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    },
+    {
+      "title": "Sekai Meisaku Douwa: Oyayubi Hime",
+      "source_posts": [
+        "https://tsubasanime.blogspot.com/2022/12/sekai-meisaku-douwa-oyayubi-hime.html"
+      ],
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1f0tsu6rWlihGUGj5hiS1t7pAdsExJbHL/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    },
+    {
+      "title": "Tistou Midori no Oyayubi",
+      "source_posts": [
+        "https://tsubasanime.blogspot.com/2025/03/tistou-midori-no-oyayubi.html"
+      ],
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1KXSBhNhdyL-y_rhBbVPwZw1Ws7UpMmvm/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    },
+    {
+      "title": "Tongari Boushi no Memole",
+      "source_posts": [
+        "https://tsubasanime.blogspot.com/2023/10/tongari-boushi-no-memole.html"
+      ],
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1PtSrs34QIDMh2b5t9G38Ro15_XcX__lh/preview",
+          "tested": true,
+          "working": true
+        },
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1byaPOMboge2W2qTGnQHVB1etep-2J0dB/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    },
+    {
+      "title": "TOTSUZEN! NEKO NO KUNI BANIPAL WITT",
+      "source_posts": [
+        "https://tsubasanime.blogspot.com/2023/03/totsuzen-neko-no-kuni-banipal-witt.html"
+      ],
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/19kxbRls4pvGTnqO_joZBNHSOHWMXAr-t/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    },
+    {
+      "title": "Tottoi",
+      "source_posts": [
+        "https://tsubasanime.blogspot.com/2022/11/tottoi.html"
+      ],
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1VHEccdxEPPKFauo9VL-Z_MVD98ElsfKx/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    },
+    {
+      "title": "Ushiro no shoumen daare",
+      "source_posts": [
+        "https://tsubasanime.blogspot.com/2026/07/ushiro-no-shoumen-daare.html"
+      ],
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1ofEt54iDOI9ZgDY2vqERCTMc6j25pf-9/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    },
+    {
+      "title": "wakakusa monogatari",
+      "source_posts": [
+        "https://tsubasanime.blogspot.com/2024/10/wakakusa-monogatari.html"
+      ],
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1X1J_B8wsobTybzsXHraQmsXdUWz4IO-b/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    },
+    {
+      "title": "Windaria",
+      "source_posts": [
+        "https://tsubasanime.blogspot.com/2026/05/windaria.html"
+      ],
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1a9PebgLCWHB1SjOc7Cxggm9FSq-dkcmT/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    },
+    {
+      "title": "Yukiguni no Oujisama",
+      "source_posts": [
+        "https://tsubasanime.blogspot.com/2026/07/yukiguni-no-oujisama.html"
+      ],
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1tfKGaewVvRtGoLtvGitWyeotvPeBLP4T/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    }
+  ],
+  "specials": [
+    {
+      "title": "Gakkou no Yuurei",
+      "season": 1,
+      "post_title": "الأوفا الأولى من الأنمي المرعب Gakkou no Yuurei مترجم",
+      "source_post": "https://tsubasanime.blogspot.com/2023/11/gakkou-no-yuurei.html",
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1JDmuLHcAuNMoPSOKwS-sQBvIrl8YxYVj/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    }
+  ],
+  "batches": [
+    {
+      "title": "Ai no Wakakusa Monogatari",
+      "season": 1,
+      "post_title": "الحلقات من 01-20 من الأنمي الجميل Ai no Wakakusa Monogatari (نساء صغيرات) مترجم",
+      "episode_info": {
+        "type": "range",
+        "start": 1,
+        "end": 20,
+        "episodes": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ]
+      },
+      "source_post": "https://tsubasanime.blogspot.com/2026/07/01-20-ai-no-wakakusa-monogatari.html",
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/128eKVIqizEgGQ8Ly08vgxYDtkQrYtPpu/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    },
+    {
+      "title": "Nobara no Julie",
+      "season": 1,
+      "post_title": "الحلقة الأولى والثانية من الانمي Nobara no Julie (جولي الوردة البرية) مترجمة",
+      "episode_info": {
+        "type": "episodes",
+        "episodes": [
+          1,
+          2
+        ]
+      },
+      "source_post": "https://tsubasanime.blogspot.com/2024/05/nobara-no-julie.html",
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1dGSiv30NJ3tsaiNSAMqxZ00VPmcmJ7F3/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    },
+    {
+      "title": "Kaze no Naka no Shoujo Kinpatsu no Jeanie",
+      "season": 1,
+      "post_title": "حلقات الانمي Kaze no Naka no Shoujo Kinpatsu no Jeanie (ابنتي العزيزة راوية) من 26 إلى 29 مترجمة",
+      "episode_info": {
+        "type": "range",
+        "start": 26,
+        "end": 29,
+        "episodes": [
+          26,
+          27,
+          28,
+          29
+        ]
+      },
+      "source_post": "https://tsubasanime.blogspot.com/2025/09/kaze-no-naka-no-shoujo-kinpatsu-no.html",
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1kOjNadZtVI9webW06K7lftVDNRjd4umD/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    }
+  ],
+  "collections": [
+    {
+      "title": "Grimm Meisaku Gekijou",
+      "season": 1,
+      "post_title": "الدفعة الأولى من الأنمي Grimm Meisaku Gekijou S1 ( في جعبتي حكايا) مترجمة",
+      "episode_info": {
+        "type": "unknown",
+        "episodes": []
+      },
+      "source_post": "https://tsubasanime.blogspot.com/2022/02/grimm-meisaku-gekijou.html",
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1Y16MnuAI8BgofohRWLsqWr8K71k8WTN3/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    },
+    {
+      "title": "Shin Grimm Meisaku Gekijou",
+      "season": 2,
+      "post_title": "الدفعة الأولى من الأنمي Shin Grimm Meisaku Gekijou S2 ( في جعبتي حكايا) مترجمة",
+      "episode_info": {
+        "type": "unknown",
+        "episodes": []
+      },
+      "source_post": "https://tsubasanime.blogspot.com/2022/12/shin-grimm-meisaku-gekijou-s2.html",
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1csMQKiTOSs5i8TMJpPeC2lxr6la6XhG_/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    },
+    {
+      "title": "Shin Grimm Meisaku Gekijou",
+      "season": 2,
+      "post_title": "الدفعة الأولى من الأنمي Shin Grimm Meisaku Gekijou S2 ( في جعبتي حكايا) مترجمة",
+      "episode_info": {
+        "type": "unknown",
+        "episodes": []
+      },
+      "source_post": "https://tsubasanime.blogspot.com/2022/12/shin-grimm-meisaku-gekijou-s2.html",
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1SfpdXB15kygX13faJrq3NRQPufzCWLPB/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    },
+    {
+      "title": "Sekai Meisaku Douwa: Wow! Maerchen Oukoku",
+      "season": 1,
+      "post_title": "الدفعة الأولى من الانمي الجميل Sekai Meisaku Douwa: Wow! Maerchen Oukoku (حكايات ما أحلاها) مترجم",
+      "episode_info": {
+        "type": "unknown",
+        "episodes": []
+      },
+      "source_post": "https://tsubasanime.blogspot.com/2024/07/sekai-meisaku-douwa-wow-maerchen-oukoku.html",
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1wwFVdDycYzX5Mli1omOMF__U0obe4RAt/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    },
+    {
+      "title": "Shin Grimm Meisaku Gekijou",
+      "season": 2,
+      "post_title": "الدفعة الثانية من الأنمي Shin Grimm Meisaku Gekijou S2 ( في جعبتي حكايا) مترجمة",
+      "episode_info": {
+        "type": "unknown",
+        "episodes": []
+      },
+      "source_post": "https://tsubasanime.blogspot.com/2023/03/shin-grimm-meisaku-gekijou-s2.html",
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/14A8vQmtjZpZze-pzwR0pl_n2AaowBQ9m/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    },
+    {
+      "title": "Shin Grimm Meisaku Gekijou",
+      "season": 2,
+      "post_title": "الدفعة الثانية من الأنمي Shin Grimm Meisaku Gekijou S2 ( في جعبتي حكايا) مترجمة",
+      "episode_info": {
+        "type": "unknown",
+        "episodes": []
+      },
+      "source_post": "https://tsubasanime.blogspot.com/2023/03/shin-grimm-meisaku-gekijou-s2.html",
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1Zp1JiSUNXLfndNpIYBGCteUUE7YqLp-O/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    },
+    {
+      "title": "Grimm Meisaku Gekijou",
+      "season": 1,
+      "post_title": "الدفعة الرابعة من الأنمي Grimm Meisaku Gekijou S1 ( في جعبتي حكايا) مترجمة",
+      "episode_info": {
+        "type": "unknown",
+        "episodes": []
+      },
+      "source_post": "https://tsubasanime.blogspot.com/2022/10/grimm-meisaku-gekijou-s1.html",
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1G5xAJdCBCKgJKfUhn2b1o1rp9qaMARH9/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    },
+    {
+      "title": "Akage no Anne (1979)",
+      "season": 1,
+      "post_title": "جميع حلقات الأنمي Akage no Anne (1979) (شما في البراري الخضراء) مترجم وجودة عالية",
+      "episode_info": {
+        "type": "unknown",
+        "episodes": []
+      },
+      "source_post": "https://tsubasanime.blogspot.com/2026/04/akage-no-anne-1979.html",
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1NlsPHo-O52NX7JkijNJ6rgZKVJg7OOAy/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    },
+    {
+      "title": "Grimm Meisaku Gekijou",
+      "season": 1,
+      "post_title": "جميع حلقات الأنمي Grimm Meisaku Gekijou S1 ( في جعبتي حكايا) مترجمة",
+      "episode_info": {
+        "type": "unknown",
+        "episodes": []
+      },
+      "source_post": "https://tsubasanime.blogspot.com/2022/12/grimm-meisaku-gekijou-s1.html",
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/15gSmJ41DAQ00YUb22hletByw9XAhKxvZ/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    },
+    {
+      "title": "HUCKLEBERRY FINN MONOGATARI",
+      "season": 1,
+      "post_title": "جميع حلقات الأنمي HUCKLEBERRY FINN MONOGATARI مترجمة",
+      "episode_info": {
+        "type": "unknown",
+        "episodes": []
+      },
+      "source_post": "https://tsubasanime.blogspot.com/2022/03/huckleberry-finn-monogatari.html",
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1dHRH-xqscCaklVUe_Cp17p4r4Iu6wEET/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    },
+    {
+      "title": "Kaiketsu Zorro",
+      "season": 1,
+      "post_title": "جميع حلقات الانمي أسطورة زورو Kaiketsu Zorro مترجم (نسخة معدلة)",
+      "episode_info": {
+        "type": "unknown",
+        "episodes": []
+      },
+      "source_post": "https://tsubasanime.blogspot.com/2024/11/kaiketsu-zorro.html",
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1pVmcJHm6sr8Bj7cc76gNY9zsRffOXIl2/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    },
+    {
+      "title": "Daisougen no Chiisana Tenshi Bush Baby",
+      "season": 1,
+      "post_title": "جميع حلقات الانمي الجميل Daisougen no Chiisana Tenshi Bush Baby ( هالة زهرة البراري) مترجمة",
+      "episode_info": {
+        "type": "unknown",
+        "episodes": []
+      },
+      "source_post": "https://tsubasanime.blogspot.com/2025/05/daisougen-no-chiisana-tenshi-bush-baby.html",
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1Xu1iNQ-jxoFgw32UQfktojAHMxbIcXv9/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    },
+    {
+      "title": "Tanoshii Muumin Ikka",
+      "season": 1,
+      "post_title": "جميع حلقات الموسم الأول للأنمي الرائع Tanoshii Muumin Ikka (وادي الأمان) مترجم",
+      "episode_info": {
+        "type": "unknown",
+        "episodes": []
+      },
+      "source_post": "https://tsubasanime.blogspot.com/2026/03/tanoshii-muumin-ikka.html",
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1lG_VhxPHLi0anmeRq1a6U9bYCpPv8-ex/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    },
+    {
+      "title": "Tanoshii Muumin Ikka",
+      "season": 1,
+      "post_title": "جميع حلقات الموسم الأول للأنمي الرائع Tanoshii Muumin Ikka (وادي الأمان) مترجم",
+      "episode_info": {
+        "type": "unknown",
+        "episodes": []
+      },
+      "source_post": "https://tsubasanime.blogspot.com/2026/03/tanoshii-muumin-ikka.html",
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/13xwYTAm04bfoDQanKCpXUSp6uUP2HhkT/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    }
+  ],
+  "movie_bundles": [
+    {
+      "post_title": "فلمان غموض وفنتازيا أنمي TENSHI NO TAMAGO و MANIE-MANIE: MEIKYUU MONOGATARI مترجمة",
+      "candidate_titles": [
+        "TENSHI NO TAMAGO",
+        "MANIE-MANIE: MEIKYUU MONOGATARI"
+      ],
+      "source_post": "https://tsubasanime.blogspot.com/2022/08/tenshi-no-tamago-manie-manie-meikyuu.html",
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1PQDzjI-ZwByomHlOIAITjKmX2hBQsatS/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    },
+    {
+      "post_title": "فلمان غموض وفنتازيا أنمي TENSHI NO TAMAGO و MANIE-MANIE: MEIKYUU MONOGATARI مترجمة",
+      "candidate_titles": [
+        "TENSHI NO TAMAGO",
+        "MANIE-MANIE: MEIKYUU MONOGATARI"
+      ],
+      "source_post": "https://tsubasanime.blogspot.com/2022/08/tenshi-no-tamago-manie-manie-meikyuu.html",
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1D5VFiekZa9Vn4auJYCVzQ_Bg1ufRUDr1/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    },
+    {
+      "post_title": "فلمان غموض وفنتازيا أنمي TENSHI NO TAMAGO و MANIE-MANIE: MEIKYUU MONOGATARI مترجمة",
+      "candidate_titles": [
+        "TENSHI NO TAMAGO",
+        "MANIE-MANIE: MEIKYUU MONOGATARI"
+      ],
+      "source_post": "https://tsubasanime.blogspot.com/2022/08/tenshi-no-tamago-manie-manie-meikyuu.html",
+      "servers": [
+        {
+          "source": "tsubasanime",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1HJdNUiebNKb_Z4VX0JNTjcQDkYUMBv4F/preview",
+          "tested": true,
+          "working": true
+        }
+      ]
+    }
+  ]
+}

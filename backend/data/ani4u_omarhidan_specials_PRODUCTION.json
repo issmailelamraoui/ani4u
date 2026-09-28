@@ -1,0 +1,28 @@
+{
+  "source": "Omar Hidan Fansub",
+  "stats": {
+    "specials": 1,
+    "working_servers": 1
+  },
+  "specials": [
+    {
+      "anime": "Shingeki No Kyojin",
+      "content_type": "special",
+      "special_number": 6,
+      "title": "Shingeki No Kyojin OAD 6 – Lost Girls – Part 1",
+      "servers": [
+        {
+          "source": "omarhidan",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1ABF2jEsLRyJMTj-xbeXOXlO-NoO9l7JC/preview",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://omarhidanfs.wordpress.com/2018/01/10/shingeki-no-kyojin-oad-6-lost-girls-part-1/"
+      ]
+    }
+  ]
+}

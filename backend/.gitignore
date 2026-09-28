@@ -1,4 +1,10 @@
-data/
-.venv/
+data/*
+
+!data/ani4u_episode_index_PRODUCTION.json
+!data/ani4u_extra_content_PRODUCTION.json
+!data/ani4u_omarhidan_specials_PRODUCTION.json
+!data/ani4u_stream_library_PRODUCTION.json
+
 __pycache__/
 *.pyc
+.venv/

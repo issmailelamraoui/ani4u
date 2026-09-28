@@ -1,0 +1,3249 @@
+{
+  "name": "ANI4U",
+  "version": "production",
+  "stats": {
+    "anime": 23,
+    "seasons": 24,
+    "unique_episodes": 168,
+    "working_video_servers": 171,
+    "direct_servers": 37,
+    "iframe_servers": 81,
+    "episodes_with_multiple_servers": 3,
+    "removed_entries": 4,
+    "hosts": {
+      "cdn.msrtsub.com": 53,
+      "dl.dropboxusercontent.com": 37,
+      "google-drive": 58,
+      "mega": 23
+    },
+    "sources": {
+      "albara614": 1,
+      "asahi": 37,
+      "ladylynn": 23,
+      "masadorasub": 6,
+      "msrt": 53,
+      "omarhidan": 21,
+      "vbs": 30
+    },
+    "hls_servers": 53
+  },
+  "episodes": [
+    {
+      "anime": "Akame ga Kill",
+      "slug": "akame-ga-kill",
+      "season": 1,
+      "episode": 4,
+      "servers": [
+        {
+          "source": "vbs",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/0B-iBQj5yq-0pMU1jRi1TeDI4QTQ/preview",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://vbdsekai.wordpress.com/2015/02/08/akame-ga-kill-vol-02-03/"
+      ]
+    },
+    {
+      "anime": "Akame ga Kill",
+      "slug": "akame-ga-kill",
+      "season": 1,
+      "episode": 5,
+      "servers": [
+        {
+          "source": "vbs",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/0B-iBQj5yq-0pOWZVMUFQeTZCTmc/preview",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://vbdsekai.wordpress.com/2015/02/08/akame-ga-kill-vol-02-03/"
+      ]
+    },
+    {
+      "anime": "Akame ga Kill",
+      "slug": "akame-ga-kill",
+      "season": 1,
+      "episode": 6,
+      "servers": [
+        {
+          "source": "vbs",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/0B-iBQj5yq-0pQUFyNUVtTXY5Smc/preview",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://vbdsekai.wordpress.com/2015/02/08/akame-ga-kill-vol-02-03/"
+      ]
+    },
+    {
+      "anime": "Akame ga Kill",
+      "slug": "akame-ga-kill",
+      "season": 1,
+      "episode": 7,
+      "servers": [
+        {
+          "source": "vbs",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/0B-iBQj5yq-0pSWdKLU1Sa1Rudjg/preview",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://vbdsekai.wordpress.com/2015/02/08/akame-ga-kill-vol-02-03/"
+      ]
+    },
+    {
+      "anime": "Akame ga Kill",
+      "slug": "akame-ga-kill",
+      "season": 1,
+      "episode": 8,
+      "servers": [
+        {
+          "source": "vbs",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/0B1_4x3ZgfpBTWDU3RERHbnFWc2M/preview",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://vbdsekai.wordpress.com/2015/02/08/akame-ga-kill-vol-02-03/"
+      ]
+    },
+    {
+      "anime": "Akame ga Kill",
+      "slug": "akame-ga-kill",
+      "season": 1,
+      "episode": 9,
+      "servers": [
+        {
+          "source": "vbs",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/0B1_4x3ZgfpBTS1B1dXc0WmZEZ0E/preview",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://vbdsekai.wordpress.com/2015/02/08/akame-ga-kill-vol-02-03/"
+      ]
+    },
+    {
+      "anime": "Arslan Senki",
+      "slug": "arslan-senki",
+      "season": 1,
+      "episode": 4,
+      "servers": [
+        {
+          "source": "omarhidan",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/0BzaXUUBq2-zjYWMyYXdoRWVIS1k/preview",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://omarhidanfs.wordpress.com/2015/04/27/%d8%a7%d9%84%d8%ad%d9%84%d9%82%d8%a9-%d8%a7%d9%84%d8%b1%d8%a7%d8%a8%d8%b9%d8%a9-%d9%85%d9%86-%d8%a3%d8%b3%d8%b7%d9%88%d8%b1%d8%a9-%d8%a3%d8%b1%d8%b3%d9%84%d8%a7%d9%86-%d8%a7%d9%84%d8%a8%d8%b7%d9%88/"
+      ]
+    },
+    {
+      "anime": "Arslan Senki",
+      "slug": "arslan-senki",
+      "season": 1,
+      "episode": 5,
+      "servers": [
+        {
+          "source": "omarhidan",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/0BzaXUUBq2-zjM091c1hyRnBaTzg/preview",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://omarhidanfs.wordpress.com/2015/05/04/%d8%a7%d9%84%d8%ad%d9%84%d9%82%d8%a9-%d8%a7%d9%84%d8%ae%d8%a7%d9%85%d8%b3%d8%a9-%d9%85%d9%86-%d8%a3%d8%b3%d8%b7%d9%88%d8%b1%d8%a9-%d8%a3%d8%b1%d8%b3%d9%84%d8%a7%d9%86-%d8%a7%d9%84%d8%a8%d8%b7%d9%88/"
+      ]
+    },
+    {
+      "anime": "Fractale",
+      "slug": "fractale",
+      "season": 1,
+      "episode": 1,
+      "servers": [
+        {
+          "source": "vbs",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/0Bx2cQLBcucU-LTBaR2x0MDhiQUk/preview",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://vbdsekai.wordpress.com/2015/01/26/fractale-vol-01/"
+      ]
+    },
+    {
+      "anime": "Fractale",
+      "slug": "fractale",
+      "season": 1,
+      "episode": 2,
+      "servers": [
+        {
+          "source": "vbs",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/0Bx2cQLBcucU-cF81cU5uZXhmcU0/preview",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://vbdsekai.wordpress.com/2015/01/26/fractale-vol-01/"
+      ]
+    },
+    {
+      "anime": "Fractale",
+      "slug": "fractale",
+      "season": 1,
+      "episode": 3,
+      "servers": [
+        {
+          "source": "vbs",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/0B1_4x3ZgfpBTLVNkRVNrUEVNR0k/preview",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://vbdsekai.wordpress.com/2015/02/07/fractale-vol-02-2/"
+      ]
+    },
+    {
+      "anime": "Fractale",
+      "slug": "fractale",
+      "season": 1,
+      "episode": 4,
+      "servers": [
+        {
+          "source": "vbs",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/0B1_4x3ZgfpBTUnFDdmpEd0dyc0U/preview",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://vbdsekai.wordpress.com/2015/02/07/fractale-vol-02-2/"
+      ]
+    },
+    {
+      "anime": "Fractale",
+      "slug": "fractale",
+      "season": 1,
+      "episode": 5,
+      "servers": [
+        {
+          "source": "vbs",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/0B1_4x3ZgfpBTWWRzRVdHUEZjdDA/preview",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://vbdsekai.wordpress.com/2015/02/07/fractale-vol-02-2/"
+      ]
+    },
+    {
+      "anime": "Fractale",
+      "slug": "fractale",
+      "season": 1,
+      "episode": 6,
+      "servers": [
+        {
+          "source": "vbs",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/0B-iBQj5yq-0pZnJkcllzVDBaOEE/preview",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://vbdsekai.wordpress.com/2015/02/11/fractale-vol-03/"
+      ]
+    },
+    {
+      "anime": "Fractale",
+      "slug": "fractale",
+      "season": 1,
+      "episode": 7,
+      "servers": [
+        {
+          "source": "vbs",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/0B-iBQj5yq-0pLVloUWN0dnhQcUU/preview",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://vbdsekai.wordpress.com/2015/02/11/fractale-vol-03/"
+      ]
+    },
+    {
+      "anime": "Fractale",
+      "slug": "fractale",
+      "season": 1,
+      "episode": 8,
+      "servers": [
+        {
+          "source": "vbs",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/0B-iBQj5yq-0palFDY1B0U0JGUkU/preview",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://vbdsekai.wordpress.com/2015/02/11/fractale-vol-03/"
+      ]
+    },
+    {
+      "anime": "Hello! Sandybell",
+      "slug": "hello-sandybell",
+      "season": 1,
+      "episode": 22,
+      "servers": [
+        {
+          "source": "masadorasub",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1WhjAUUl9WWRAOJnb4KRjeh04WXBWL6MG/preview",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://masadorasub.wordpress.com/2024/03/05/%d8%a7%d9%84%d8%ad%d9%84%d9%82%d8%a9-22-24-%d9%85%d9%86-%d8%b3%d8%a7%d9%86%d8%af%d9%8a-%d8%a8%d9%8a%d9%84-hello-sandybell/"
+      ]
+    },
+    {
+      "anime": "Hello! Sandybell",
+      "slug": "hello-sandybell",
+      "season": 1,
+      "episode": 23,
+      "servers": [
+        {
+          "source": "masadorasub",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1q_rLqJ4_SULtFdd5jqOlAVrLb80T8hHY/preview",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://masadorasub.wordpress.com/2024/03/05/%d8%a7%d9%84%d8%ad%d9%84%d9%82%d8%a9-22-24-%d9%85%d9%86-%d8%b3%d8%a7%d9%86%d8%af%d9%8a-%d8%a8%d9%8a%d9%84-hello-sandybell/"
+      ]
+    },
+    {
+      "anime": "Hello! Sandybell",
+      "slug": "hello-sandybell",
+      "season": 1,
+      "episode": 24,
+      "servers": [
+        {
+          "source": "masadorasub",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1cWWPdpSwROrFutAjK_mA3qKCJugVzSfX/preview",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://masadorasub.wordpress.com/2024/03/05/%d8%a7%d9%84%d8%ad%d9%84%d9%82%d8%a9-22-24-%d9%85%d9%86-%d8%b3%d8%a7%d9%86%d8%af%d9%8a-%d8%a8%d9%8a%d9%84-hello-sandybell/"
+      ]
+    },
+    {
+      "anime": "Inuyashiki",
+      "slug": "inuyashiki",
+      "season": 1,
+      "episode": 1,
+      "servers": [
+        {
+          "source": "omarhidan",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/0B0MxUGPLLEhOS1I4MEZGYUNGdkU/preview",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://omarhidanfs.wordpress.com/2017/10/12/inuyashiki-01/"
+      ]
+    },
+    {
+      "anime": "Inuyashiki",
+      "slug": "inuyashiki",
+      "season": 1,
+      "episode": 3,
+      "servers": [
+        {
+          "source": "omarhidan",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/0B0MxUGPLLEhOUzJEbmxzZDJXT2c/preview",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://omarhidanfs.wordpress.com/2017/10/27/inuyashiki-03/"
+      ]
+    },
+    {
+      "anime": "Inuyashiki",
+      "slug": "inuyashiki",
+      "season": 1,
+      "episode": 5,
+      "servers": [
+        {
+          "source": "omarhidan",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1rx1mmSr0iEE0pVsgYsSRRWakOfKjzIyP/preview",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://omarhidanfs.wordpress.com/2017/11/11/inuyashiki-05/"
+      ]
+    },
+    {
+      "anime": "Inuyashiki",
+      "slug": "inuyashiki",
+      "season": 1,
+      "episode": 6,
+      "servers": [
+        {
+          "source": "omarhidan",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1d5QCCQvyuOAqrFrvdcTtbeI-3gmhqecK/preview",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://omarhidanfs.wordpress.com/2017/11/16/inuyashiki-06/"
+      ]
+    },
+    {
+      "anime": "Inuyashiki",
+      "slug": "inuyashiki",
+      "season": 1,
+      "episode": 8,
+      "servers": [
+        {
+          "source": "omarhidan",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1qOtjU_Z4J_RTTyK0nYZFK8dJ4hSxfSMK/preview",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://omarhidanfs.wordpress.com/2017/12/01/inuyashiki-08/"
+      ]
+    },
+    {
+      "anime": "Inuyashiki",
+      "slug": "inuyashiki",
+      "season": 1,
+      "episode": 9,
+      "servers": [
+        {
+          "source": "omarhidan",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1lddhgzdViOl4IaYrJFQvaRbDc41FBV8m/preview",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://omarhidanfs.wordpress.com/2017/12/22/inuyashiki-09/"
+      ]
+    },
+    {
+      "anime": "Inuyashiki",
+      "slug": "inuyashiki",
+      "season": 1,
+      "episode": 10,
+      "servers": [
+        {
+          "source": "omarhidan",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/15s2PNswmb5ve9sVaDivy_yBMSfMCsNQn/preview",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://omarhidanfs.wordpress.com/2017/12/22/inuyashiki-10/"
+      ]
+    },
+    {
+      "anime": "Jujutsu Kaisen",
+      "slug": "jujutsu-kaisen",
+      "season": 3,
+      "episode": 1,
+      "servers": [
+        {
+          "source": "asahi",
+          "host": "dl.dropboxusercontent.com",
+          "type": "direct",
+          "url": "https://dl.dropboxusercontent.com/scl/fi/nzpud3zndc41dyxt52pal/Asahi-Jujutsu-Kaisen-48-1080p-HardSub.mp4?rlkey=hv8dylx01y6kfzunx9lv6y6z8&st=et7nq0il&raw=1",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://asahi-fansubs.blogspot.com/2026/01/jujutsu-kaisen-s3-4849.html"
+      ]
+    },
+    {
+      "anime": "Jujutsu Kaisen",
+      "slug": "jujutsu-kaisen",
+      "season": 3,
+      "episode": 2,
+      "servers": [
+        {
+          "source": "asahi",
+          "host": "dl.dropboxusercontent.com",
+          "type": "direct",
+          "url": "https://dl.dropboxusercontent.com/scl/fi/ohtaabe90u91p9o84im6b/Asahi-Jujutsu-Kaisen-49-1080p-HardSub.mp4?rlkey=mok4ofpmuls7pjdjl2y5ekmq3&st=4tbv5mo9&raw=1",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://asahi-fansubs.blogspot.com/2026/01/jujutsu-kaisen-s3-4849.html"
+      ]
+    },
+    {
+      "anime": "Jujutsu Kaisen",
+      "slug": "jujutsu-kaisen",
+      "season": 3,
+      "episode": 3,
+      "servers": [
+        {
+          "source": "asahi",
+          "host": "dl.dropboxusercontent.com",
+          "type": "direct",
+          "url": "https://dl.dropboxusercontent.com/scl/fi/muwh1jfldncqw3e5uhndj/Asahi-Jujutsu-Kaisen-50-1080p-HardSub.mp4?rlkey=xiwmbjieyokm5ibuihenyau7k&st=9gsmqd8w&raw=1",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://asahi-fansubs.blogspot.com/2026/01/jujutsu-kaisen-s3-50.html"
+      ]
+    },
+    {
+      "anime": "Jujutsu Kaisen",
+      "slug": "jujutsu-kaisen",
+      "season": 3,
+      "episode": 4,
+      "servers": [
+        {
+          "source": "asahi",
+          "host": "dl.dropboxusercontent.com",
+          "type": "direct",
+          "url": "https://dl.dropboxusercontent.com/scl/fi/f0pfv8qu3lz0ggsi0799j/Asahi-Jujutsu-Kaisen-51-1080p-HardSub.mp4?rlkey=wm2kpy9p34vlfbiz5pa9phbw0&st=zva6sbck&raw=1",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://asahi-fansubs.blogspot.com/2026/01/jujutsu-kaisen-s3-51.html"
+      ]
+    },
+    {
+      "anime": "Jujutsu Kaisen",
+      "slug": "jujutsu-kaisen",
+      "season": 3,
+      "episode": 5,
+      "servers": [
+        {
+          "source": "asahi",
+          "host": "dl.dropboxusercontent.com",
+          "type": "direct",
+          "url": "https://dl.dropboxusercontent.com/scl/fi/zdbrt68y4a1y1lzusucjd/Asahi-Jujutsu-Kaisen-52-1080p-HardSub.mp4?rlkey=rw30nlg007tn53spqw7j4l6ff&st=uzl3hlv0&raw=1",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://asahi-fansubs.blogspot.com/2026/01/jujutsu-kaisen-s3-52.html"
+      ]
+    },
+    {
+      "anime": "Jujutsu Kaisen",
+      "slug": "jujutsu-kaisen",
+      "season": 3,
+      "episode": 6,
+      "servers": [
+        {
+          "source": "asahi",
+          "host": "dl.dropboxusercontent.com",
+          "type": "direct",
+          "url": "https://dl.dropboxusercontent.com/scl/fi/wubipntlfozva89gaohc8/Asahi-Jujutsu-Kaisen-53-1080p-HardSub.mp4?rlkey=5id138sbbsb9byuplghepbafc&st=r2gfx3hk&raw=1",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://asahi-fansubs.blogspot.com/2026/02/jujutsu-kaisen-s3-53.html"
+      ]
+    },
+    {
+      "anime": "Jujutsu Kaisen",
+      "slug": "jujutsu-kaisen",
+      "season": 3,
+      "episode": 7,
+      "servers": [
+        {
+          "source": "asahi",
+          "host": "dl.dropboxusercontent.com",
+          "type": "direct",
+          "url": "https://dl.dropboxusercontent.com/scl/fi/z864to4j43yxtponrvjre/Asahi-Jujutsu-Kaisen-54-1080p-HardSub.mp4?rlkey=w10yk70qupa75eu9811wx8lo0&st=5rqntmqv&raw=1",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://asahi-fansubs.blogspot.com/2026/02/jujutsu-kaisen-s3-54.html"
+      ]
+    },
+    {
+      "anime": "Jujutsu Kaisen",
+      "slug": "jujutsu-kaisen",
+      "season": 3,
+      "episode": 8,
+      "servers": [
+        {
+          "source": "asahi",
+          "host": "dl.dropboxusercontent.com",
+          "type": "direct",
+          "url": "https://dl.dropboxusercontent.com/scl/fi/905tzq6z88jx70ni2tv8g/Asahi-Jujutsu-Kaisen-55-1080p-HardSub.mp4?rlkey=v384lkertyzzn6li36b3wtu3i&st=isx3p8cg&raw=1",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://asahi-fansubs.blogspot.com/2026/03/jujutsu-kaisen-s3-5558.html"
+      ]
+    },
+    {
+      "anime": "Jujutsu Kaisen",
+      "slug": "jujutsu-kaisen",
+      "season": 3,
+      "episode": 9,
+      "servers": [
+        {
+          "source": "asahi",
+          "host": "dl.dropboxusercontent.com",
+          "type": "direct",
+          "url": "https://dl.dropboxusercontent.com/scl/fi/g3giczslremj7f4dw9iki/Asahi-Jujutsu-Kaisen-56-1080p-HardSub.mp4?rlkey=nmmfuauzxix3j4joraamxbhay&st=ln71u0xr&raw=1",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://asahi-fansubs.blogspot.com/2026/03/jujutsu-kaisen-s3-5558.html"
+      ]
+    },
+    {
+      "anime": "Jujutsu Kaisen",
+      "slug": "jujutsu-kaisen",
+      "season": 3,
+      "episode": 10,
+      "servers": [
+        {
+          "source": "asahi",
+          "host": "dl.dropboxusercontent.com",
+          "type": "direct",
+          "url": "https://dl.dropboxusercontent.com/scl/fi/dnwtifx5qso9g38nqwh65/Asahi-Jujutsu-Kaisen-57-1080p-HardSub.mp4?rlkey=y0lbvd1rgbs4mzdidnd0gbx2j&st=s6yuq2yg&raw=1",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://asahi-fansubs.blogspot.com/2026/03/jujutsu-kaisen-s3-5558.html"
+      ]
+    },
+    {
+      "anime": "Jujutsu Kaisen",
+      "slug": "jujutsu-kaisen",
+      "season": 3,
+      "episode": 11,
+      "servers": [
+        {
+          "source": "asahi",
+          "host": "dl.dropboxusercontent.com",
+          "type": "direct",
+          "url": "https://dl.dropboxusercontent.com/scl/fi/gosk1osb39wtfek6klgoo/Asahi-Jujutsu-Kaisen-58-1080p-HardSub.mp4?rlkey=c5cly5bakgm1xt9ujfz1au1w8&st=j7zbqjzn&raw=1",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://asahi-fansubs.blogspot.com/2026/03/jujutsu-kaisen-s3-5558.html"
+      ]
+    },
+    {
+      "anime": "Jujutsu Kaisen",
+      "slug": "jujutsu-kaisen",
+      "season": 3,
+      "episode": 12,
+      "servers": [
+        {
+          "source": "asahi",
+          "host": "dl.dropboxusercontent.com",
+          "type": "direct",
+          "url": "https://dl.dropboxusercontent.com/scl/fi/1g9x2fpqdaulfxm12lyp4/Asahi-Jujutsu-Kaisen-59-END-1080p-HardSub.mp4?rlkey=1exkh0m0yi9g42bq7mwshdhfd&st=f9t93ulg&raw=1",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://asahi-fansubs.blogspot.com/2026/03/jujutsu-kaisen-s3-59.html"
+      ]
+    },
+    {
+      "anime": "Kamikaze Kaitou Jeanne",
+      "slug": "kamikaze-kaitou-jeanne",
+      "season": 1,
+      "episode": 1,
+      "servers": [
+        {
+          "source": "ladylynn",
+          "host": "mega",
+          "type": "iframe",
+          "url": "https://mega.nz/embed/nfZhUQyB#vCsSouOaIvjLToOuCpiDnG1-zhAOn0v9di_mMmtWP_o",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://ladylynnfansub.wordpress.com/2020/07/09/kamikaze-kaitou-jeanne-ep12/"
+      ]
+    },
+    {
+      "anime": "Kamikaze Kaitou Jeanne",
+      "slug": "kamikaze-kaitou-jeanne",
+      "season": 1,
+      "episode": 2,
+      "servers": [
+        {
+          "source": "ladylynn",
+          "host": "mega",
+          "type": "iframe",
+          "url": "https://mega.nz/embed/7foXCJAT#U1sPKOmxYBbq7pvvRHDBCOLlXGGUr1aZYLOAzdCG5R0",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://ladylynnfansub.wordpress.com/2020/07/09/kamikaze-kaitou-jeanne-ep12/"
+      ]
+    },
+    {
+      "anime": "Kamikaze Kaitou Jeanne",
+      "slug": "kamikaze-kaitou-jeanne",
+      "season": 1,
+      "episode": 3,
+      "servers": [
+        {
+          "source": "ladylynn",
+          "host": "mega",
+          "type": "iframe",
+          "url": "https://mega.nz/embed/OaYwmSSY#IS8xzpmkZhghX1yZCZCSJZPyc3rHwRIpTh0yyrjrX6I",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://ladylynnfansub.wordpress.com/2020/07/16/kamikaze-kaitou-jeanne-ep34-%d9%85%d8%aa%d8%b1%d8%ac%d9%85%d8%a9/"
+      ]
+    },
+    {
+      "anime": "Kamikaze Kaitou Jeanne",
+      "slug": "kamikaze-kaitou-jeanne",
+      "season": 1,
+      "episode": 4,
+      "servers": [
+        {
+          "source": "ladylynn",
+          "host": "mega",
+          "type": "iframe",
+          "url": "https://mega.nz/embed/yLIjRCQa#pEjPHaCdPDlYprfmFEEMFPyG6etrA_2b0xaT-oSDzkc",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://ladylynnfansub.wordpress.com/2020/07/16/kamikaze-kaitou-jeanne-ep34-%d9%85%d8%aa%d8%b1%d8%ac%d9%85%d8%a9/"
+      ]
+    },
+    {
+      "anime": "Kamikaze Kaitou Jeanne",
+      "slug": "kamikaze-kaitou-jeanne",
+      "season": 1,
+      "episode": 5,
+      "servers": [
+        {
+          "source": "ladylynn",
+          "host": "mega",
+          "type": "iframe",
+          "url": "https://mega.nz/embed/DXQnDSST#aRO65H4h83tbjKgoUnHytAappAnUMxYOdnKFmCrQ2Ok",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://ladylynnfansub.wordpress.com/2020/07/23/kamikaze-kaitou-jeanne-ep56-%d9%85%d8%aa%d8%b1%d8%ac%d9%85%d8%a9/"
+      ]
+    },
+    {
+      "anime": "Kamikaze Kaitou Jeanne",
+      "slug": "kamikaze-kaitou-jeanne",
+      "season": 1,
+      "episode": 6,
+      "servers": [
+        {
+          "source": "ladylynn",
+          "host": "mega",
+          "type": "iframe",
+          "url": "https://mega.nz/embed/zGJxiaaB#ZS_0Lzg6NFprMuZQZuLRApa7AclW8eRXmVm8VZSzguE",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://ladylynnfansub.wordpress.com/2020/07/23/kamikaze-kaitou-jeanne-ep56-%d9%85%d8%aa%d8%b1%d8%ac%d9%85%d8%a9/"
+      ]
+    },
+    {
+      "anime": "Kamikaze Kaitou Jeanne",
+      "slug": "kamikaze-kaitou-jeanne",
+      "season": 1,
+      "episode": 7,
+      "servers": [
+        {
+          "source": "ladylynn",
+          "host": "mega",
+          "type": "iframe",
+          "url": "https://mega.nz/embed/fGhFGZZa#KL1YIYZQqPWVUwAL8MqcySiuWbrfRxY5pFEdHqdnsR8",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://ladylynnfansub.wordpress.com/2020/07/30/kamikaze-kaitou-jeanne-ep78-%d9%85%d8%aa%d8%b1%d8%ac%d9%85%d8%a9/"
+      ]
+    },
+    {
+      "anime": "Kamikaze Kaitou Jeanne",
+      "slug": "kamikaze-kaitou-jeanne",
+      "season": 1,
+      "episode": 8,
+      "servers": [
+        {
+          "source": "ladylynn",
+          "host": "mega",
+          "type": "iframe",
+          "url": "https://mega.nz/embed/efJ2VQyI#F95XbkTlvEJjVl_2W4K3SgHEiIkzs7LLe0uggcRqoVc",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://ladylynnfansub.wordpress.com/2020/07/30/kamikaze-kaitou-jeanne-ep78-%d9%85%d8%aa%d8%b1%d8%ac%d9%85%d8%a9/"
+      ]
+    },
+    {
+      "anime": "Kamikaze Kaitou Jeanne",
+      "slug": "kamikaze-kaitou-jeanne",
+      "season": 1,
+      "episode": 9,
+      "servers": [
+        {
+          "source": "ladylynn",
+          "host": "mega",
+          "type": "iframe",
+          "url": "https://mega.nz/embed/bLwlVJTZ#phMGO1u8PAHzBgSOluR-SzEHB0ZiAl2ikKd2Kl0JLJ8",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://ladylynnfansub.wordpress.com/2020/08/06/kamikaze-kaitou-jeanne-ep910-%d9%85%d8%aa%d8%b1%d8%ac%d9%85%d8%a9/"
+      ]
+    },
+    {
+      "anime": "Kamikaze Kaitou Jeanne",
+      "slug": "kamikaze-kaitou-jeanne",
+      "season": 1,
+      "episode": 10,
+      "servers": [
+        {
+          "source": "ladylynn",
+          "host": "mega",
+          "type": "iframe",
+          "url": "https://mega.nz/embed/LX5TyLQZ#qq_zqGPRIKEwXWKCnEEW8v-QDqQxCKKmt3519r-hLwg",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://ladylynnfansub.wordpress.com/2020/08/06/kamikaze-kaitou-jeanne-ep910-%d9%85%d8%aa%d8%b1%d8%ac%d9%85%d8%a9/"
+      ]
+    },
+    {
+      "anime": "Kamikaze Kaitou Jeanne",
+      "slug": "kamikaze-kaitou-jeanne",
+      "season": 1,
+      "episode": 11,
+      "servers": [
+        {
+          "source": "ladylynn",
+          "host": "mega",
+          "type": "iframe",
+          "url": "https://mega.nz/embed/2bxUBQyB#ytyFpc3FwnEEHuelLqLN8yxd7bsVN5GkKDEmcQSe7HU",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://ladylynnfansub.wordpress.com/2020/08/13/kamikaze-kaitou-jeanne-ep1112-%d9%85%d8%aa%d8%b1%d8%ac%d9%85%d8%a9/"
+      ]
+    },
+    {
+      "anime": "Kamikaze Kaitou Jeanne",
+      "slug": "kamikaze-kaitou-jeanne",
+      "season": 1,
+      "episode": 12,
+      "servers": [
+        {
+          "source": "ladylynn",
+          "host": "mega",
+          "type": "iframe",
+          "url": "https://mega.nz/embed/bT4x0T5b#Q_40h-AONamau1b2ifJC2E0mOkMx1VmYujoDjPo3D_w",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        },
+        {
+          "source": "ladylynn",
+          "host": "mega",
+          "type": "iframe",
+          "url": "https://mega.nz/embed/iXBnCaIJ#FUgrzoldIUUwwAJYlVZlnMTKDbfSMPvBsx3cB1IvfuU",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://ladylynnfansub.wordpress.com/2020/08/13/kamikaze-kaitou-jeanne-ep1112-%d9%85%d8%aa%d8%b1%d8%ac%d9%85%d8%a9/"
+      ]
+    },
+    {
+      "anime": "Kamikaze Kaitou Jeanne",
+      "slug": "kamikaze-kaitou-jeanne",
+      "season": 1,
+      "episode": 13,
+      "servers": [
+        {
+          "source": "ladylynn",
+          "host": "mega",
+          "type": "iframe",
+          "url": "https://mega.nz/embed/aGpFxKJK#Mff0IuG_6RblKS9wIsFz8sO-rdkK2v2aaT9X9G-ENEY",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://ladylynnfansub.wordpress.com/2021/02/11/kamikaze-kaitou-jeanne-ep1314-%d9%85%d8%aa%d8%b1%d8%ac%d9%85%d8%a9/"
+      ]
+    },
+    {
+      "anime": "Kamikaze Kaitou Jeanne",
+      "slug": "kamikaze-kaitou-jeanne",
+      "season": 1,
+      "episode": 14,
+      "servers": [
+        {
+          "source": "ladylynn",
+          "host": "mega",
+          "type": "iframe",
+          "url": "https://mega.nz/embed/jDwn1IKR#w_r0zNGhXO08iEkiiM1aA2WX6MjyZMENRbQ1eAamRYo",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://ladylynnfansub.wordpress.com/2021/02/11/kamikaze-kaitou-jeanne-ep1314-%d9%85%d8%aa%d8%b1%d8%ac%d9%85%d8%a9/"
+      ]
+    },
+    {
+      "anime": "Kamikaze Kaitou Jeanne",
+      "slug": "kamikaze-kaitou-jeanne",
+      "season": 1,
+      "episode": 15,
+      "servers": [
+        {
+          "source": "ladylynn",
+          "host": "mega",
+          "type": "iframe",
+          "url": "https://mega.nz/embed/WKoVAKRT#LzsF38jGc5VYVMigOURuPpIsQgFZ6kwdbxYh2tXWJUI",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://ladylynnfansub.wordpress.com/2021/02/18/kamikaze-kaitou-jeanne-ep1516-%d9%85%d8%aa%d8%b1%d8%ac%d9%85%d8%a9/"
+      ]
+    },
+    {
+      "anime": "Kamikaze Kaitou Jeanne",
+      "slug": "kamikaze-kaitou-jeanne",
+      "season": 1,
+      "episode": 16,
+      "servers": [
+        {
+          "source": "ladylynn",
+          "host": "mega",
+          "type": "iframe",
+          "url": "https://mega.nz/embed/eLgn3a6I#Y_Bh742Un790NGaBeHdhehbrXNv8OhoNxeEvPClaHsc",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://ladylynnfansub.wordpress.com/2021/02/18/kamikaze-kaitou-jeanne-ep1516-%d9%85%d8%aa%d8%b1%d8%ac%d9%85%d8%a9/"
+      ]
+    },
+    {
+      "anime": "Kamikaze Kaitou Jeanne",
+      "slug": "kamikaze-kaitou-jeanne",
+      "season": 1,
+      "episode": 17,
+      "servers": [
+        {
+          "source": "ladylynn",
+          "host": "mega",
+          "type": "iframe",
+          "url": "https://mega.nz/embed/WWpXmKYa#Gp8a_Efp7EFxoHJDQN3zb_EpQcH0bL4SxrleMoxbDjo",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://ladylynnfansub.wordpress.com/2021/05/20/kamikaze-kaitou-jeanne-ep1718-%d9%85%d8%aa%d8%b1%d8%ac%d9%85%d8%a9/"
+      ]
+    },
+    {
+      "anime": "Kamikaze Kaitou Jeanne",
+      "slug": "kamikaze-kaitou-jeanne",
+      "season": 1,
+      "episode": 18,
+      "servers": [
+        {
+          "source": "ladylynn",
+          "host": "mega",
+          "type": "iframe",
+          "url": "https://mega.nz/embed/6egjgKxA#TL-2yZOYI5Si0sPP0DUzNVmL4Qd_1GuOjrG5agVZbZM",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://ladylynnfansub.wordpress.com/2021/05/20/kamikaze-kaitou-jeanne-ep1718-%d9%85%d8%aa%d8%b1%d8%ac%d9%85%d8%a9/"
+      ]
+    },
+    {
+      "anime": "Kamikaze Kaitou Jeanne",
+      "slug": "kamikaze-kaitou-jeanne",
+      "season": 1,
+      "episode": 19,
+      "servers": [
+        {
+          "source": "ladylynn",
+          "host": "mega",
+          "type": "iframe",
+          "url": "https://mega.nz/embed/2PgGSbzA#WzMY5L7rQ7FUrRnynDzoO8R3pgcNjszRofBMLS654e8",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://ladylynnfansub.wordpress.com/2021/05/27/kamikaze-kaitou-jeanne-ep1920-%d9%85%d8%aa%d8%b1%d8%ac%d9%85%d8%a9/"
+      ]
+    },
+    {
+      "anime": "Kamikaze Kaitou Jeanne",
+      "slug": "kamikaze-kaitou-jeanne",
+      "season": 1,
+      "episode": 20,
+      "servers": [
+        {
+          "source": "ladylynn",
+          "host": "mega",
+          "type": "iframe",
+          "url": "https://mega.nz/embed/7KwQSSYS#KHf8rHz0hBJ9JWEHsPHhilPoo762zry3aSQPyT_P56s",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://ladylynnfansub.wordpress.com/2021/05/27/kamikaze-kaitou-jeanne-ep1920-%d9%85%d8%aa%d8%b1%d8%ac%d9%85%d8%a9/"
+      ]
+    },
+    {
+      "anime": "Kamikaze Kaitou Jeanne",
+      "slug": "kamikaze-kaitou-jeanne",
+      "season": 1,
+      "episode": 21,
+      "servers": [
+        {
+          "source": "ladylynn",
+          "host": "mega",
+          "type": "iframe",
+          "url": "https://mega.nz/embed/DfpEmDaT#ph9Fx6tfXTS52eTKiv1yzo69enUbdhhUjQ2eGoI94co",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://ladylynnfansub.wordpress.com/2021/06/04/kamikaze-kaitou-jeanne-ep2122-%d9%85%d8%aa%d8%b1%d8%ac%d9%85%d8%a9/"
+      ]
+    },
+    {
+      "anime": "Kamikaze Kaitou Jeanne",
+      "slug": "kamikaze-kaitou-jeanne",
+      "season": 1,
+      "episode": 22,
+      "servers": [
+        {
+          "source": "ladylynn",
+          "host": "mega",
+          "type": "iframe",
+          "url": "https://mega.nz/embed/na5Q1LZA#FHesEsHyG34PJ_HNEJ-w6KvB0NvdA8eSEVVAflLw74U",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://ladylynnfansub.wordpress.com/2021/06/04/kamikaze-kaitou-jeanne-ep2122-%d9%85%d8%aa%d8%b1%d8%ac%d9%85%d8%a9/"
+      ]
+    },
+    {
+      "anime": "Kaoru Hana wa Rin To Saku",
+      "slug": "kaoru-hana-wa-rin-to-saku",
+      "season": 1,
+      "episode": 4,
+      "servers": [
+        {
+          "source": "asahi",
+          "host": "dl.dropboxusercontent.com",
+          "type": "direct",
+          "url": "https://dl.dropboxusercontent.com/scl/fi/tvqlscxdpuipa4jumhs03/Asahi-Kaoru-Hana-wa-Rin-to-Saku-04-1080p-HardSub.mp4?rlkey=2dovoo5c05xvyhc1veya6fa28&st=weeibadp&raw=1",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://asahi-fansubs.blogspot.com/2025/07/kaoru-hana-wa-rin-to-saku-04.html"
+      ]
+    },
+    {
+      "anime": "Kaoru Hana wa Rin To Saku",
+      "slug": "kaoru-hana-wa-rin-to-saku",
+      "season": 1,
+      "episode": 5,
+      "servers": [
+        {
+          "source": "asahi",
+          "host": "dl.dropboxusercontent.com",
+          "type": "direct",
+          "url": "https://dl.dropboxusercontent.com/scl/fi/pvwju8n0doo1t5tly02z8/Asahi-Kaoru-Hana-wa-Rin-to-Saku-05-1080p-HardSub.mp4?rlkey=o6oclk446m8z471632wv2f1fh&st=c2or89b2&raw=1",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://asahi-fansubs.blogspot.com/2025/08/kaoru-hana-wa-rin-to-saku-05.html"
+      ]
+    },
+    {
+      "anime": "Kaoru Hana wa Rin To Saku",
+      "slug": "kaoru-hana-wa-rin-to-saku",
+      "season": 1,
+      "episode": 6,
+      "servers": [
+        {
+          "source": "asahi",
+          "host": "dl.dropboxusercontent.com",
+          "type": "direct",
+          "url": "https://dl.dropboxusercontent.com/scl/fi/i33ajsg72kvqjjsbhvh6c/Asahi-Kaoru-Hana-wa-Rin-to-Saku-06-1080p-HardSub.mp4?rlkey=cgwillnu1nw6ft5dzs8la5185&st=3esfxzqi&raw=1",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://asahi-fansubs.blogspot.com/2025/08/kaoru-hana-wa-rin-to-saku-06.html"
+      ]
+    },
+    {
+      "anime": "Kaoru Hana wa Rin To Saku",
+      "slug": "kaoru-hana-wa-rin-to-saku",
+      "season": 1,
+      "episode": 7,
+      "servers": [
+        {
+          "source": "asahi",
+          "host": "dl.dropboxusercontent.com",
+          "type": "direct",
+          "url": "https://dl.dropboxusercontent.com/scl/fi/qov3alc1qo44xks3hqd42/Asahi-Kaoru-Hana-wa-Rin-to-Saku-07-1080p-HardSub.mp4?rlkey=pm4zfujrafa9ii7cdoljotp4f&st=525s5yrk&raw=1",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://asahi-fansubs.blogspot.com/2025/08/kaoru-hana-wa-rin-to-saku-07.html"
+      ]
+    },
+    {
+      "anime": "Kaoru Hana wa Rin To Saku",
+      "slug": "kaoru-hana-wa-rin-to-saku",
+      "season": 1,
+      "episode": 8,
+      "servers": [
+        {
+          "source": "asahi",
+          "host": "dl.dropboxusercontent.com",
+          "type": "direct",
+          "url": "https://dl.dropboxusercontent.com/scl/fi/bq03rdk2e9c3ctp0zix41/Asahi-Kaoru-Hana-wa-Rin-to-Saku-08-1080p-HardSub.mp4?rlkey=h103bkedgqceqcede6ar9gmg1&st=5u0r0e3b&raw=1",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://asahi-fansubs.blogspot.com/2025/08/kaoru-hana-wa-rin-to-saku-08.html"
+      ]
+    },
+    {
+      "anime": "Kaoru Hana wa Rin To Saku",
+      "slug": "kaoru-hana-wa-rin-to-saku",
+      "season": 1,
+      "episode": 9,
+      "servers": [
+        {
+          "source": "asahi",
+          "host": "dl.dropboxusercontent.com",
+          "type": "direct",
+          "url": "https://dl.dropboxusercontent.com/scl/fi/cybcaz0oss1jpdfv8h4lk/Asahi-Kaoru-Hana-wa-Rin-to-Saku-09-1080p-HardSub.mp4?rlkey=xswcogpdk7wv5gx629mho3rj0&st=ozpax654&raw=1",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://asahi-fansubs.blogspot.com/2025/08/kaoru-hana-wa-rin-to-saku-09.html"
+      ]
+    },
+    {
+      "anime": "Kaoru Hana wa Rin To Saku",
+      "slug": "kaoru-hana-wa-rin-to-saku",
+      "season": 1,
+      "episode": 10,
+      "servers": [
+        {
+          "source": "asahi",
+          "host": "dl.dropboxusercontent.com",
+          "type": "direct",
+          "url": "https://dl.dropboxusercontent.com/scl/fi/ahg4tuw1zdg7xqciqsum7/Asahi-Kaoru-Hana-wa-Rin-to-Saku-10-1080p-HardSub.mp4?rlkey=hgnwajbou2hjy1okqg42nlzbg&st=xkbbrggb&raw=1",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://asahi-fansubs.blogspot.com/2025/09/kaoru-hana-wa-rin-to-saku-10.html"
+      ]
+    },
+    {
+      "anime": "Kaoru Hana wa Rin To Saku",
+      "slug": "kaoru-hana-wa-rin-to-saku",
+      "season": 1,
+      "episode": 11,
+      "servers": [
+        {
+          "source": "asahi",
+          "host": "dl.dropboxusercontent.com",
+          "type": "direct",
+          "url": "https://dl.dropboxusercontent.com/scl/fi/3w5nxtkf977s2zetfmwsp/Asahi-Kaoru-Hana-wa-Rin-to-Saku-11-1080p-HardSub.mp4?rlkey=dx75n9kubsqyuhr2lhm6uul5w&st=fb9szvdd&raw=1",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://asahi-fansubs.blogspot.com/2025/09/kaoru-hana-wa-rin-to-saku-11.html"
+      ]
+    },
+    {
+      "anime": "Kaoru Hana wa Rin To Saku",
+      "slug": "kaoru-hana-wa-rin-to-saku",
+      "season": 1,
+      "episode": 12,
+      "servers": [
+        {
+          "source": "asahi",
+          "host": "dl.dropboxusercontent.com",
+          "type": "direct",
+          "url": "https://dl.dropboxusercontent.com/scl/fi/p8nfbww6phul9on67t0if/Asahi-Kaoru-Hana-wa-Rin-to-Saku-12-1080p-HardSub.mp4?rlkey=h5p6rcdgjsaxcgtc8vpk5vj4q&st=z7wzbta6&raw=1",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://asahi-fansubs.blogspot.com/2025/09/kaoru-hana-wa-rin-to-saku-1213-end.html"
+      ]
+    },
+    {
+      "anime": "Kaoru Hana wa Rin To Saku",
+      "slug": "kaoru-hana-wa-rin-to-saku",
+      "season": 1,
+      "episode": 13,
+      "servers": [
+        {
+          "source": "asahi",
+          "host": "dl.dropboxusercontent.com",
+          "type": "direct",
+          "url": "https://dl.dropboxusercontent.com/scl/fi/zd3lbsb4mvl50vnuuexaf/Asahi-Kaoru-Hana-wa-Rin-to-Saku-13-END-1080p-HardSub.mp4?rlkey=6uk6ee0unuxc7j5a1jj074hhu&st=tvy8d3dy&raw=1",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://asahi-fansubs.blogspot.com/2025/09/kaoru-hana-wa-rin-to-saku-1213-end.html"
+      ]
+    },
+    {
+      "anime": "Kowloon Generic Romance",
+      "slug": "kowloon-generic-romance",
+      "season": 1,
+      "episode": 1,
+      "servers": [
+        {
+          "source": "albara614",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1ncRL0YBbYSO7boOaS85k9iBKlDUQXyhg/preview",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://albara614.blogspot.com/2025/04/kowloon-generic-romance-01.html"
+      ]
+    },
+    {
+      "anime": "Kuroko no Basket",
+      "slug": "kuroko-no-basket",
+      "season": 3,
+      "episode": 1,
+      "servers": [
+        {
+          "source": "omarhidan",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/0B_Sy6_XcsKZzd2FwWTZJQnluNEU/preview",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://omarhidanfs.wordpress.com/2015/01/11/%d8%a7%d9%84%d8%ad%d9%84%d9%82%d8%a9-%d8%a7%d9%84%d8%a3%d9%88%d9%84%d9%89-%d9%85%d9%86-kuroko-no-basket-s3-2015-ep-01-%d9%85%d8%aa%d8%b1%d8%ac%d9%85%d8%a9/"
+      ]
+    },
+    {
+      "anime": "Kuroko no Basket",
+      "slug": "kuroko-no-basket",
+      "season": 3,
+      "episode": 9,
+      "servers": [
+        {
+          "source": "omarhidan",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/0Bx3N7wmuE6SMS0YweDdkVUxIRzQ/preview",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://omarhidanfs.wordpress.com/2015/03/08/%d8%a7%d9%84%d8%ad%d9%84%d9%82%d8%a9-%d8%a7%d9%84%d8%aa%d8%a7%d8%b3%d8%b9%d8%a9-%d9%85%d9%86-kuroko-no-basket-s3-2015-ep-09-%d9%85%d8%aa%d8%b1%d8%ac%d9%85%d8%a9/"
+      ]
+    },
+    {
+      "anime": "Mikakunin de Shinkoukei",
+      "slug": "mikakunin-de-shinkoukei",
+      "season": 1,
+      "episode": 10,
+      "servers": [
+        {
+          "source": "vbs",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/0B3ag0qwVXwW0ZWIzbFcxb09KVjg/preview",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://vbdsekai.wordpress.com/2014/11/30/mikakunin-de-shinkoukei-batch-extra/"
+      ]
+    },
+    {
+      "anime": "Mikakunin de Shinkoukei",
+      "slug": "mikakunin-de-shinkoukei",
+      "season": 1,
+      "episode": 11,
+      "servers": [
+        {
+          "source": "vbs",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/0B3ag0qwVXwW0WlRPU0RhVGdvZzQ/preview",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://vbdsekai.wordpress.com/2014/11/30/mikakunin-de-shinkoukei-batch-extra/"
+      ]
+    },
+    {
+      "anime": "Mikakunin de Shinkoukei",
+      "slug": "mikakunin-de-shinkoukei",
+      "season": 1,
+      "episode": 12,
+      "servers": [
+        {
+          "source": "vbs",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/0B3ag0qwVXwW0V29TTU5tdGRZLUk/preview",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://vbdsekai.wordpress.com/2014/11/30/mikakunin-de-shinkoukei-batch-extra/"
+      ]
+    },
+    {
+      "anime": "Naruto Shippuuden",
+      "slug": "naruto-shippuuden",
+      "season": 1,
+      "episode": 414,
+      "servers": [
+        {
+          "source": "omarhidan",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/0BzaXUUBq2-zjR3hMUEIxMUI1dFE/preview",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://omarhidanfs.wordpress.com/2015/05/28/naruto-shippuuden-ep-414-%d9%85%d8%aa%d8%b1%d8%ac%d9%85%d8%a9/"
+      ]
+    },
+    {
+      "anime": "Naruto Shippuuden",
+      "slug": "naruto-shippuuden",
+      "season": 1,
+      "episode": 415,
+      "servers": [
+        {
+          "source": "omarhidan",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/0BzaXUUBq2-zjbFBoRGJuOENob2M/preview",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://omarhidanfs.wordpress.com/2015/06/04/naruto-shippuuden-ep-415-%d9%85%d8%aa%d8%b1%d8%ac%d9%85%d8%a9/"
+      ]
+    },
+    {
+      "anime": "Naruto Shippuuden",
+      "slug": "naruto-shippuuden",
+      "season": 1,
+      "episode": 451,
+      "servers": [
+        {
+          "source": "omarhidan",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/0B-Kz0VPN5MeEVTdJZk8zd255N2s/preview",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://omarhidanfs.wordpress.com/2016/03/04/naruto-shippuuden-ep-451-%d9%85%d8%aa%d8%b1%d8%ac%d9%85%d8%a9/"
+      ]
+    },
+    {
+      "anime": "Naruto Shippuuden",
+      "slug": "naruto-shippuuden",
+      "season": 1,
+      "episode": 452,
+      "servers": [
+        {
+          "source": "omarhidan",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/0B-Kz0VPN5MeEVTdJZk8zd255N2s/preview",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://omarhidanfs.wordpress.com/2016/03/12/naruto-shippuuden-ep-452-%d9%85%d8%aa%d8%b1%d8%ac%d9%85%d8%a9/"
+      ]
+    },
+    {
+      "anime": "Naruto Shippuuden",
+      "slug": "naruto-shippuuden",
+      "season": 1,
+      "episode": 453,
+      "servers": [
+        {
+          "source": "omarhidan",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/0B-Kz0VPN5MeEVTdJZk8zd255N2s/preview",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://omarhidanfs.wordpress.com/2016/03/20/naruto-shippuuden-ep-453-%d9%85%d8%aa%d8%b1%d8%ac%d9%85%d8%a9/"
+      ]
+    },
+    {
+      "anime": "Pokemon XY",
+      "slug": "pokemon-xy",
+      "season": 1,
+      "episode": 17,
+      "servers": [
+        {
+          "source": "omarhidan",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/0BzN0_XmdDL5FVTVTWWpicHJLSE0/preview",
+          "tested": true,
+          "working": true
+        },
+        {
+          "source": "omarhidan",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/0BzN0_XmdDL5FVm5EWXF4RkpMTUU/preview",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://omarhidanfs.wordpress.com/2014/03/01/%d8%a7%d9%84%d8%ad%d9%84%d9%82%d8%a9-17-%d9%85%d9%86-%d8%a8%d9%88%d9%83%d9%8a%d9%85%d9%88%d9%86-%d8%a5%d9%83%d8%b3-%d9%88%d8%a7%d9%8a-%d9%85%d8%aa%d8%b1%d8%ac%d9%85%d8%a9-pokemon-xy-ep-17/"
+      ]
+    },
+    {
+      "anime": "Pokemon XY",
+      "slug": "pokemon-xy",
+      "season": 1,
+      "episode": 35,
+      "servers": [
+        {
+          "source": "omarhidan",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/0B_uhD6xz9TbFaUEzU0IxZl9pZ2M/preview",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://omarhidanfs.wordpress.com/2015/01/27/%d8%a7%d9%84%d8%ad%d9%84%d9%82%d8%a9-35-%d9%85%d9%86-pokemon-xy-ep-35-%d9%85%d8%aa%d8%b1%d8%ac%d9%85%d8%a9/"
+      ]
+    },
+    {
+      "anime": "PSYCHO-PASS 2",
+      "slug": "psycho-pass-2",
+      "season": 1,
+      "episode": 2,
+      "servers": [
+        {
+          "source": "vbs",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/0Bx2cQLBcucU-ak56bUpWc3NxQ28/preview",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://vbdsekai.wordpress.com/2014/12/28/psycho-pass-2-vol-01/"
+      ]
+    },
+    {
+      "anime": "Sailor Moon Crystal",
+      "slug": "sailor-moon-crystal",
+      "season": 1,
+      "episode": 3,
+      "servers": [
+        {
+          "source": "vbs",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/0B3ag0qwVXwW0dnVYS19JVFNxX2s/preview",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://vbdsekai.wordpress.com/2014/12/12/sailor-moon-crystal-vol-02/"
+      ]
+    },
+    {
+      "anime": "Sailor Moon Crystal",
+      "slug": "sailor-moon-crystal",
+      "season": 1,
+      "episode": 5,
+      "servers": [
+        {
+          "source": "vbs",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/0Bx2cQLBcucU-aHVxOW9uZXFyRXM/preview",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://vbdsekai.wordpress.com/2015/01/15/sailor-moon-crystal-vol-03/"
+      ]
+    },
+    {
+      "anime": "Sailor Moon Crystal",
+      "slug": "sailor-moon-crystal",
+      "season": 1,
+      "episode": 7,
+      "servers": [
+        {
+          "source": "vbs",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/0B1_4x3ZgfpBTdnF1dmszZEp1SlE/preview",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://vbdsekai.wordpress.com/2015/01/28/sailor-moon-crystal-vol-04/"
+      ]
+    },
+    {
+      "anime": "Sailor Moon Crystal",
+      "slug": "sailor-moon-crystal",
+      "season": 1,
+      "episode": 8,
+      "servers": [
+        {
+          "source": "vbs",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/0B1_4x3ZgfpBTWFIyTk9GWW9qaHM/preview",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://vbdsekai.wordpress.com/2015/01/28/sailor-moon-crystal-vol-04/"
+      ]
+    },
+    {
+      "anime": "Selector Infected WIXOSS",
+      "slug": "selector-infected-wixoss",
+      "season": 1,
+      "episode": 1,
+      "servers": [
+        {
+          "source": "vbs",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/0B3ag0qwVXwW0aHRDNTRXblVTUGM/preview",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://vbdsekai.wordpress.com/2014/12/07/selector-infected-wixoss-box-i/"
+      ]
+    },
+    {
+      "anime": "Selector Infected WIXOSS",
+      "slug": "selector-infected-wixoss",
+      "season": 1,
+      "episode": 2,
+      "servers": [
+        {
+          "source": "vbs",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/0B3ag0qwVXwW0bWJENjhBa09lMkE/preview",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://vbdsekai.wordpress.com/2014/12/07/selector-infected-wixoss-box-i/"
+      ]
+    },
+    {
+      "anime": "Selector Infected WIXOSS",
+      "slug": "selector-infected-wixoss",
+      "season": 1,
+      "episode": 3,
+      "servers": [
+        {
+          "source": "vbs",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/0B3ag0qwVXwW0Mjg3bmh5S3FUTU0/preview",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://vbdsekai.wordpress.com/2014/12/07/selector-infected-wixoss-box-i/"
+      ]
+    },
+    {
+      "anime": "Selector Infected WIXOSS",
+      "slug": "selector-infected-wixoss",
+      "season": 1,
+      "episode": 4,
+      "servers": [
+        {
+          "source": "vbs",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/0B3ag0qwVXwW0T2VzX0N6SVpQMlU/preview",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://vbdsekai.wordpress.com/2014/12/07/selector-infected-wixoss-box-i/"
+      ]
+    },
+    {
+      "anime": "Shingeki no Bahamut: Genesis",
+      "slug": "shingeki-no-bahamut-genesis",
+      "season": 1,
+      "episode": 12,
+      "servers": [
+        {
+          "source": "omarhidan",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/0B_Sy6_XcsKZzQ1Q3dnBqVVFWbTg/preview",
+          "tested": true,
+          "working": true
+        },
+        {
+          "source": "omarhidan",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/0B_Sy6_XcsKZzMlg2Wi1wc3d0S0k/preview",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://omarhidanfs.wordpress.com/2014/12/30/%d8%a7%d9%84%d8%ad%d9%84%d9%82%d8%a9-%d8%a7%d9%84%d8%ab%d8%a7%d9%86%d9%8a%d8%a9-%d8%b9%d8%b4%d8%b1-%d9%88%d8%a7%d9%84%d8%a3%d8%ae%d9%8a%d8%b1%d8%a9-%d9%85%d9%86-shingeki-no-bahamut-genesis-ep-12-end/"
+      ]
+    },
+    {
+      "anime": "Spy x Family",
+      "slug": "spy-x-family",
+      "season": 1,
+      "episode": 38,
+      "servers": [
+        {
+          "source": "asahi",
+          "host": "dl.dropboxusercontent.com",
+          "type": "direct",
+          "url": "https://dl.dropboxusercontent.com/scl/fi/6e9hl4t1yti12bfs7ydxe/Asahi-Spy-x-Family-38-1080p-HardSub.mp4?rlkey=q2i1wgsi0d1xhshd2dila5xi7&st=6rlgc0pa&raw=1",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://asahi-fansubs.blogspot.com/2025/10/spy-x-family-38.html"
+      ]
+    },
+    {
+      "anime": "Spy x Family",
+      "slug": "spy-x-family",
+      "season": 1,
+      "episode": 39,
+      "servers": [
+        {
+          "source": "asahi",
+          "host": "dl.dropboxusercontent.com",
+          "type": "direct",
+          "url": "https://dl.dropboxusercontent.com/scl/fi/j1h1s5mm2ofuf8ki9pb21/Asahi-Spy-x-Family-39-1080p-HardSub.mp4?rlkey=w7j5j927bnt5urelj07gx178c&st=ekmj4nxu&raw=1",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://asahi-fansubs.blogspot.com/2025/10/spy-x-family-39.html"
+      ]
+    },
+    {
+      "anime": "Spy x Family",
+      "slug": "spy-x-family",
+      "season": 1,
+      "episode": 40,
+      "servers": [
+        {
+          "source": "asahi",
+          "host": "dl.dropboxusercontent.com",
+          "type": "direct",
+          "url": "https://dl.dropboxusercontent.com/scl/fi/2foabfryjzdbp9azkql9k/Asahi-Spy-x-Family-40-1080p-HardSub.mp4?rlkey=ql0f0f21kycqnzs3mew2bktmv&st=gmhoquht&raw=1",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://asahi-fansubs.blogspot.com/2025/10/spy-x-family-40.html"
+      ]
+    },
+    {
+      "anime": "Spy x Family",
+      "slug": "spy-x-family",
+      "season": 1,
+      "episode": 41,
+      "servers": [
+        {
+          "source": "asahi",
+          "host": "dl.dropboxusercontent.com",
+          "type": "direct",
+          "url": "https://dl.dropboxusercontent.com/scl/fi/imy39g3k6q0ount4gebyn/Asahi-Spy-x-Family-41-1080p-HardSub.mp4?rlkey=7ep86jtl1tw7m2z1ua9krt34y&st=n8uqrwfu&raw=1",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://asahi-fansubs.blogspot.com/2025/10/spy-x-family-41.html"
+      ]
+    },
+    {
+      "anime": "Spy x Family",
+      "slug": "spy-x-family",
+      "season": 1,
+      "episode": 42,
+      "servers": [
+        {
+          "source": "asahi",
+          "host": "dl.dropboxusercontent.com",
+          "type": "direct",
+          "url": "https://dl.dropboxusercontent.com/scl/fi/vppv569upmlu0drglk5it/Asahi-Spy-x-Family-42-1080p-HardSub.mp4?rlkey=i280yyby5xypht8vdlfvtpren&st=5mzhftxm&raw=1",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://asahi-fansubs.blogspot.com/2025/11/spy-x-family-42.html"
+      ]
+    },
+    {
+      "anime": "Spy x Family",
+      "slug": "spy-x-family",
+      "season": 1,
+      "episode": 43,
+      "servers": [
+        {
+          "source": "asahi",
+          "host": "dl.dropboxusercontent.com",
+          "type": "direct",
+          "url": "https://dl.dropboxusercontent.com/scl/fi/pp6y909o1ghbk8u3caspz/Asahi-Spy-x-Family-43-1080p-HardSub.mp4?rlkey=ekxxz38eepr0q99qqvrdwxtt5&st=wn6cvqmx&raw=1",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://asahi-fansubs.blogspot.com/2025/11/spy-x-family-43.html"
+      ]
+    },
+    {
+      "anime": "Spy x Family",
+      "slug": "spy-x-family",
+      "season": 1,
+      "episode": 44,
+      "servers": [
+        {
+          "source": "asahi",
+          "host": "dl.dropboxusercontent.com",
+          "type": "direct",
+          "url": "https://dl.dropboxusercontent.com/scl/fi/jzodgkb828dnz8c4zfgyv/Asahi-Spy-x-Family-44-1080p-HardSub.mp4?rlkey=zey9791crrs0cvgxkn30ry1l2&st=lqfin6sa&raw=1",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://asahi-fansubs.blogspot.com/2025/11/spy-x-family-44.html"
+      ]
+    },
+    {
+      "anime": "Spy x Family",
+      "slug": "spy-x-family",
+      "season": 1,
+      "episode": 45,
+      "servers": [
+        {
+          "source": "asahi",
+          "host": "dl.dropboxusercontent.com",
+          "type": "direct",
+          "url": "https://dl.dropboxusercontent.com/scl/fi/zbdsbp2ja260hzxiu3vnm/Asahi-Spy-x-Family-45-1080p-HardSub.mp4?rlkey=uei3ncagac1q5yq7d49oj3lw2&st=z4ellhbo&raw=1",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://asahi-fansubs.blogspot.com/2025/11/spy-x-family-45.html"
+      ]
+    },
+    {
+      "anime": "Spy x Family",
+      "slug": "spy-x-family",
+      "season": 1,
+      "episode": 46,
+      "servers": [
+        {
+          "source": "asahi",
+          "host": "dl.dropboxusercontent.com",
+          "type": "direct",
+          "url": "https://dl.dropboxusercontent.com/scl/fi/6an1je8b9yiysl6eytou6/Asahi-Spy-x-Family-46-1080p-HardSub.mp4?rlkey=fm094os1bvrnfeudp4b9tt92l&st=qfpfky4o&raw=1",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://asahi-fansubs.blogspot.com/2025/11/spy-x-family-46.html"
+      ]
+    },
+    {
+      "anime": "Spy x Family",
+      "slug": "spy-x-family",
+      "season": 1,
+      "episode": 47,
+      "servers": [
+        {
+          "source": "asahi",
+          "host": "dl.dropboxusercontent.com",
+          "type": "direct",
+          "url": "https://dl.dropboxusercontent.com/scl/fi/pg33qmv2cev6vg60sns9c/Asahi-Spy-x-Family-47-1080p-HardSub.mp4?rlkey=d6kfvrmqbpy95l6wnwm4qcfll&st=r3iv5oct&raw=1",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://asahi-fansubs.blogspot.com/2025/12/spy-x-family-47.html"
+      ]
+    },
+    {
+      "anime": "Spy x Family",
+      "slug": "spy-x-family",
+      "season": 1,
+      "episode": 48,
+      "servers": [
+        {
+          "source": "asahi",
+          "host": "dl.dropboxusercontent.com",
+          "type": "direct",
+          "url": "https://dl.dropboxusercontent.com/scl/fi/4s7us9bbwtmwtrczt9i0q/Asahi-Spy-x-Family-48-1080p-HardSub.mp4?rlkey=z0jf61wu4ixp033mftaiijyam&st=lhclxo2r&raw=1",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://asahi-fansubs.blogspot.com/2025/12/spy-x-family-48.html"
+      ]
+    },
+    {
+      "anime": "Spy x Family",
+      "slug": "spy-x-family",
+      "season": 1,
+      "episode": 49,
+      "servers": [
+        {
+          "source": "asahi",
+          "host": "dl.dropboxusercontent.com",
+          "type": "direct",
+          "url": "https://dl.dropboxusercontent.com/scl/fi/upahtxz24vsi780s0xh9j/Asahi-Spy-x-Family-49-1080p-HardSub.mp4?rlkey=zb3m6z5kln1msn1h2oi8px5yc&st=qdnnm1wa&raw=1",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://asahi-fansubs.blogspot.com/2025/12/spy-x-family-49.html"
+      ]
+    },
+    {
+      "anime": "Spy x Family",
+      "slug": "spy-x-family",
+      "season": 1,
+      "episode": 50,
+      "servers": [
+        {
+          "source": "asahi",
+          "host": "dl.dropboxusercontent.com",
+          "type": "direct",
+          "url": "https://dl.dropboxusercontent.com/scl/fi/bdozv000zzj4rkfv5hdfb/Asahi-Spy-x-Family-50-END-1080p-HardSub.mp4?rlkey=t0lo6ev616yrb1c5hhhbt3rsq&st=8unet1zq&raw=1",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://asahi-fansubs.blogspot.com/2025/12/spy-x-family-50-end.html"
+      ]
+    },
+    {
+      "anime": "Takopii no Genzai",
+      "slug": "takopii-no-genzai",
+      "season": 1,
+      "episode": 5,
+      "servers": [
+        {
+          "source": "asahi",
+          "host": "dl.dropboxusercontent.com",
+          "type": "direct",
+          "url": "https://dl.dropboxusercontent.com/scl/fi/7gngo059aeyc6xjbrsl2a/Asahi-Takopii-no-Genzai-05-1080p-HardSub.mp4?rlkey=0rzrowzu3fo3hsp6rkyiqsi81&st=fo7mk4rh&raw=1",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://asahi-fansubs.blogspot.com/2025/07/takopii-no-genzai-05.html"
+      ]
+    },
+    {
+      "anime": "Takopii no Genzai",
+      "slug": "takopii-no-genzai",
+      "season": 1,
+      "episode": 6,
+      "servers": [
+        {
+          "source": "asahi",
+          "host": "dl.dropboxusercontent.com",
+          "type": "direct",
+          "url": "https://dl.dropboxusercontent.com/scl/fi/ce7u4zfa13ui7y96f1wir/Asahi-Takopii-no-Genzai-06-END-1080p-HardSub.mp4?rlkey=8e1bw1iz1gvadp3k79zhkrj9y&st=cmvtqiw6&raw=1",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://asahi-fansubs.blogspot.com/2025/08/takopii-no-genzai-06-end.html"
+      ]
+    },
+    {
+      "anime": "Tokyo Ghoul",
+      "slug": "tokyo-ghoul",
+      "season": 1,
+      "episode": 1,
+      "servers": [
+        {
+          "source": "vbs",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/0B-iBQj5yq-0pSjNzeVdYVmtVSUU/preview",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://vbdsekai.wordpress.com/2015/02/11/tokyo-ghoul-vol-01/"
+      ]
+    },
+    {
+      "anime": "Tokyo Ghoul",
+      "slug": "tokyo-ghoul",
+      "season": 1,
+      "episode": 2,
+      "servers": [
+        {
+          "source": "vbs",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/0B-iBQj5yq-0pamtPbm9GcFlwa1k/preview",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://vbdsekai.wordpress.com/2015/02/11/tokyo-ghoul-vol-01/"
+      ]
+    },
+    {
+      "anime": "Tokyo Ghoul",
+      "slug": "tokyo-ghoul",
+      "season": 1,
+      "episode": 3,
+      "servers": [
+        {
+          "source": "vbs",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/0B-iBQj5yq-0pU3ZpNjZ3a1JEdEU/preview",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://vbdsekai.wordpress.com/2015/02/11/tokyo-ghoul-vol-01/"
+      ]
+    },
+    {
+      "anime": "Tsuyoshi Shikkari Shinasai",
+      "slug": "tsuyoshi-shikkari-shinasai",
+      "season": 1,
+      "episode": 1,
+      "servers": [
+        {
+          "source": "masadorasub",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1xBCAF81O-eYC35j97UYSyUsVKtPAwYDG/preview",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://masadorasub.wordpress.com/2022/01/20/%d8%a7%d9%84%d8%af%d9%81%d8%b9%d8%a9-%d8%a7%d9%84%d8%a3%d9%88%d9%84%d9%89-%d9%84%d9%80-%d8%a3%d9%86%d8%a7-%d9%88%d8%a3%d8%ae%d9%88%d8%a7%d8%aa%d9%8a-tsuyoshi-shikkari-shinasai-%d9%85%d8%aa%d8%b1/"
+      ]
+    },
+    {
+      "anime": "Tsuyoshi Shikkari Shinasai",
+      "slug": "tsuyoshi-shikkari-shinasai",
+      "season": 1,
+      "episode": 2,
+      "servers": [
+        {
+          "source": "masadorasub",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1Yq7tXbLlnzcGoJZaUuwlcd1fWmkp5Zva/preview",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://masadorasub.wordpress.com/2022/01/20/%d8%a7%d9%84%d8%af%d9%81%d8%b9%d8%a9-%d8%a7%d9%84%d8%a3%d9%88%d9%84%d9%89-%d9%84%d9%80-%d8%a3%d9%86%d8%a7-%d9%88%d8%a3%d8%ae%d9%88%d8%a7%d8%aa%d9%8a-tsuyoshi-shikkari-shinasai-%d9%85%d8%aa%d8%b1/"
+      ]
+    },
+    {
+      "anime": "Tsuyoshi Shikkari Shinasai",
+      "slug": "tsuyoshi-shikkari-shinasai",
+      "season": 1,
+      "episode": 3,
+      "servers": [
+        {
+          "source": "masadorasub",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/1SuTyGpECBjsoUj0bCspQUCN8CUQ2lpRn/preview",
+          "tested": true,
+          "working": true
+        }
+      ],
+      "source_posts": [
+        "https://masadorasub.wordpress.com/2022/01/20/%d8%a7%d9%84%d8%af%d9%81%d8%b9%d8%a9-%d8%a7%d9%84%d8%a3%d9%88%d9%84%d9%89-%d9%84%d9%80-%d8%a3%d9%86%d8%a7-%d9%88%d8%a3%d8%ae%d9%88%d8%a7%d8%aa%d9%8a-tsuyoshi-shikkari-shinasai-%d9%85%d8%aa%d8%b1/"
+      ]
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 1,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-3/episode-1/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback",
+          "note": "MSRT API identifies this as Season 1 Episode 1; physical CDN folder is named season-3."
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 2,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-1/episode-2/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 3,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-1/episode-3/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 4,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-1/episode-4/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 5,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-1/episode-5/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 6,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-1/episode-6/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 7,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-1/episode-7/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 8,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-1/episode-8/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 9,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-1/episode-9/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 10,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-1/episode-10/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 11,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-1/episode-11/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 12,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-1/episode-12/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 13,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-1/episode-13/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 14,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-1/episode-14/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 15,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-1/episode-15/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 16,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-1/episode-16/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 17,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-1/episode-17/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 18,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-1/episode-18/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 19,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-1/episode-19/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 20,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-1/episode-20/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 21,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-1/episode-21/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 22,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-1/episode-22/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 23,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-1/episode-23/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 24,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-1/episode-24/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 25,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-1/episode-25/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 26,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-1/episode-26/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 27,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-1/episode-27/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 28,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-1/episode-28/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 29,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-1/episode-29/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 30,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-1/episode-30/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 31,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-1/episode-31/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 32,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-1/episode-32/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 33,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-1/episode-33/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 34,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-1/episode-34/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 35,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-1/episode-35/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 36,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-1/episode-36/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 37,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-1/episode-37/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 38,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-1/episode-38/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 39,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-1/episode-39/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 40,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-1/episode-40/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 41,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-1/episode-41/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 42,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-1/episode-42/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 44,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-1/episode-44/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 45,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-1/episode-45/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 46,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-1/episode-46/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 47,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-1/episode-47/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 48,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-1/episode-48/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 1,
+      "episode": 49,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-1/episode-49/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 2,
+      "episode": 1,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-2/episode-1/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 2,
+      "episode": 2,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-2/episode-2/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 2,
+      "episode": 3,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-2/episode-3/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 2,
+      "episode": 4,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-2/episode-4/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Yu-Gi-Oh! Duel Monsters",
+      "slug": "yu-gi-oh-duel-monsters",
+      "season": 2,
+      "episode": 5,
+      "servers": [
+        {
+          "source": "msrt",
+          "host": "cdn.msrtsub.com",
+          "type": "hls",
+          "url": "https://cdn.msrtsub.com/media/يوغي-أوه-وحوش-المبارزة/season-2/episode-5/master.m3u8",
+          "tested": true,
+          "working": true,
+          "validation": "public-hls-master-and-variant"
+        }
+      ],
+      "source_posts": []
+    },
+    {
+      "anime": "Zankyou no Terror",
+      "slug": "zankyou-no-terror",
+      "season": 1,
+      "episode": 3,
+      "servers": [
+        {
+          "source": "vbs",
+          "host": "google-drive",
+          "type": "iframe",
+          "url": "https://drive.google.com/file/d/0B1_4x3ZgfpBTaU9wVmw0VU0zRXM/preview",
+          "tested": true,
+          "working": true,
+          "validation": "manual-browser-playback"
+        }
+      ],
+      "source_posts": [
+        "https://vbdsekai.wordpress.com/2015/01/31/zankyou-no-terror-vol-02/"
+      ]
+    }
+  ]
+}
