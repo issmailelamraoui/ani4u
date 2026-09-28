@@ -1,0 +1,20 @@
+{
+  "services": {
+    "frontend": {
+      "root": "frontend/",
+      "framework": "nextjs",
+      "bindings": [
+        {
+          "type": "service",
+          "service": "backend",
+          "format": "url",
+          "env": "ANI4U_BACKEND_URL"
+        }
+      ]
+    },
+    "backend": {
+      "root": "backend/",
+      "entrypoint": "api:app"
+    }
+  }
+}
