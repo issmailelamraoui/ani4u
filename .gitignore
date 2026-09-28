@@ -28,3 +28,4 @@ frontend/next-env.d.ts
 
 # Local recovery snapshots
 backups/
+!backend/data/catalog_seed.json

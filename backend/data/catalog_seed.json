@@ -1,0 +1,1840 @@
+{
+  "anime_identity": [
+    {
+      "id": "nova_a39ad9c6c5724ebf94abf249bc8248d8",
+      "slug": "naruto-20",
+      "anilist_id": 20,
+      "mal_id": 20,
+      "created_at": 1790253693
+    },
+    {
+      "id": "nova_261f9a95b50c4ce78911d8735f93c212",
+      "slug": "one-piece-21",
+      "anilist_id": 21,
+      "mal_id": 21,
+      "created_at": 1790253693
+    },
+    {
+      "id": "nova_0edf2f1cb73848a0a0f921553db1fc84",
+      "slug": "bleach-269",
+      "anilist_id": 269,
+      "mal_id": 269,
+      "created_at": 1790253753
+    },
+    {
+      "id": "nova_9e6288f2967d49d5acb86832e2e81968",
+      "slug": "baki-the-grappler-287",
+      "anilist_id": 287,
+      "mal_id": 287,
+      "created_at": 1790607131
+    },
+    {
+      "id": "nova_a8ce19eb68a84aabbc27a011f141f473",
+      "slug": "one-piece-the-movie-459",
+      "anilist_id": 459,
+      "mal_id": 459,
+      "created_at": 1790254765
+    },
+    {
+      "id": "nova_169089d6cc3f46879c8e20206fa11965",
+      "slug": "one-piece-clockwork-island-adventure-460",
+      "anilist_id": 460,
+      "mal_id": 460,
+      "created_at": 1790254765
+    },
+    {
+      "id": "nova_69243529ff294c7daca5f8fc03003aba",
+      "slug": "one-piece-chopper-s-kingdom-on-the-island-of-strange-animals-461",
+      "anilist_id": 461,
+      "mal_id": 461,
+      "created_at": 1790254765
+    },
+    {
+      "id": "nova_82f0cceb55c04f06be695a66bd8cc6d8",
+      "slug": "one-piece-the-movie-the-dead-end-adventure-462",
+      "anilist_id": 462,
+      "mal_id": 462,
+      "created_at": 1790254765
+    },
+    {
+      "id": "nova_fa70a87c90b04b10a9181beeda4066f1",
+      "slug": "one-piece-baron-omatsuri-and-the-secret-island-464",
+      "anilist_id": 464,
+      "mal_id": 464,
+      "created_at": 1790254765
+    },
+    {
+      "id": "nova_99b1399e834845d9b96c835f6cf39940",
+      "slug": "one-piece-mega-mecha-soldier-of-karakuri-castle-465",
+      "anilist_id": 465,
+      "mal_id": 465,
+      "created_at": 1790254765
+    },
+    {
+      "id": "nova_316ffa74a3bf4a1d80f78a6a658ee4d6",
+      "slug": "grappler-baki-maximum-tournament-551",
+      "anilist_id": 551,
+      "mal_id": 551,
+      "created_at": 1790607131
+    },
+    {
+      "id": "nova_d60527485d304b22a9741da07a176f42",
+      "slug": "naruto-the-lost-story-mission-protect-the-waterfall-village-594",
+      "anilist_id": 594,
+      "mal_id": 594,
+      "created_at": 1790471979
+    },
+    {
+      "id": "nova_694e33ed2268471f81223378ddf4ca97",
+      "slug": "naruto-akaki-yotsuba-no-clover-wo-sagase-761",
+      "anilist_id": 761,
+      "mal_id": 761,
+      "created_at": 1790471979
+    },
+    {
+      "id": "nova_86f0b697a8cd4f56815320065925f7d9",
+      "slug": "ginsoukikou-ordian-832",
+      "anilist_id": 832,
+      "mal_id": 832,
+      "created_at": 1790254355
+    },
+    {
+      "id": "nova_afe1bb10204248e1b2a834be6cd71d00",
+      "slug": "bleach-the-sealed-sword-frenzy-834",
+      "anilist_id": 834,
+      "mal_id": 834,
+      "created_at": 1790253951
+    },
+    {
+      "id": "nova_bc424a484cb74e499a7dfc006881bf5b",
+      "slug": "zatch-bell-attack-of-mechavulcan-911",
+      "anilist_id": 911,
+      "mal_id": 911,
+      "created_at": 1790254355
+    },
+    {
+      "id": "nova_41ba93cf14b94514bfc67075ee23b1e7",
+      "slug": "gintama-918",
+      "anilist_id": 918,
+      "mal_id": 918,
+      "created_at": 1790254240
+    },
+    {
+      "id": "nova_4d5f79d05db94c2b81e29f5fd552e561",
+      "slug": "naruto-the-movie-legend-of-the-stone-of-gelel-936",
+      "anilist_id": 936,
+      "mal_id": 936,
+      "created_at": 1790471979
+    },
+    {
+      "id": "nova_dac3d412d88042d2bb93fba70bb7a99b",
+      "slug": "naruto-narutimate-hero-3-tsui-ni-gekitotsu-jounin-vs-genin-musabetsu-dairansen-taikai-kaisai-1074",
+      "anilist_id": 1074,
+      "mal_id": 1074,
+      "created_at": 1790471979
+    },
+    {
+      "id": "nova_b7583437aac645e4b4ed7dc8c439d44f",
+      "slug": "death-note-1535",
+      "anilist_id": 1535,
+      "mal_id": 1535,
+      "created_at": 1790253693
+    },
+    {
+      "id": "nova_8e7921bc9cec4ae98cfede4f188c1f86",
+      "slug": "attack-no-1-1550",
+      "anilist_id": 1550,
+      "mal_id": 1550,
+      "created_at": 1790254355
+    },
+    {
+      "id": "nova_26683f56eb374146bb671304ff1d2571",
+      "slug": "code-geass-lelouch-of-the-rebellion-1575",
+      "anilist_id": 1575,
+      "mal_id": 1575,
+      "created_at": 1790253753
+    },
+    {
+      "id": "nova_4323e57bdb6b4a7f9ac385974bf050cf",
+      "slug": "bleach-the-movie-memories-of-nobody-1686",
+      "anilist_id": 1686,
+      "mal_id": 1686,
+      "created_at": 1790253951
+    },
+    {
+      "id": "nova_c908db9c489649a48c879fc586a04abd",
+      "slug": "naruto-shippuden-1735",
+      "anilist_id": 1735,
+      "mal_id": 1735,
+      "created_at": 1790253753
+    },
+    {
+      "id": "nova_5b9ae4bfa37b4df5a443844685512d81",
+      "slug": "grappler-baki-the-ultimate-fighter-1859",
+      "anilist_id": 1859,
+      "mal_id": 1859,
+      "created_at": 1790607131
+    },
+    {
+      "id": "nova_2aa1b213dbd149ef8a358a5afd717c92",
+      "slug": "one-piece-the-desert-princess-and-the-pirates-adventures-in-alabasta-2107",
+      "anilist_id": 2107,
+      "mal_id": 2107,
+      "created_at": 1790254765
+    },
+    {
+      "id": "nova_07711d6f709d45818af9c0f26e647c3c",
+      "slug": "naruto-the-movie-guardians-of-the-crescent-moon-kingdom-2144",
+      "anilist_id": 2144,
+      "mal_id": 2144,
+      "created_at": 1790471979
+    },
+    {
+      "id": "nova_f90d351abd3c40199807bab294a2883c",
+      "slug": "naruto-shippuden-the-movie-2472",
+      "anilist_id": 2472,
+      "mal_id": 2472,
+      "created_at": 1790471979
+    },
+    {
+      "id": "nova_63070b3a2b5e4b25a46428f38bcbb96d",
+      "slug": "ani-kuri15-2832",
+      "anilist_id": 2832,
+      "mal_id": 2832,
+      "created_at": 1790254355
+    },
+    {
+      "id": "nova_a47f2bb30eb546a693541885f25b86d5",
+      "slug": "bleach-the-movie-the-diamonddust-rebellion-2889",
+      "anilist_id": 2889,
+      "mal_id": 2889,
+      "created_at": 1790253951
+    },
+    {
+      "id": "nova_7b20e857548d4b398486a802bee8c757",
+      "slug": "gintama-jump-festa-2005-special-2951",
+      "anilist_id": 2951,
+      "mal_id": 2951,
+      "created_at": 1790254240
+    },
+    {
+      "id": "nova_2b731e69a0e84619bd5b13181e3cf00b",
+      "slug": "death-note-relight-2994",
+      "anilist_id": 2994,
+      "mal_id": 2994,
+      "created_at": 1790503413
+    },
+    {
+      "id": "nova_985379d9ed5845028d7600e250786e14",
+      "slug": "hans-christian-andersen-s-the-little-mermaid-3043",
+      "anilist_id": 3043,
+      "mal_id": 3043,
+      "created_at": 1790473546
+    },
+    {
+      "id": "nova_d4f4b8776d574e3ea4de2ecd89768ee5",
+      "slug": "one-piece-episode-of-chopper-the-miracle-winter-cherry-blossom-3848",
+      "anilist_id": 3848,
+      "mal_id": 3848,
+      "created_at": 1790254765
+    },
+    {
+      "id": "nova_61f865dfc1e74ef4b55e20beec16ebb7",
+      "slug": "attack-of-the-super-monsters-4073",
+      "anilist_id": 4073,
+      "mal_id": 4073,
+      "created_at": 1790254355
+    },
+    {
+      "id": "nova_7c5f6bd401774685944344a52269bf75",
+      "slug": "naruto-shippuden-konoha-gakuen-special-4134",
+      "anilist_id": 4134,
+      "mal_id": 4134,
+      "created_at": 1790471979
+    },
+    {
+      "id": "nova_c3f210b01e05449b824e34dca9341f99",
+      "slug": "one-piece-film-strong-world-4155",
+      "anilist_id": 4155,
+      "mal_id": 4155,
+      "created_at": 1790254765
+    },
+    {
+      "id": "nova_f8a2d5e7f2f34c338ddb766992bd4446",
+      "slug": "toradora-4224",
+      "anilist_id": 4224,
+      "mal_id": 4224,
+      "created_at": 1790253753
+    },
+    {
+      "id": "nova_ff95e07e3974485db5a8d6ba22509b89",
+      "slug": "ashita-e-attack-4339",
+      "anilist_id": 4339,
+      "mal_id": 4339,
+      "created_at": 1790254355
+    },
+    {
+      "id": "nova_a7a5853d1f5b4bbb8d7c94407e7ffe1f",
+      "slug": "naruto-shippuden-the-movie-bonds-4437",
+      "anilist_id": 4437,
+      "mal_id": 4437,
+      "created_at": 1790471979
+    },
+    {
+      "id": "nova_f678333903c14972bbbdd010a87accb5",
+      "slug": "bleach-the-movie-fade-to-black-4835",
+      "anilist_id": 4835,
+      "mal_id": 4835,
+      "created_at": 1790253951
+    },
+    {
+      "id": "nova_f28dd30ac6dc423582b1b7fbcfc805d5",
+      "slug": "the-world-of-hans-christian-andersen-5098",
+      "anilist_id": 5098,
+      "mal_id": 5098,
+      "created_at": 1790473546
+    },
+    {
+      "id": "nova_efc6e6629cd54ecb9d0582ee739d825a",
+      "slug": "fullmetal-alchemist-brotherhood-5114",
+      "anilist_id": 5114,
+      "mal_id": 5114,
+      "created_at": 1790253693
+    },
+    {
+      "id": "nova_f3cff169486b4e82aea6d96c6dd0e4c7",
+      "slug": "one-piece-romance-dawn-story-5252",
+      "anilist_id": 5252,
+      "mal_id": 5252,
+      "created_at": 1790254765
+    },
+    {
+      "id": "nova_8613766ca78a44bdae0af90a4f1feb32",
+      "slug": "naruto-shippuden-the-movie-the-will-of-fire-6325",
+      "anilist_id": 6325,
+      "mal_id": 6325,
+      "created_at": 1790471979
+    },
+    {
+      "id": "nova_1c5554b33e8e4ca892d56ce9d860347b",
+      "slug": "gintama-jump-festa-2008-special-6945",
+      "anilist_id": 6945,
+      "mal_id": 6945,
+      "created_at": 1790254240
+    },
+    {
+      "id": "nova_95759acf664f4b61ade1725c8339b6ba",
+      "slug": "naruto-the-cross-roads-7367",
+      "anilist_id": 7367,
+      "mal_id": 7367,
+      "created_at": 1790471979
+    },
+    {
+      "id": "nova_c2d421a08e644809a24d819f5069006a",
+      "slug": "gintama-the-movie-7472",
+      "anilist_id": 7472,
+      "mal_id": 7472,
+      "created_at": 1790254240
+    },
+    {
+      "id": "nova_9b8d1df6df094ff781b3ee844bdcf362",
+      "slug": "hans-christian-andersen-stories-7779",
+      "anilist_id": 7779,
+      "mal_id": 7779,
+      "created_at": 1790473546
+    },
+    {
+      "id": "nova_82451c2b56ee471b9fc825e9e5996da2",
+      "slug": "naruto-shippuden-the-movie-the-lost-tower-8246",
+      "anilist_id": 8246,
+      "mal_id": 8246,
+      "created_at": 1790471979
+    },
+    {
+      "id": "nova_a1ad43ef0ffa45e89409eb78d57f009d",
+      "slug": "bleach-the-movie-hell-verse-8247",
+      "anilist_id": 8247,
+      "mal_id": 8247,
+      "created_at": 1790253951
+    },
+    {
+      "id": "nova_db4f4a98ece5478f9df5ff54f6d5888e",
+      "slug": "attack-no-1-1970-9163",
+      "anilist_id": 9163,
+      "mal_id": 9163,
+      "created_at": 1790254355
+    },
+    {
+      "id": "nova_96369f3daa014fab8215e628f3e8079e",
+      "slug": "attack-no-1-namida-no-fushichou-9164",
+      "anilist_id": 9164,
+      "mal_id": 9164,
+      "created_at": 1790254355
+    },
+    {
+      "id": "nova_ca7003b85f954de7bf4740aa868dcfa9",
+      "slug": "steins-gate-9253",
+      "anilist_id": 9253,
+      "mal_id": 9253,
+      "created_at": 1790253753
+    },
+    {
+      "id": "nova_0729a4fa45ae4a1bbeaa5694c5fad39b",
+      "slug": "gintama-shinyaku-benizakura-hen-special-9735",
+      "anilist_id": 9735,
+      "mal_id": 9735,
+      "created_at": 1790254240
+    },
+    {
+      "id": "nova_1387eec8c6b54c4eb492b9034d766d2b",
+      "slug": "gintama-season-2-9969",
+      "anilist_id": 9969,
+      "mal_id": 9969,
+      "created_at": 1790254240
+    },
+    {
+      "id": "nova_47c07ecafd6141bdb4b10921b0386eda",
+      "slug": "naruto-ut-10075",
+      "anilist_id": 10075,
+      "mal_id": 10075,
+      "created_at": 1790471979
+    },
+    {
+      "id": "nova_a31c39b522bf44b99a2d48493e7decf0",
+      "slug": "gyo-tokyo-fish-attack-10417",
+      "anilist_id": 10417,
+      "mal_id": 10417,
+      "created_at": 1790254355
+    },
+    {
+      "id": "nova_6d3f776af1254934b2bcde82e995e22e",
+      "slug": "naruto-shippuden-the-movie-blood-prison-10589",
+      "anilist_id": 10589,
+      "mal_id": 10589,
+      "created_at": 1790471979
+    },
+    {
+      "id": "nova_a22c6d098bb148f998218f0cfaab5fe8",
+      "slug": "gintama-dai-hanseikai-10643",
+      "anilist_id": 10643,
+      "mal_id": 10643,
+      "created_at": 1790254240
+    },
+    {
+      "id": "nova_f78712fc21054c90880147cb441f4825",
+      "slug": "naruto-the-genie-and-the-three-wishes-believe-it-10659",
+      "anilist_id": 10659,
+      "mal_id": 10659,
+      "created_at": 1790471979
+    },
+    {
+      "id": "nova_62e4872bced643e89ce1da789bd40977",
+      "slug": "naruto-honoo-no-chuunin-shiken-naruto-vs-konohamaru-10686",
+      "anilist_id": 10686,
+      "mal_id": 10686,
+      "created_at": 1790471979
+    },
+    {
+      "id": "nova_381f30218ca04576b34b57474ff7aab4",
+      "slug": "hunter-x-hunter-2011-11061",
+      "anilist_id": 11061,
+      "mal_id": 11061,
+      "created_at": 1790253693
+    },
+    {
+      "id": "nova_5481544c725f4c1bb1b704b78ed5c62d",
+      "slug": "the-little-match-girl-11693",
+      "anilist_id": 11693,
+      "mal_id": 11693,
+      "created_at": 1790473546
+    },
+    {
+      "id": "nova_c90045bbb26546f2b7ea4e87fa5f5bc6",
+      "slug": "sword-art-online-11757",
+      "anilist_id": 11757,
+      "mal_id": 11757,
+      "created_at": 1790253693
+    },
+    {
+      "id": "nova_c3a6be888be34affbdbd13002c36d8e6",
+      "slug": "one-piece-film-z-12859",
+      "anilist_id": 12859,
+      "mal_id": 12859,
+      "created_at": 1790254765
+    },
+    {
+      "id": "nova_5d6f81ba98a949c78eaa711823b09384",
+      "slug": "road-to-ninja-naruto-the-movie-13667",
+      "anilist_id": 13667,
+      "mal_id": 13667,
+      "created_at": 1790471979
+    },
+    {
+      "id": "nova_fda3a26bb4fb4efda1c5ff2cbd831d95",
+      "slug": "one-piece-episode-of-nami-koukaishi-no-namida-to-nakama-no-kizuna-15323",
+      "anilist_id": 15323,
+      "mal_id": 15323,
+      "created_at": 1790254765
+    },
+    {
+      "id": "nova_ecfba064f789470ca6925e08b80ece48",
+      "slug": "gintama-the-final-chapter-be-forever-yorozuya-15335",
+      "anilist_id": 15335,
+      "mal_id": 15335,
+      "created_at": 1790254240
+    },
+    {
+      "id": "nova_0f65ec2fbb674b56b272de99d86ad70f",
+      "slug": "gintama-season-2-part-2-15417",
+      "anilist_id": 15417,
+      "mal_id": 15417,
+      "created_at": 1790254240
+    },
+    {
+      "id": "nova_451d22fad70341dc97b36653c885ed9d",
+      "slug": "attack-on-titan-16498",
+      "anilist_id": 16498,
+      "mal_id": 16498,
+      "created_at": 1790253693
+    },
+    {
+      "id": "nova_8929cf47e32d471ebd94bb2236e632bb",
+      "slug": "the-last-naruto-the-movie-16870",
+      "anilist_id": 16870,
+      "mal_id": 16870,
+      "created_at": 1790471979
+    },
+    {
+      "id": "nova_808d8446e1d74bd5b38dc08c2f33de75",
+      "slug": "attack-on-titan-ova-18397",
+      "anilist_id": 18397,
+      "mal_id": 18397,
+      "created_at": 1790254355
+    },
+    {
+      "id": "nova_b61e4c5a68ca4f468ec4aef3f05620e8",
+      "slug": "one-piece-episode-of-merry-the-tale-of-one-more-friend-19123",
+      "anilist_id": 19123,
+      "mal_id": 19123,
+      "created_at": 1790254765
+    },
+    {
+      "id": "nova_6caefb6d72c0471395428e15109c9eb5",
+      "slug": "attack-on-titan-picture-drama-19391",
+      "anilist_id": 19391,
+      "mal_id": 19391,
+      "created_at": 1790254355
+    },
+    {
+      "id": "nova_5eb0529578014009a38d12ec2c23c7ea",
+      "slug": "no-game-no-life-19815",
+      "anilist_id": 19815,
+      "mal_id": 19815,
+      "created_at": 1790253753
+    },
+    {
+      "id": "nova_844d9e060e864b5bb7b5f6a11bd4cdd9",
+      "slug": "noragami-20447",
+      "anilist_id": 20447,
+      "mal_id": 20507,
+      "created_at": 1790253753
+    },
+    {
+      "id": "nova_7b03c61424674a42a8fe7311331fdfcf",
+      "slug": "haikyu-20464",
+      "anilist_id": 20464,
+      "mal_id": 20583,
+      "created_at": 1790253753
+    },
+    {
+      "id": "nova_cc7157c20c474c8386bbcf96544e197e",
+      "slug": "tokyo-ghoul-20605",
+      "anilist_id": 20605,
+      "mal_id": 22319,
+      "created_at": 1790253693
+    },
+    {
+      "id": "nova_f8f4fb062a9c46b580994488dc3214f7",
+      "slug": "akame-ga-kill-20613",
+      "anilist_id": 20613,
+      "mal_id": 22199,
+      "created_at": 1790253753
+    },
+    {
+      "id": "nova_61e9d8e6ac304b369711f09057ffca1d",
+      "slug": "your-lie-in-april-20665",
+      "anilist_id": 20665,
+      "mal_id": 23273,
+      "created_at": 1790253693
+    },
+    {
+      "id": "nova_7c859a180b424170935fd8d787900545",
+      "slug": "attack-on-titan-part-i-crimson-bow-and-arrow-20691",
+      "anilist_id": 20691,
+      "mal_id": 23775,
+      "created_at": 1790254384
+    },
+    {
+      "id": "nova_9fbfbc090f6d4a849481fd85a4ed1f73",
+      "slug": "attack-on-titan-part-ii-wings-of-freedom-20692",
+      "anilist_id": 20692,
+      "mal_id": 23777,
+      "created_at": 1790254384
+    },
+    {
+      "id": "nova_1a0019ab1bb04fdf8c1ae0fbaef4856c",
+      "slug": "assassination-classroom-20755",
+      "anilist_id": 20755,
+      "mal_id": 24833,
+      "created_at": 1790253693
+    },
+    {
+      "id": "nova_6361cb36779740bcaa73fd22b5a3b666",
+      "slug": "gintama-yorinuki-gintama-san-on-theater-2d-20760",
+      "anilist_id": 20760,
+      "mal_id": 21899,
+      "created_at": 1790254240
+    },
+    {
+      "id": "nova_29556dcef881400bbb31d7a2b7edd690",
+      "slug": "the-seven-deadly-sins-20789",
+      "anilist_id": 20789,
+      "mal_id": 23755,
+      "created_at": 1790253753
+    },
+    {
+      "id": "nova_668119c65b4940e8beca95387fb82822",
+      "slug": "attack-on-titan-no-regrets-20811",
+      "anilist_id": 20811,
+      "mal_id": 25781,
+      "created_at": 1790254355
+    },
+    {
+      "id": "nova_65cff90c5d2948248971b33435efd8cf",
+      "slug": "gintama-futon-ni-haitte-kara-buki-nokoshi-ni-kizuite-neru-ni-nerenai-toki-mo-aru-20882",
+      "anilist_id": 20882,
+      "mal_id": 25313,
+      "created_at": 1790254240
+    },
+    {
+      "id": "nova_ef342564b1dc4f9daff40460f33e7d12",
+      "slug": "haikyu-lev-appears-20884",
+      "anilist_id": 20884,
+      "mal_id": 25303,
+      "created_at": 1790254263
+    },
+    {
+      "id": "nova_cbdf41a271e54576adc47c9de16d9477",
+      "slug": "a-silent-voice-20954",
+      "anilist_id": 20954,
+      "mal_id": 28851,
+      "created_at": 1790253693
+    },
+    {
+      "id": "nova_51597befa485440bb6efb202e70f41d9",
+      "slug": "attack-on-titan-season-2-20958",
+      "anilist_id": 20958,
+      "mal_id": 25777,
+      "created_at": 1790253693
+    },
+    {
+      "id": "nova_db1a57a4af9e4610b1520333be577cfe",
+      "slug": "haikyu-2nd-season-20992",
+      "anilist_id": 20992,
+      "mal_id": 28891,
+      "created_at": 1790254263
+    },
+    {
+      "id": "nova_c14c9397e20d4210b13c9da869ada5a6",
+      "slug": "gintama-season-3-20996",
+      "anilist_id": 20996,
+      "mal_id": 28977,
+      "created_at": 1790253693
+    },
+    {
+      "id": "nova_a7d8db22b7f94e3dbacb4bf3e3992339",
+      "slug": "one-punch-man-21087",
+      "anilist_id": 21087,
+      "mal_id": 30276,
+      "created_at": 1790253693
+    },
+    {
+      "id": "nova_287b899e7f93446b8bfa0e469064dafd",
+      "slug": "haikyu-the-movie-the-end-and-the-beginning-21120",
+      "anilist_id": 21120,
+      "mal_id": 29755,
+      "created_at": 1790254263
+    },
+    {
+      "id": "nova_3e9f43affa27408198a401ddbf190a58",
+      "slug": "konosuba-god-s-blessing-on-this-wonderful-world-21202",
+      "anilist_id": 21202,
+      "mal_id": 30831,
+      "created_at": 1790253753
+    },
+    {
+      "id": "nova_2f85f7af18054e85a4ecf6cd1d53d67a",
+      "slug": "boruto-naruto-the-movie-21220",
+      "anilist_id": 21220,
+      "mal_id": 28755,
+      "created_at": 1790471979
+    },
+    {
+      "id": "nova_837b25c5e5af4814b16e55192623654f",
+      "slug": "erased-21234",
+      "anilist_id": 21234,
+      "mal_id": 31043,
+      "created_at": 1790253753
+    },
+    {
+      "id": "nova_dc366c9628f047188f02ccb0b433f7c9",
+      "slug": "haikyuu-the-movie-the-winner-and-the-loser-21244",
+      "anilist_id": 21244,
+      "mal_id": 30364,
+      "created_at": 1790254263
+    },
+    {
+      "id": "nova_68595c3d065e4239ba4e5cd14156f92d",
+      "slug": "attack-on-titan-junior-high-21281",
+      "anilist_id": 21281,
+      "mal_id": 31374,
+      "created_at": 1790254384
+    },
+    {
+      "id": "nova_0204df02961c4a629bc13fbbf9d612ec",
+      "slug": "one-piece-film-gold-21335",
+      "anilist_id": 21335,
+      "mal_id": 31490,
+      "created_at": 1790254765
+    },
+    {
+      "id": "nova_6c664c00f94d449e99fb0a5e23c7d3e7",
+      "slug": "haikyu-vs-failing-marks-21348",
+      "anilist_id": 21348,
+      "mal_id": 35806,
+      "created_at": 1790254263
+    },
+    {
+      "id": "nova_794e9bf2752d4f0195645fc9406614f1",
+      "slug": "re-zero-starting-life-in-another-world-21355",
+      "anilist_id": 21355,
+      "mal_id": 31240,
+      "created_at": 1790253693
+    },
+    {
+      "id": "nova_b1a33d4a09b84533ab730acd65896702",
+      "slug": "my-hero-academia-21459",
+      "anilist_id": 21459,
+      "mal_id": 31964,
+      "created_at": 1790253693
+    },
+    {
+      "id": "nova_acd02e09bbd248d2a43cf77760980a4e",
+      "slug": "gintama-jump-festa-2015-special-21501",
+      "anilist_id": 21501,
+      "mal_id": 32122,
+      "created_at": 1790254240
+    },
+    {
+      "id": "nova_7e2180d9500b401da8c3a951febac5d4",
+      "slug": "mob-psycho-100-21507",
+      "anilist_id": 21507,
+      "mal_id": 32182,
+      "created_at": 1790253693
+    },
+    {
+      "id": "nova_d1bbace7f39c473f96a3769092b01d6b",
+      "slug": "your-name-21519",
+      "anilist_id": 21519,
+      "mal_id": 32281,
+      "created_at": 1790253693
+    },
+    {
+      "id": "nova_9289403064fe42f1abc55348fcff9677",
+      "slug": "boruto-naruto-the-movie-the-day-naruto-became-hokage-21579",
+      "anilist_id": 21579,
+      "mal_id": 32365,
+      "created_at": 1790471979
+    },
+    {
+      "id": "nova_70d17d81a1b242eabff38396461cffa6",
+      "slug": "gintama-love-incense-arc-21588",
+      "anilist_id": 21588,
+      "mal_id": 32366,
+      "created_at": 1790254240
+    },
+    {
+      "id": "nova_05ee6a4363d34ac29815d27bddb8a64a",
+      "slug": "haikyu-3rd-season-21698",
+      "anilist_id": 21698,
+      "mal_id": 32935,
+      "created_at": 1790254263
+    },
+    {
+      "id": "nova_cfc1955181f94454bad16acf310a6bde",
+      "slug": "violet-evergarden-21827",
+      "anilist_id": 21827,
+      "mal_id": 33352,
+      "created_at": 1790253753
+    },
+    {
+      "id": "nova_6835cf5b346d4dfca33b399dd2c9412e",
+      "slug": "one-piece-heart-of-gold-21831",
+      "anilist_id": 21831,
+      "mal_id": 33338,
+      "created_at": 1790254765
+    },
+    {
+      "id": "nova_dacb369f26b94a7f8b071ab2f634d6e7",
+      "slug": "my-hero-academia-season-2-21856",
+      "anilist_id": 21856,
+      "mal_id": 33486,
+      "created_at": 1790253693
+    },
+    {
+      "id": "nova_a23e915944e74ea9882958ae26b7b537",
+      "slug": "baki-ova-87501",
+      "anilist_id": 87501,
+      "mal_id": 33566,
+      "created_at": 1790607131
+    },
+    {
+      "id": "nova_b4c8a3554682464ea426f0cf14232132",
+      "slug": "black-clover-jump-festa-2016-special-87528",
+      "anilist_id": 87528,
+      "mal_id": 33950,
+      "created_at": 1790552895
+    },
+    {
+      "id": "nova_0f187336c58a4d5aaf8a8b4f91cafda2",
+      "slug": "baki-97888",
+      "anilist_id": 97888,
+      "mal_id": 34443,
+      "created_at": 1790607131
+    },
+    {
+      "id": "nova_442f9397e68e4501a1770f6f8d752781",
+      "slug": "gintama-season-4-97889",
+      "anilist_id": 97889,
+      "mal_id": 34096,
+      "created_at": 1790254240
+    },
+    {
+      "id": "nova_1ee0c59b70f441ae89d73dee0fa16b6b",
+      "slug": "boruto-naruto-next-generations-97938",
+      "anilist_id": 97938,
+      "mal_id": 34566,
+      "created_at": 1790471979
+    },
+    {
+      "id": "nova_5391c1cba23345dfac16acbb4bf9d2c6",
+      "slug": "black-clover-97940",
+      "anilist_id": 97940,
+      "mal_id": 34572,
+      "created_at": 1790253753
+    },
+    {
+      "id": "nova_3233fa8b43964601b116104b24e47534",
+      "slug": "haikyu-the-movie-talent-and-sense-98884",
+      "anilist_id": 98884,
+      "mal_id": 35110,
+      "created_at": 1790254263
+    },
+    {
+      "id": "nova_903d41ccfb784181a1544315692c6398",
+      "slug": "haikyu-the-movie-battle-of-concepts-98885",
+      "anilist_id": 98885,
+      "mal_id": 35111,
+      "created_at": 1790254263
+    },
+    {
+      "id": "nova_9c2ae742c0ac48a39e37e87f5eb6bbdd",
+      "slug": "attack-on-titan-season-3-99147",
+      "anilist_id": 99147,
+      "mal_id": 35760,
+      "created_at": 1790253693
+    },
+    {
+      "id": "nova_52da5f29a3e9481586b99f4c8dd32459",
+      "slug": "attack-on-titan-lost-girls-99634",
+      "anilist_id": 99634,
+      "mal_id": 36106,
+      "created_at": 1790254355
+    },
+    {
+      "id": "nova_d82e42204f48428881deccbe93c2aaac",
+      "slug": "gintama-slip-arc-99714",
+      "anilist_id": 99714,
+      "mal_id": 35843,
+      "created_at": 1790254240
+    },
+    {
+      "id": "nova_fc6beb617100434dad8be7ce79a8d704",
+      "slug": "my-hero-academia-season-3-100166",
+      "anilist_id": 100166,
+      "mal_id": 36456,
+      "created_at": 1790253753
+    },
+    {
+      "id": "nova_15c69de45b5c4ae2b3045374d218f3f0",
+      "slug": "attack-on-titan-the-roar-of-awakening-100465",
+      "anilist_id": 100465,
+      "mal_id": 36702,
+      "created_at": 1790254384
+    },
+    {
+      "id": "nova_e78047346ea44bc1aa821a4925eb0bf9",
+      "slug": "bleach-colorful-gotei-juusan-yatai-daisakusen-100719",
+      "anilist_id": 100719,
+      "mal_id": 35118,
+      "created_at": 1790253951
+    },
+    {
+      "id": "nova_f9264984a5fa4034ab44e7199492ed18",
+      "slug": "gintama-silver-soul-arc-100784",
+      "anilist_id": 100784,
+      "mal_id": 36838,
+      "created_at": 1790254240
+    },
+    {
+      "id": "nova_09ea827e2c1243ccab60b0126935d8f8",
+      "slug": "rascal-does-not-dream-of-bunny-girl-senpai-101291",
+      "anilist_id": 101291,
+      "mal_id": 37450,
+      "created_at": 1790253753
+    },
+    {
+      "id": "nova_e023d728cb58457bb8eba060071b168f",
+      "slug": "vinland-saga-101348",
+      "anilist_id": 101348,
+      "mal_id": 37521,
+      "created_at": 1790253753
+    },
+    {
+      "id": "nova_f78bbf16a4ee4e7bbee02ea69bef388e",
+      "slug": "the-promised-neverland-101759",
+      "anilist_id": 101759,
+      "mal_id": 37779,
+      "created_at": 1790253693
+    },
+    {
+      "id": "nova_cbb0bd0c560746f697ddbfe99f155893",
+      "slug": "kaguya-sama-love-is-war-101921",
+      "anilist_id": 101921,
+      "mal_id": 37999,
+      "created_at": 1790253753
+    },
+    {
+      "id": "nova_f813965fe30a437aabb717be5a9feeae",
+      "slug": "demon-slayer-kimetsu-no-yaiba-101922",
+      "anilist_id": 101922,
+      "mal_id": 38000,
+      "created_at": 1790253693
+    },
+    {
+      "id": "nova_b9cc31f9a07f4d10a98cec590e3966b4",
+      "slug": "gintama-silver-soul-arc-second-half-war-101925",
+      "anilist_id": 101925,
+      "mal_id": 37491,
+      "created_at": 1790254240
+    },
+    {
+      "id": "nova_1eea5389d0e141bb999bd916c0c5e06c",
+      "slug": "mechano-104127",
+      "anilist_id": 104127,
+      "mal_id": 24259,
+      "created_at": 1790254355
+    },
+    {
+      "id": "nova_a70d9b639b1e46cb8994e68311ba6827",
+      "slug": "my-hero-academia-season-4-104276",
+      "anilist_id": 104276,
+      "mal_id": 38408,
+      "created_at": 1790253753
+    },
+    {
+      "id": "nova_e8cd5f6542da4c7ba0586f7e775304b2",
+      "slug": "attack-on-titan-season-3-part-2-104578",
+      "anilist_id": 104578,
+      "mal_id": 38524,
+      "created_at": 1790253693
+    },
+    {
+      "id": "nova_bfdfbc1f301443199f533370e4aeb4e0",
+      "slug": "one-piece-stampede-105143",
+      "anilist_id": 105143,
+      "mal_id": 38234,
+      "created_at": 1790254765
+    },
+    {
+      "id": "nova_72c9da00a6c44312b97536a24eccf4f7",
+      "slug": "dr-stone-105333",
+      "anilist_id": 105333,
+      "mal_id": 38691,
+      "created_at": 1790253753
+    },
+    {
+      "id": "nova_332c34b3ca5240c881a5abbf47646f22",
+      "slug": "black-clover-the-all-magic-knights-thanksgiving-festa-106223",
+      "anilist_id": 106223,
+      "mal_id": 38768,
+      "created_at": 1790552895
+    },
+    {
+      "id": "nova_4e0f91bfbc42476cb6b9e5eb1649eb99",
+      "slug": "haikyu-to-the-top-106625",
+      "anilist_id": 106625,
+      "mal_id": 38883,
+      "created_at": 1790254263
+    },
+    {
+      "id": "nova_146db377ee4e4b8488ecbae841f3bfbe",
+      "slug": "haikyuu-quest-picture-drama-107263",
+      "anilist_id": 107263,
+      "mal_id": 31675,
+      "created_at": 1790254263
+    },
+    {
+      "id": "nova_1cb105e26da24ef78e81af2177248d56",
+      "slug": "haikyu-special-feature-the-spring-tournament-of-their-youth-107351",
+      "anilist_id": 107351,
+      "mal_id": 35321,
+      "created_at": 1790254263
+    },
+    {
+      "id": "nova_8cfcbd5bd8094fa0a50d3672884c449b",
+      "slug": "baki-the-great-raitai-tournament-saga-108522",
+      "anilist_id": 108522,
+      "mal_id": 39555,
+      "created_at": 1790607131
+    },
+    {
+      "id": "nova_e4b61a14947443bc9ccc9a47d153c069",
+      "slug": "shingeki-no-kyojin-chimi-kyara-gekijou-rivai-han-108942",
+      "anilist_id": 108942,
+      "mal_id": 39477,
+      "created_at": 1790254384
+    },
+    {
+      "id": "nova_5da17955c78641e580f4547147a99cae",
+      "slug": "attack-on-titan-final-season-110277",
+      "anilist_id": 110277,
+      "mal_id": 40028,
+      "created_at": 1790253693
+    },
+    {
+      "id": "nova_768142674aca4f0aa38e883af1d40877",
+      "slug": "squishy-black-clover-110318",
+      "anilist_id": 110318,
+      "mal_id": 40031,
+      "created_at": 1790552895
+    },
+    {
+      "id": "nova_f11b96e4612e4764bdfbb44ae5c34523",
+      "slug": "attack-on-skytree-110640",
+      "anilist_id": 110640,
+      "mal_id": 35122,
+      "created_at": 1790254355
+    },
+    {
+      "id": "nova_b5e655795264482da1b54ce29e4e5cc6",
+      "slug": "haikyu-land-vs-air-111790",
+      "anilist_id": 111790,
+      "mal_id": 40262,
+      "created_at": 1790254263
+    },
+    {
+      "id": "nova_5c8b7413e90146e9801256872208d501",
+      "slug": "gintama-monster-strike-hen-111952",
+      "anilist_id": 111952,
+      "mal_id": 40323,
+      "created_at": 1790254240
+    },
+    {
+      "id": "nova_dec72774786d412a86563aa6defa6da0",
+      "slug": "demon-slayer-kimetsu-no-yaiba-the-movie-mugen-train-112151",
+      "anilist_id": 112151,
+      "mal_id": 40456,
+      "created_at": 1790253753
+    },
+    {
+      "id": "nova_d20759b951fb4a5aa0b7e11d847631da",
+      "slug": "jujutsu-kaisen-113415",
+      "anilist_id": 113415,
+      "mal_id": 40748,
+      "created_at": 1790253693
+    },
+    {
+      "id": "nova_bcddf0ca24b243978a9fbff5f98c7be6",
+      "slug": "haikyu-to-the-top-part-2-113538",
+      "anilist_id": 113538,
+      "mal_id": 40776,
+      "created_at": 1790254263
+    },
+    {
+      "id": "nova_51290906654f4b8ab8e5be1d7b2fd041",
+      "slug": "jewelpet-attack-travel-113689",
+      "anilist_id": 113689,
+      "mal_id": 40808,
+      "created_at": 1790254355
+    },
+    {
+      "id": "nova_5decccd933e04e1bb36b4d9288a6486b",
+      "slug": "gintama-the-very-final-114129",
+      "anilist_id": 114129,
+      "mal_id": 39486,
+      "created_at": 1790253693
+    },
+    {
+      "id": "nova_d23d29b149954326a70cd845672192f5",
+      "slug": "haikyuu-ningyou-anime-115217",
+      "anilist_id": 115217,
+      "mal_id": 40372,
+      "created_at": 1790254263
+    },
+    {
+      "id": "nova_b4d6700967064bd8bdcd5ec9c0f40d17",
+      "slug": "noroi-no-one-piece-116054",
+      "anilist_id": 116054,
+      "mal_id": 41340,
+      "created_at": 1790254765
+    },
+    {
+      "id": "nova_db75062c3dd54bf8ad9ab35435b371e7",
+      "slug": "jewelpet-attack-chance-116150",
+      "anilist_id": 116150,
+      "mal_id": 32707,
+      "created_at": 1790254355
+    },
+    {
+      "id": "nova_51249bfcb8f947a0b9ba5835dd3742dc",
+      "slug": "bleach-thousand-year-blood-war-116674",
+      "anilist_id": 116674,
+      "mal_id": 41467,
+      "created_at": 1790253951
+    },
+    {
+      "id": "nova_db8e146fb4754cecaccfbf1750d79004",
+      "slug": "attack-on-titan-chronicle-119113",
+      "anilist_id": 119113,
+      "mal_id": 42091,
+      "created_at": 1790254355
+    },
+    {
+      "id": "nova_470d31cea7ca41c69d27403ffd3df3fc",
+      "slug": "shingeki-no-kyojin-chimi-kyara-gekijou-rivai-han-part-2-120257",
+      "anilist_id": 120257,
+      "mal_id": null,
+      "created_at": 1790254384
+    },
+    {
+      "id": "nova_656e990d35294fbda5de7c02131a6d1a",
+      "slug": "horimiya-124080",
+      "anilist_id": 124080,
+      "mal_id": 42897,
+      "created_at": 1790253753
+    },
+    {
+      "id": "nova_603d7447688544009eb8d6166ca72557",
+      "slug": "fruits-basket-the-final-season-124194",
+      "anilist_id": 124194,
+      "mal_id": 42938,
+      "created_at": 1790253693
+    },
+    {
+      "id": "nova_e65878a373034f90bfcc7b1067a0a856",
+      "slug": "baki-hanma-124195",
+      "anilist_id": 124195,
+      "mal_id": 42940,
+      "created_at": 1790607131
+    },
+    {
+      "id": "nova_65a054f0dad64e8683cdacb589f6c7e1",
+      "slug": "evangelion-attack-zero-125796",
+      "anilist_id": 125796,
+      "mal_id": 43745,
+      "created_at": 1790254355
+    },
+    {
+      "id": "nova_d810a0fc256c4c09862381c01a7ea23e",
+      "slug": "gintama-the-semi-final-126819",
+      "anilist_id": 126819,
+      "mal_id": 44087,
+      "created_at": 1790254240
+    },
+    {
+      "id": "nova_59c4a68bce6f4c69bda6cfb8e165026d",
+      "slug": "chainsaw-man-127230",
+      "anilist_id": 127230,
+      "mal_id": 44511,
+      "created_at": 1790253693
+    },
+    {
+      "id": "nova_8c466c5587844a61826c9735f6c638f2",
+      "slug": "jujutsu-kaisen-0-131573",
+      "anilist_id": 131573,
+      "mal_id": 48561,
+      "created_at": 1790353020
+    },
+    {
+      "id": "nova_5c0b599bf5ea4cff8af2c66da0056497",
+      "slug": "black-clover-sword-of-the-wizard-king-131680",
+      "anilist_id": 131680,
+      "mal_id": 48585,
+      "created_at": 1790552895
+    },
+    {
+      "id": "nova_13b80702107d4a71bf471ba99b96a7e9",
+      "slug": "attack-on-titan-final-season-part-2-131681",
+      "anilist_id": 131681,
+      "mal_id": 48583,
+      "created_at": 1790254384
+    },
+    {
+      "id": "nova_60b7dc41719b432aa52903f65a0755d3",
+      "slug": "saga-of-tanya-the-evil-season-2-135865",
+      "anilist_id": 135865,
+      "mal_id": 49233,
+      "created_at": 1790253693
+    },
+    {
+      "id": "nova_1a3f771e514644c5bb4cb7bd267e5cce",
+      "slug": "attack-on-titan-the-final-season-specials-139754",
+      "anilist_id": 139754,
+      "mal_id": 49627,
+      "created_at": 1790254384
+    },
+    {
+      "id": "nova_00f009e7153b468fb325c90353883252",
+      "slug": "fuku-chan-no-kishuu-140635",
+      "anilist_id": 140635,
+      "mal_id": 23969,
+      "created_at": 1790254355
+    },
+    {
+      "id": "nova_a874991a370c410bb0b025348f6d2714",
+      "slug": "spy-x-family-140960",
+      "anilist_id": 140960,
+      "mal_id": 50265,
+      "created_at": 1790253753
+    },
+    {
+      "id": "nova_0fb626c0dd06430485915d9ffc491175",
+      "slug": "one-piece-film-red-141902",
+      "anilist_id": 141902,
+      "mal_id": 50410,
+      "created_at": 1790254765
+    },
+    {
+      "id": "nova_e6eb245a25bd454098fd77e5a60413e4",
+      "slug": "jujutsu-kaisen-season-2-145064",
+      "anilist_id": 145064,
+      "mal_id": 51009,
+      "created_at": 1790353020
+    },
+    {
+      "id": "nova_170de55c08684e9ca79d37c47f20587a",
+      "slug": "baki-hanma-season-2-146646",
+      "anilist_id": 146646,
+      "mal_id": 51318,
+      "created_at": 1790607131
+    },
+    {
+      "id": "nova_0f32d203bf6842b8a7a1a77d5a9c7dda",
+      "slug": "attack-on-titan-final-season-the-final-chapters-special-1-146984",
+      "anilist_id": 146984,
+      "mal_id": 51535,
+      "created_at": 1790254384
+    },
+    {
+      "id": "nova_f5db190fefc94e76bb08907868008f2a",
+      "slug": "jujutsu-kaisen-pv-147463",
+      "anilist_id": 147463,
+      "mal_id": 38777,
+      "created_at": 1790353020
+    },
+    {
+      "id": "nova_3d5d3a5bedb94f7aac0a3f5dc46b8e37",
+      "slug": "haikyu-the-dumpster-battle-153658",
+      "anilist_id": 153658,
+      "mal_id": 52742,
+      "created_at": 1790254263
+    },
+    {
+      "id": "nova_5d99a482d451479fb0bb096ef8997808",
+      "slug": "bleach-memories-in-the-rain-154037",
+      "anilist_id": 154037,
+      "mal_id": 762,
+      "created_at": 1790253951
+    },
+    {
+      "id": "nova_118893854c4a4342b94a1a83a6bb890d",
+      "slug": "frieren-beyond-journey-s-end-154587",
+      "anilist_id": 154587,
+      "mal_id": 52991,
+      "created_at": 1790253693
+    },
+    {
+      "id": "nova_33774aa2c7eb4edea501d30081e47588",
+      "slug": "petit-clover-advance-155017",
+      "anilist_id": 155017,
+      "mal_id": 39864,
+      "created_at": 1790552895
+    },
+    {
+      "id": "nova_903c3d70a1b040e6b2f9770dc4792eed",
+      "slug": "road-of-naruto-155348",
+      "anilist_id": 155348,
+      "mal_id": 53236,
+      "created_at": 1790471979
+    },
+    {
+      "id": "nova_8afdce09ce824b3bbfd0aacb5cde171d",
+      "slug": "dongitsune-season-2-156571",
+      "anilist_id": 156571,
+      "mal_id": 53443,
+      "created_at": 1790607131
+    },
+    {
+      "id": "nova_9fb51dcdb80641cbb48565b0bcd496b2",
+      "slug": "trapped-in-a-dating-sim-the-world-of-otome-games-is-tough-for-mobs-season-2-159309",
+      "anilist_id": 159309,
+      "mal_id": 54000,
+      "created_at": 1790253693
+    },
+    {
+      "id": "nova_69f48240311049f0b35646918f2f92e8",
+      "slug": "bleach-thousand-year-blood-war-the-separation-159322",
+      "anilist_id": 159322,
+      "mal_id": 53998,
+      "created_at": 1790253951
+    },
+    {
+      "id": "nova_2c743afc29f3406b9c5e37ab330bf9a5",
+      "slug": "attack-on-titan-final-season-the-final-chapters-special-2-162314",
+      "anilist_id": 162314,
+      "mal_id": null,
+      "created_at": 1790254384
+    },
+    {
+      "id": "nova_2b5c6fc8a7e64fc78f3557e9b631a3e2",
+      "slug": "naruto-2026-162561",
+      "anilist_id": 162561,
+      "mal_id": 54688,
+      "created_at": 1790471979
+    },
+    {
+      "id": "nova_bf6af5a7ba054ca982980d4a9fac447c",
+      "slug": "gintama-mr-ginpachi-s-zany-class-162890",
+      "anilist_id": 162890,
+      "mal_id": 54757,
+      "created_at": 1790503543
+    },
+    {
+      "id": "nova_b323e5cd26614f12830eb3e2200bfdb9",
+      "slug": "gintama-on-theater-2d-baragaki-hen-169000",
+      "anilist_id": 169000,
+      "mal_id": 56544,
+      "created_at": 1790254240
+    },
+    {
+      "id": "nova_34c4ee0a0a2d464e8f1ebc643e824710",
+      "slug": "bleach-thousand-year-blood-war-the-conflict-169755",
+      "anilist_id": 169755,
+      "mal_id": 56784,
+      "created_at": 1790253951
+    },
+    {
+      "id": "nova_05024eba6c1c472facc51f42a0f6bda2",
+      "slug": "chainsaw-man-the-movie-reze-arc-171627",
+      "anilist_id": 171627,
+      "mal_id": 57555,
+      "created_at": 1790253693
+    },
+    {
+      "id": "nova_fa965d3e86de495385f5a59ede01c01d",
+      "slug": "the-one-piece-171630",
+      "anilist_id": 171630,
+      "mal_id": 57557,
+      "created_at": 1790254765
+    },
+    {
+      "id": "nova_bfecb6d191da4a4ea5e0ba837e747350",
+      "slug": "jujutsu-kaisen-season-3-the-culling-game-part-1-172463",
+      "anilist_id": 172463,
+      "mal_id": 57658,
+      "created_at": 1790353020
+    },
+    {
+      "id": "nova_5934037e25c746b09f1fec9dd5b3da83",
+      "slug": "haikyuu-vs-chiisana-kyojin-174871",
+      "anilist_id": 174871,
+      "mal_id": 58967,
+      "created_at": 1790254263
+    },
+    {
+      "id": "nova_f921bbfc89a445aba19772984fc8e927",
+      "slug": "gintama-on-theater-2d-ikkoku-keisei-hen-175573",
+      "anilist_id": 175573,
+      "mal_id": 58091,
+      "created_at": 1790503543
+    },
+    {
+      "id": "nova_ab88973c8d50465c95eae735773446e5",
+      "slug": "andersen-175944",
+      "anilist_id": 175944,
+      "mal_id": 56826,
+      "created_at": 1790473546
+    },
+    {
+      "id": "nova_9ff242d7a5f24c7ba3e2d58b2a8d4f59",
+      "slug": "baki-hanma-vs-kengan-ashura-176287",
+      "anilist_id": 176287,
+      "mal_id": 58510,
+      "created_at": 1790607131
+    },
+    {
+      "id": "nova_a12f77d57068413bace84a8833a887a7",
+      "slug": "baki-dou-the-invincible-samurai-176509",
+      "anilist_id": 176509,
+      "mal_id": 58573,
+      "created_at": 1790607131
+    },
+    {
+      "id": "nova_dcb5dedc6cec4218954b352f939e1ba4",
+      "slug": "gintama-on-theater-2d-kintama-hen-178436",
+      "anilist_id": 178436,
+      "mal_id": 59688,
+      "created_at": 1790254240
+    },
+    {
+      "id": "nova_ae64bdb24c614137a2c0b601e3a1b25e",
+      "slug": "mushoku-tensei-jobless-reincarnation-season-3-178789",
+      "anilist_id": 178789,
+      "mal_id": 59193,
+      "created_at": 1790289267
+    },
+    {
+      "id": "nova_50cc5de1653942c6a8bb3d1001f86fd8",
+      "slug": "the-exiled-heavy-knight-knows-how-to-game-the-system-180136",
+      "anilist_id": 180136,
+      "mal_id": 59741,
+      "created_at": 1790289267
+    },
+    {
+      "id": "nova_8d26256d126d4686a488b2afb6f07498",
+      "slug": "that-time-i-got-reincarnated-as-a-slime-season-4-182205",
+      "anilist_id": 182205,
+      "mal_id": 59970,
+      "created_at": 1790349375
+    },
+    {
+      "id": "nova_26df4523d5c242e39a1d5328d9bdbe1f",
+      "slug": "one-piece-fan-letter-182469",
+      "anilist_id": 182469,
+      "mal_id": 60022,
+      "created_at": 1790253693
+    },
+    {
+      "id": "nova_8034f1694b1b44d4a8a6e7b455ff9755",
+      "slug": "bleach-20th-anime-anniversary-official-trailer-182561",
+      "anilist_id": 182561,
+      "mal_id": 60048,
+      "created_at": 1790253951
+    },
+    {
+      "id": "nova_a500cd49348c4f3f9127464af8910a96",
+      "slug": "welcome-to-demon-school-iruma-kun-season-4-184492",
+      "anilist_id": 184492,
+      "mal_id": 60310,
+      "created_at": 1790471221
+    },
+    {
+      "id": "nova_0e17f752a1bc4be48d575092ca965442",
+      "slug": "bleach-thousand-year-blood-war-the-calamity-185874",
+      "anilist_id": 185874,
+      "mal_id": 60636,
+      "created_at": 1790253693
+    },
+    {
+      "id": "nova_4cf513148f364a709e504c2366b189b6",
+      "slug": "haikyuu-bakemono-tachi-no-iku-tokoro-187261",
+      "anilist_id": 187261,
+      "mal_id": 61125,
+      "created_at": 1790254263
+    },
+    {
+      "id": "nova_293eea78ea7945e49a83bee85adaaff3",
+      "slug": "koisuru-one-piece-188668",
+      "anilist_id": 188668,
+      "mal_id": 61293,
+      "created_at": 1790254765
+    },
+    {
+      "id": "nova_21fe98ddc48643068fc918b2d28e4e4e",
+      "slug": "re-zero-starting-life-in-another-world-season-4-189046",
+      "anilist_id": 189046,
+      "mal_id": 61316,
+      "created_at": 1790253693
+    },
+    {
+      "id": "nova_5bc7475cab2f4a3f954334484826ff60",
+      "slug": "jujutsu-kaisen-hidden-inventory-premature-death-the-movie-192809",
+      "anilist_id": 192809,
+      "mal_id": 59654,
+      "created_at": 1790353020
+    },
+    {
+      "id": "nova_5f9cb65da18a49b4b89c255004872b63",
+      "slug": "juju-sanpo-gekijouban-192810",
+      "anilist_id": 192810,
+      "mal_id": null,
+      "created_at": 1790353020
+    },
+    {
+      "id": "nova_fd43f24762cb46088123a6b1bca62fa5",
+      "slug": "from-old-country-bumpkin-to-master-swordsman-ii-194829",
+      "anilist_id": 194829,
+      "mal_id": 61897,
+      "created_at": 1790253693
+    },
+    {
+      "id": "nova_4595b12fb7d74d6591c94274ba5c3524",
+      "slug": "black-clover-season-2-195604",
+      "anilist_id": 195604,
+      "mal_id": 61967,
+      "created_at": 1790552895
+    },
+    {
+      "id": "nova_e3045fa603eb49aea87fe6bc8a7bb6e6",
+      "slug": "smoking-behind-the-supermarket-with-you-196187",
+      "anilist_id": 196187,
+      "mal_id": 62076,
+      "created_at": 1790289267
+    },
+    {
+      "id": "nova_5bac92a6a59e4547a16df03db98283e7",
+      "slug": "one-piece-heroines-197178",
+      "anilist_id": 197178,
+      "mal_id": 62233,
+      "created_at": 1790254765
+    },
+    {
+      "id": "nova_50a3821724c7438cb27b3c314709ebfc",
+      "slug": "gintama-the-movie-2026-yoshiwara-in-flames-197474",
+      "anilist_id": 197474,
+      "mal_id": 62277,
+      "created_at": 1790254240
+    },
+    {
+      "id": "nova_0447fc94a13c496a9ad6592bfe0aa920",
+      "slug": "hanaori-san-still-wants-to-fight-in-the-next-life-199066",
+      "anilist_id": 199066,
+      "mal_id": 62535,
+      "created_at": 1790471221
+    },
+    {
+      "id": "nova_2d31aa41218e473aa1f152d0787ac533",
+      "slug": "jujutsu-kaisen-execution-shibuya-incident-x-the-culling-game-begins-204066",
+      "anilist_id": 204066,
+      "mal_id": 62392,
+      "created_at": 1790353020
+    },
+    {
+      "id": "nova_1cc9b4053b79444d88ab57f1f8d36609",
+      "slug": "chainsaw-man-shikaku-hen-204429",
+      "anilist_id": 204429,
+      "mal_id": 63143,
+      "created_at": 1790518092
+    },
+    {
+      "id": "nova_e70d33fa4ae9494eb5549aa625369b0d",
+      "slug": "chainsmoker-cat-207141",
+      "anilist_id": 207141,
+      "mal_id": 63403,
+      "created_at": 1790341334
+    },
+    {
+      "id": "nova_651521bc27614bc1a4af3752c03db096",
+      "slug": "mahjong-soul-x-gintama-collab-anime-preview-207475",
+      "anilist_id": 207475,
+      "mal_id": 62640,
+      "created_at": 1790503543
+    },
+    {
+      "id": "nova_f40a8ad8ae2249358e8b5968fd6fa908",
+      "slug": "jujutsu-kaisen-shimetsu-kaiyuu-kouhen-209895",
+      "anilist_id": 209895,
+      "mal_id": 63824,
+      "created_at": 1790353020
+    },
+    {
+      "id": "nova_f3e70d2db2014f5b846c3af51d5f2be1",
+      "slug": "you-and-i-are-polar-opposites-season-2-210031",
+      "anilist_id": 210031,
+      "mal_id": 63832,
+      "created_at": 1790503240
+    },
+    {
+      "id": "nova_5695345c749847df9377859957042aad",
+      "slug": "baki-dou-the-invincible-samurai-part-2-210032",
+      "anilist_id": 210032,
+      "mal_id": 63833,
+      "created_at": 1790607131
+    },
+    {
+      "id": "nova_2c5d8fd11b3f4ff8a4fc84690973ec1b",
+      "slug": "steel-ball-run-jojo-s-bizarre-adventure-2nd-3rd-stage-210482",
+      "anilist_id": 210482,
+      "mal_id": 61469,
+      "created_at": 1790341334
+    },
+    {
+      "id": "nova_a9d4c4388223430a8e02bd4037e658a8",
+      "slug": "jujutsu-kaisen-modulo-pv-211607",
+      "anilist_id": 211607,
+      "mal_id": 64080,
+      "created_at": 1790353020
+    },
+    {
+      "id": "nova_4d2dd4314b814e378bcf32496a3664f6",
+      "slug": "overgeared-212888",
+      "anilist_id": 212888,
+      "mal_id": 64340,
+      "created_at": 1790599961
+    },
+    {
+      "id": "nova_124202d5a5b1448486b288f663b7472d",
+      "slug": "one-piece-film-god-valley-215855",
+      "anilist_id": 215855,
+      "mal_id": 64858,
+      "created_at": 1790254765
+    },
+    {
+      "id": "nova_aa37fc40a8d44d9ab3d389e6adf69fd9",
+      "slug": "one-piece-film-baad-215856",
+      "anilist_id": 215856,
+      "mal_id": 64859,
+      "created_at": 1790254765
+    },
+    {
+      "id": "nova_4cac2ed0bd744cf5be1c6f935559eaa4",
+      "slug": "baki-gaiden-retsu-kaiou-wa-isekai-tensei-shitemo-ikkou-ni-kamawan-216117",
+      "anilist_id": 216117,
+      "mal_id": null,
+      "created_at": 1790607131
+    },
+    {
+      "id": "nova_f25c3cc2ce944e8c84ea691475ea184e",
+      "slug": "mairimashita-iruma-kun-movie-217427",
+      "anilist_id": 217427,
+      "mal_id": null,
+      "created_at": 1790514587
+    },
+    {
+      "id": "nova_b749ec69c79c41b2b379dbb2e56bb96f",
+      "slug": "mushoku-tensei-iii-isekai-ittara-honki-dasu-part-2-217434",
+      "anilist_id": 217434,
+      "mal_id": 65077,
+      "created_at": 1790607073
+    }
+  ],
+  "source_mapping": [
+    {
+      "anime_id": "nova_118893854c4a4342b94a1a83a6bb890d",
+      "source": "anime4up",
+      "source_slug": "sousou-no-frieren-jfgt",
+      "verified_at": 1790341351,
+      "note": "Verified against the source title's explicit AniList/MAL external link"
+    },
+    {
+      "anime_id": "nova_1387eec8c6b54c4eb492b9034d766d2b",
+      "source": "anime4up",
+      "source_slug": "gintama-season-2",
+      "verified_at": 1790503785,
+      "note": "Verified against the source title's explicit AniList/MAL external link"
+    },
+    {
+      "anime_id": "nova_21fe98ddc48643068fc918b2d28e4e4e",
+      "source": "anime4up",
+      "source_slug": "rezero-kara-hajimeru-isekai-seikatsu-4th-season",
+      "verified_at": 1790352731,
+      "note": "Verified against the source title's explicit AniList/MAL external link"
+    },
+    {
+      "anime_id": "nova_261f9a95b50c4ce78911d8735f93c212",
+      "source": "anime4up",
+      "source_slug": "one-piece-gfjgfh",
+      "verified_at": 1790352759,
+      "note": "Verified against the source title's explicit AniList/MAL external link"
+    },
+    {
+      "anime_id": "nova_2b731e69a0e84619bd5b13181e3cf00b",
+      "source": "anime4up",
+      "source_slug": "death-note-rewrite",
+      "verified_at": 1790503507,
+      "note": "Verified against the source title's explicit AniList/MAL external link"
+    },
+    {
+      "anime_id": "nova_381f30218ca04576b34b57474ff7aab4",
+      "source": "anime4up",
+      "source_slug": "hunter-x-hunter-2011",
+      "verified_at": 1790476558,
+      "note": "Verified against the source title's explicit AniList/MAL external link"
+    },
+    {
+      "anime_id": "nova_451d22fad70341dc97b36653c885ed9d",
+      "source": "anime4up",
+      "source_slug": "shingeki-no-kyojin-25",
+      "verified_at": 1790476239,
+      "note": "Verified against the source title's explicit AniList/MAL external link"
+    },
+    {
+      "anime_id": "nova_50cc5de1653942c6a8bb3d1001f86fd8",
+      "source": "anime4up",
+      "source_slug": "tsuihou-sareta-tensei-juukishi-wa-game-chishiki-de-musou-suru",
+      "verified_at": 1790345041,
+      "note": "Verified against the source title's explicit AniList/MAL external link"
+    },
+    {
+      "anime_id": "nova_51597befa485440bb6efb202e70f41d9",
+      "source": "anime4up",
+      "source_slug": "shingeki-no-kyojin-season-2-14",
+      "verified_at": 1790476562,
+      "note": "Verified against the source title's explicit AniList/MAL external link"
+    },
+    {
+      "anime_id": "nova_5391c1cba23345dfac16acbb4bf9d2c6",
+      "source": "anime4up",
+      "source_slug": "black-clover-fgh",
+      "verified_at": 1790552989,
+      "note": "Verified against the source title's explicit AniList/MAL external link"
+    },
+    {
+      "anime_id": "nova_59c4a68bce6f4c69bda6cfb8e165026d",
+      "source": "anime4up",
+      "source_slug": "chainsaw-man",
+      "verified_at": 1790518098,
+      "note": "Verified against the source title's explicit AniList/MAL external link"
+    },
+    {
+      "anime_id": "nova_5c0b599bf5ea4cff8af2c66da0056497",
+      "source": "anime4up",
+      "source_slug": "black-clover-mahou-tei-no-ken",
+      "verified_at": 1790552947,
+      "note": "Verified against the source title's explicit AniList/MAL external link"
+    },
+    {
+      "anime_id": "nova_5decccd933e04e1bb36b4d9288a6486b",
+      "source": "anime4up",
+      "source_slug": "gintama-the-final",
+      "verified_at": 1790351093,
+      "note": "Verified against the source title's explicit AniList/MAL external link"
+    },
+    {
+      "anime_id": "nova_768142674aca4f0aa38e883af1d40877",
+      "source": "anime4up",
+      "source_slug": "mugyutto-black-clover",
+      "verified_at": 1790552967,
+      "note": "Verified against the source title's explicit AniList/MAL external link"
+    },
+    {
+      "anime_id": "nova_8c466c5587844a61826c9735f6c638f2",
+      "source": "anime4up",
+      "source_slug": "jujutsu-kaisen-0-aef",
+      "verified_at": 1790353034,
+      "note": "Verified against the source title's explicit AniList/MAL external link"
+    },
+    {
+      "anime_id": "nova_a39ad9c6c5724ebf94abf249bc8248d8",
+      "source": "anime4up",
+      "source_slug": "naruto-uef",
+      "verified_at": 1790476566,
+      "note": "Verified against the source title's explicit AniList/MAL external link"
+    },
+    {
+      "anime_id": "nova_a7d8db22b7f94e3dbacb4bf3e3992339",
+      "source": "anime4up",
+      "source_slug": "one-punch-man-tyej",
+      "verified_at": 1790289275,
+      "note": "Verified against the source title's explicit AniList/MAL external link"
+    },
+    {
+      "anime_id": "nova_ae64bdb24c614137a2c0b601e3a1b25e",
+      "source": "anime4up",
+      "source_slug": "mushoku-tensei-iii-isekai-ittara-honki-dasu",
+      "verified_at": 1790476516,
+      "note": "Verified against the source title's explicit AniList/MAL external link"
+    },
+    {
+      "anime_id": "nova_b1a33d4a09b84533ab730acd65896702",
+      "source": "anime4up",
+      "source_slug": "boku-no-hero-academia",
+      "verified_at": 1790476313,
+      "note": "Verified against the source title's explicit AniList/MAL external link"
+    },
+    {
+      "anime_id": "nova_b7583437aac645e4b4ed7dc8c439d44f",
+      "source": "anime4up",
+      "source_slug": "death-note",
+      "verified_at": 1790476312,
+      "note": "Verified against the source title's explicit AniList/MAL external link"
+    },
+    {
+      "anime_id": "nova_c14c9397e20d4210b13c9da869ada5a6",
+      "source": "anime4up",
+      "source_slug": "gintama-season-4",
+      "verified_at": 1790503934,
+      "note": "Verified against the source title's explicit AniList/MAL external link"
+    },
+    {
+      "anime_id": "nova_c90045bbb26546f2b7ea4e87fa5f5bc6",
+      "source": "anime4up",
+      "source_slug": "sword-art-online",
+      "verified_at": 1790476568,
+      "note": "Verified against the source title's explicit AniList/MAL external link"
+    },
+    {
+      "anime_id": "nova_c908db9c489649a48c879fc586a04abd",
+      "source": "anime4up",
+      "source_slug": "naruto-shippuuden-sgtfr",
+      "verified_at": 1790476602,
+      "note": "Verified against the source title's explicit AniList/MAL external link"
+    },
+    {
+      "anime_id": "nova_cc7157c20c474c8386bbcf96544e197e",
+      "source": "anime4up",
+      "source_slug": "tokyo-ghoul-84",
+      "verified_at": 1790476559,
+      "note": "Verified against the source title's explicit AniList/MAL external link"
+    },
+    {
+      "anime_id": "nova_d20759b951fb4a5aa0b7e11d847631da",
+      "source": "anime4up",
+      "source_slug": "jujutsu-kaisen-tv-24-yuj",
+      "verified_at": 1790503931,
+      "note": "Verified against the source title's explicit AniList/MAL external link"
+    },
+    {
+      "anime_id": "nova_e6eb245a25bd454098fd77e5a60413e4",
+      "source": "anime4up",
+      "source_slug": "jujutsu-kaisen-2nd-season-ehdf",
+      "verified_at": 1790476513,
+      "note": "Verified against the source title's explicit AniList/MAL external link"
+    },
+    {
+      "anime_id": "nova_efc6e6629cd54ecb9d0582ee739d825a",
+      "source": "anime4up",
+      "source_slug": "fullmetal-alchemist-brotherhood",
+      "verified_at": 1790476564,
+      "note": "Verified against the source title's explicit AniList/MAL external link"
+    },
+    {
+      "anime_id": "nova_f813965fe30a437aabb717be5a9feeae",
+      "source": "anime4up",
+      "source_slug": "kimetsu-no-yaiba-79",
+      "verified_at": 1790351439,
+      "note": "Verified against the source title's explicit AniList/MAL external link"
+    }
+  ]
+}

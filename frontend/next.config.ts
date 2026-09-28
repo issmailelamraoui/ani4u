@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
   allowedDevOrigins: ["127.0.0.1", "192.168.1.156"],
   turbopack: { root: __dirname },
   images: {
+    unoptimized: true,
     remotePatterns: [
       { protocol: "https", hostname: "s4.anilist.co", pathname: "/file/**" },
       { protocol: "https", hostname: "s3.anilist.co", pathname: "/file/**" },

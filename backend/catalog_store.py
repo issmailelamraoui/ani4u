@@ -96,6 +96,72 @@ class CatalogStore:
                     ALTER TABLE source_mapping_v2 RENAME TO source_mapping;
                 """)
 
+        self.seed_if_empty()
+
+    def seed_if_empty(self):
+        seed_path = Path(__file__).parent / "data" / "catalog_seed.json"
+
+        if not seed_path.exists():
+            return
+
+        with self.connect() as db:
+            count = db.execute(
+                "SELECT COUNT(*) FROM anime_identity"
+            ).fetchone()[0]
+
+            if count:
+                return
+
+            seed = json.loads(
+                seed_path.read_text(encoding="utf-8")
+            )
+
+            identities = seed.get("anime_identity", [])
+            mappings = seed.get("source_mapping", [])
+
+            db.executemany(
+                """
+                INSERT OR IGNORE INTO anime_identity
+                    (id, slug, anilist_id, mal_id, created_at)
+                VALUES (?, ?, ?, ?, ?)
+                """,
+                [
+                    (
+                        row["id"],
+                        row["slug"],
+                        row["anilist_id"],
+                        row.get("mal_id"),
+                        row["created_at"],
+                    )
+                    for row in identities
+                ],
+            )
+
+            db.executemany(
+                """
+                INSERT OR IGNORE INTO source_mapping
+                    (anime_id, source, source_slug, verified_at, note)
+                VALUES (?, ?, ?, ?, ?)
+                """,
+                [
+                    (
+                        row["anime_id"],
+                        row["source"],
+                        row["source_slug"],
+                        row["verified_at"],
+                        row["note"],
+                    )
+                    for row in mappings
+                ],
+            )
+
+            print(
+                f"[catalog store] seeded "
+                f"{len(identities)} identities and "
+                f"{len(mappings)} mappings",
+                flush=True,
+            )
+
     def identities(self, media: list[dict]) -> dict[int, dict]:
         result = {}
         with self.connect() as db:
