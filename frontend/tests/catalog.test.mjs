@@ -132,6 +132,39 @@ test("Episode source references remain tied to their season and fractional episo
   assert.equal(episodes.parseEpisodes({ ...data, items: [{ episode: 1, title: "Cached episode" }] }).items[0].sources.length, 0);
 });
 
+test("Episode contracts distinguish public-provider unavailability from an empty list", () => {
+  const unavailable = episodes.parseSources({
+    sources: [], selectedSource: null,
+    availability: {
+      anime4up: { status: "unavailable", last_status: 403 },
+      witanime: { status: "unavailable", last_status: 403 },
+    },
+  });
+  assert.equal(episodes.externalProvidersUnavailable(unavailable.availability), true);
+
+  const blocked = episodes.parseEpisodes({
+    items: [], sources: [], selectedSource: null, page: 1, offset: 0, totalPages: 1, next: null,
+    externalUnavailable: true,
+    availability: {
+      anime4up: { status: "unavailable", last_status: 403 },
+      witanime: { status: "unavailable", last_status: 403 },
+    },
+  });
+  assert.equal(blocked.externalUnavailable, true);
+  assert.equal(blocked.items.length, 0);
+
+  const empty = episodes.parseEpisodes({
+    sourceSlug: "one-piece", sourceProvider: "anime4up", sourceTitle: "One Piece", verified: true,
+    items: [], page: 1, offset: 0, totalPages: 1, next: null,
+    availability: {
+      anime4up: { status: "available", last_status: 200 },
+      witanime: { status: "unknown", last_status: null },
+    },
+  }, "one-piece");
+  assert.equal(empty.externalUnavailable, false);
+  assert.equal(empty.items.length, 0);
+});
+
 test("WitAnime references retain provider identity through the catalog watch link", () => {
   const source = { provider: "witanime", sourceSlug: "one-piece", episodeUrl: "https://witanime.site/watch/one-piece/7/" };
   const data = { sourceSlug: "one-piece", sourceProvider: "witanime", sourceTitle: "One Piece", verified: true, items: [{ episode: 7, title: "الحلقة 7", sources: [source] }], page: 1, offset: 0, totalPages: 1, next: null };
@@ -195,4 +228,9 @@ test("Fansub servers are first, then Anime4Up, then WitAnime; public URLs dedupl
   assert.equal(merged[2].server.id, "2");
   assert.equal(streamServers.selectStreamServer(merged, "legacy:Vidmoly:3").server.id, "3");
   assert.equal(streamServers.selectStreamServer(merged, "Vidmoly").server.id, "2");
+});
+
+test("Images remain direct instead of using Next's optimizer", () => {
+  const config = readFileSync(new URL("../next.config.ts", import.meta.url), "utf8");
+  assert.match(config, /images:\s*\{[\s\S]*?unoptimized:\s*true/);
 });

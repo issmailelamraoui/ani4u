@@ -87,6 +87,30 @@ dependencies are required. Use persistent storage for the DB; identities and
 manual mappings must survive deployments. Back it up with SQLite's backup tooling
 or while the service is stopped (the live database uses WAL).
 
+#### Vercel and external backend deployment
+
+When `VERCEL` is set, the runtime database path is `/tmp/ani4u/catalog.sqlite3`.
+That directory is disposable: at a cold start the versioned
+`data/catalog_seed.json` initializes known identities and verified mappings, but
+new mappings and response cache entries are not durable there. The seed is only
+used for an empty database, so it never overwrites an existing database. For
+durable changes, set `NOVA_CATALOG_DB` to external persistent storage on a
+non-Vercel backend host.
+
+The Next.js application resolves its server-side backend origin in this order:
+`ANI4U_BACKEND_URL`, `API_BASE_URL`, then `http://127.0.0.1:8000`. Set
+`ANI4U_BACKEND_URL` on Vercel to the public URL of an external FastAPI host when
+that topology is needed; no Vercel-internal address is hard-coded. The loopback
+fallback remains local-development only.
+
+`GET /api/health` reports a safe public-provider summary, for example an
+unavailable provider with its last HTTP status. It intentionally never includes
+cookies, headers, tokens, response bodies, or traces. A 403/429 from Anime4Up
+or WitAnime is treated as unavailable and the application uses the next public
+fallback or renders the episode panel's unavailable state. This project does not
+attempt challenges, proxy rotation, authentication, or other access-control
+bypasses.
+
 Tables:
 
 - `anime_identity`: internal NOVA ID, stable canonical slug, unique AniList ID,

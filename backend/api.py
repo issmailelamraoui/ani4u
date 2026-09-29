@@ -127,7 +127,14 @@ async def root():
 
 @app.get("/api/health")
 async def health():
-    return {"status": "ok", "source": "anime4up"}
+    manager = getattr(app.state, "provider_manager", None)
+    providers = manager.availability() if manager is not None else {
+        "anime4up": {"status": "unknown", "last_status": None},
+        "witanime": {"status": "unknown", "last_status": None},
+    }
+    # This is operational telemetry only. It intentionally contains no
+    # request headers, cookies, response bodies, tokens, or stack traces.
+    return {"status": "ok", "source": "anime4up", "providers": providers}
 
 
 @app.get("/api/home")

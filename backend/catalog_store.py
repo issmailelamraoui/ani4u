@@ -99,6 +99,12 @@ class CatalogStore:
         self.seed_if_empty()
 
     def seed_if_empty(self):
+        # The checked-in seed is a Vercel cold-start bootstrap, not a hidden
+        # local-development fixture. Local and externally persisted databases
+        # begin empty unless an operator explicitly opts into the same seed.
+        if not (os.getenv("VERCEL") or os.getenv("NOVA_CATALOG_SEED") == "1"):
+            return
+
         seed_path = Path(__file__).parent / "data" / "catalog_seed.json"
 
         if not seed_path.exists():

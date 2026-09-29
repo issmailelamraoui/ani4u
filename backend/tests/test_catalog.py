@@ -302,6 +302,9 @@ class ProviderTests(unittest.IsolatedAsyncioTestCase):
                 self.assertTrue(api.app.state.catalog.store.path.exists())
                 client = api.app.state.catalog.provider.client
                 self.assertFalse(client.is_closed)
+                health = await api.health()
+                self.assertEqual(set(health["providers"]), {"anime4up", "witanime"})
+                self.assertTrue(all(set(state) == {"status", "last_status"} for state in health["providers"].values()))
             self.assertTrue(client.is_closed)
             self.assertFalse(hasattr(api.app.state, "catalog"))
 

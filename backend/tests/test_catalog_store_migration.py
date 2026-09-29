@@ -1,12 +1,32 @@
 import sqlite3
 import tempfile
 import unittest
+from unittest.mock import patch
 from pathlib import Path
 
 from catalog_store import CatalogStore
 
 
 class CatalogStoreMigrationTests(unittest.TestCase):
+    def test_versioned_seed_initializes_an_empty_database_without_overwriting_it(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "catalog.sqlite3"
+            store = CatalogStore(path)
+            with patch.dict("os.environ", {"VERCEL": "1"}, clear=False):
+                store.initialize()
+            with store.connect() as db:
+                self.assertEqual(db.execute("SELECT COUNT(*) FROM anime_identity").fetchone()[0], 234)
+                self.assertEqual(db.execute("SELECT COUNT(*) FROM source_mapping").fetchone()[0], 28)
+
+            store.set_mapping(21, "one-piece-manual", "Preserve an existing mapping")
+            with patch.dict("os.environ", {"VERCEL": "1"}, clear=False):
+                store.initialize()
+            with store.connect() as db:
+                note = db.execute(
+                    "SELECT note FROM source_mapping WHERE source_slug='one-piece-manual'"
+                ).fetchone()[0]
+            self.assertEqual(note, "Preserve an existing mapping")
+
     def test_legacy_anime4up_rows_survive_provider_migration_with_backup(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "catalog.sqlite3"

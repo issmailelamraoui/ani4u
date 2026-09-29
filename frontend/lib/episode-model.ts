@@ -1,12 +1,28 @@
 export type EpisodeProvider = "anime4up" | "witanime";
 export type EpisodeSource = { provider: EpisodeProvider; slug: string; title: string; verified: boolean };
-export type SourceChoices = { sources: EpisodeSource[]; selectedSource: string | null };
+export type ProviderAvailabilityState = "unknown" | "available" | "unavailable";
+export type ProviderAvailability = Record<EpisodeProvider, { status: ProviderAvailabilityState; lastStatus: number | null }>;
+export type SourceChoices = { sources: EpisodeSource[]; selectedSource: string | null; availability: ProviderAvailability };
 export type EpisodeCursor = { page: number; offset: number };
 export type EpisodeReference = { provider: EpisodeProvider; sourceSlug: string; episodeUrl: string };
 export type EpisodeList = {
   sourceSlug: string; sourceProvider: EpisodeProvider; sourceTitle: string; verified: boolean;
   items: { episode: number; title: string; sources: EpisodeReference[] }[];
   page: number; offset: number; totalPages: number; next: EpisodeCursor | null;
+  availability: ProviderAvailability;
+  externalUnavailable: false;
+};
+export type EpisodeProviderUnavailable = Omit<EpisodeList, "externalUnavailable"> & { externalUnavailable: true };
+export type EpisodeUnavailable = {
+  items: [];
+  sources: [];
+  selectedSource: null;
+  page: number;
+  offset: number;
+  totalPages: number;
+  next: null;
+  availability: ProviderAvailability;
+  externalUnavailable: true;
 };
 function object(value: unknown): Record<string, unknown> {
   if (!value || typeof value !== "object" || Array.isArray(value)) throw new Error("Invalid episode data");
@@ -45,6 +61,26 @@ function integer(value: unknown, min: number, max: number): number {
   if (typeof value !== "number" || !Number.isInteger(value) || value < min || value > max) throw new Error("Invalid episode range");
   return value;
 }
+function availability(value: unknown): ProviderAvailability {
+  const defaults: ProviderAvailability = {
+    anime4up: { status: "unknown", lastStatus: null },
+    witanime: { status: "unknown", lastStatus: null },
+  };
+  if (value === undefined) return defaults;
+  const data = object(value);
+  for (const name of ["anime4up", "witanime"] as const) {
+    const item = object(data[name]);
+    const status = item.status;
+    const lastStatus = item.last_status;
+    if (status !== "unknown" && status !== "available" && status !== "unavailable") throw new Error("Invalid provider availability");
+    if (lastStatus !== null && (typeof lastStatus !== "number" || !Number.isInteger(lastStatus) || lastStatus < 100 || lastStatus > 599)) throw new Error("Invalid provider status");
+    defaults[name] = { status, lastStatus };
+  }
+  return defaults;
+}
+export function externalProvidersUnavailable(value: ProviderAvailability) {
+  return value.anime4up.status === "unavailable" && value.witanime.status === "unavailable";
+}
 export function parseSources(value: unknown): SourceChoices {
   const data = object(value);
   if (!Array.isArray(data.sources)) throw new Error("Invalid sources");
@@ -54,10 +90,19 @@ export function parseSources(value: unknown): SourceChoices {
   });
   const selectedSource = data.selectedSource == null ? null : sourceSlug(data.selectedSource);
   if (selectedSource && !sources.some((source) => source.slug === selectedSource && source.verified)) throw new Error("Unverified default source");
-  return { sources, selectedSource };
+  return { sources, selectedSource, availability: availability(data.availability) };
 }
-export function parseEpisodes(value: unknown, expectedSource?: EpisodeSource | string): EpisodeList {
+export function parseEpisodes(value: unknown, expectedSource?: EpisodeSource | string): EpisodeList | EpisodeProviderUnavailable | EpisodeUnavailable {
   const data = object(value);
+  const providerAvailability = availability(data.availability);
+  if (data.externalUnavailable === true && data.sourceSlug === undefined) {
+    if (!Array.isArray(data.items) || data.items.length || !Array.isArray(data.sources) || data.sources.length || data.selectedSource !== null) throw new Error("Invalid unavailable episode response");
+    return {
+      items: [], sources: [], selectedSource: null,
+      page: integer(data.page, 1, 1000), offset: integer(data.offset, 0, 30000), totalPages: integer(data.totalPages, 1, 1000), next: null,
+      availability: providerAvailability, externalUnavailable: true,
+    };
+  }
   const selected = sourceSlug(data.sourceSlug);
   const selectedProvider = provider(data.sourceProvider);
   if (typeof expectedSource === "string" && selected !== expectedSource) throw new Error("Episode source mismatch");
@@ -65,7 +110,7 @@ export function parseEpisodes(value: unknown, expectedSource?: EpisodeSource | s
   if (!Array.isArray(data.items) || data.items.length > 30) throw new Error("Invalid episode page size");
   const next = data.next == null ? null : object(data.next);
   const numbers = new Set<number>();
-  return {
+  const parsed = {
     sourceSlug: selected, sourceProvider: selectedProvider, sourceTitle: text(data.sourceTitle), verified: data.verified === true,
     items: data.items.map((item) => {
       const episode = object(item);
@@ -91,7 +136,14 @@ export function parseEpisodes(value: unknown, expectedSource?: EpisodeSource | s
     }),
     page: integer(data.page, 1, 1000), offset: integer(data.offset, 0, 30000), totalPages: integer(data.totalPages, 1, 1000),
     next: next ? { page: integer(next.page, 1, 1000), offset: integer(next.offset, 0, 30000) } : null,
+    availability: providerAvailability,
   };
+  // The source identity stays available for a mapped title even when both
+  // public providers reject this runtime. The panel uses this signal to
+  // distinguish an upstream block from a genuinely empty grid.
+  return data.externalUnavailable === true
+    ? { ...parsed, externalUnavailable: true }
+    : { ...parsed, externalUnavailable: false };
 }
 export function episodeHref(source: string, episode: number) {
   return `/watch/${encodeURIComponent(source)}/${encodeURIComponent(String(episode))}`;

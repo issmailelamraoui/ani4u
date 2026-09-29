@@ -225,7 +225,12 @@ class EpisodeTests(unittest.IsolatedAsyncioTestCase):
     async def test_empty_source_results_are_not_an_error(self):
         self.scraper.search.return_value = []
         response = await self.client.get(f'/api/catalog/sources?slug={SLUG}')
-        self.assertEqual(response.json(), {"sources": [], "selectedSource": None})
+        self.assertEqual(response.json(), {
+            "sources": [], "selectedSource": None,
+            "availability": {
+                "anime4up": {"status": "available", "last_status": 200},
+            },
+        })
 
     async def test_manual_query_can_find_alternative_source_title(self):
         self.scraper.search.return_value = [{"title": "Source spelling", "url": f"{BASE_URL}/anime/{SOURCE}/"}]

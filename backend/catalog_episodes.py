@@ -13,6 +13,7 @@ from anilist_provider import AnimeNotFound, ProviderError
 from anime4up_scraper import BASE_URL, SOURCE_HOST_SUFFIX
 from provider_manager import ProviderManager
 from providers.anime4up import Anime4upProvider
+from providers.base import ProviderUnavailable
 
 
 def title_key(value):
@@ -181,6 +182,7 @@ class EpisodeCatalog:
             self.store, [Anime4upProvider(scraper)]
         )
         self.inflight = {}
+        self.cache_lock = asyncio.Lock()
         self.limit = asyncio.Semaphore(2)
 
     async def close(self):
@@ -189,35 +191,77 @@ class EpisodeCatalog:
             task.cancel()
         await asyncio.gather(*tasks, return_exceptions=True)
 
+    def _availability(self):
+        return self.provider_manager.availability()
+
+    def _both_external_providers_unavailable(self):
+        availability = self._availability()
+        return all(
+            availability.get(name, {}).get("status") == "unavailable"
+            for name in ("anime4up", "witanime")
+        )
+
+    def _sources_response(self, sources, selected_source):
+        return {
+            "sources": sources,
+            "selectedSource": selected_source,
+            "availability": self._availability(),
+        }
+
+    def _unavailable_response(self, candidate, page, offset):
+        """Keep an upstream denial out of the page-level error path."""
+        availability = self._availability()
+        if candidate:
+            return {
+                **self._response(candidate, {"items": [], "pages": 1, "next": None}, page, offset),
+                "externalUnavailable": self._both_external_providers_unavailable(),
+            }
+        return {
+            "items": [],
+            "sources": [],
+            "selectedSource": None,
+            "page": page,
+            "offset": offset,
+            "totalPages": 1,
+            "next": None,
+            "availability": availability,
+            "externalUnavailable": self._both_external_providers_unavailable(),
+        }
+
     async def _cached(self, key, loader, ttl=600):
         # The v3 parser recognizes the source's Arabic movie labels. Bumping
         # the persistent key prevents an old cached empty movie grid from
         # masking that fix until its TTL expires.
         key = "episodes-v3:" + key
-        entry = await asyncio.to_thread(self.store.get_cache, key)
-        if entry and entry["expiresAt"] > time.time():
-            return entry["data"]
-        task = self.inflight.get(key)
-        if task is None:
-            if len(self.inflight) >= 24:
-                raise ProviderError("Episode lookup queue is full")
+        # Check and task creation must be one critical section. Otherwise a
+        # caller that observed an empty SQLite cache just before another
+        # caller's refresh completes can miss both the persisted cache and the
+        # now-cleaned in-flight task, causing a duplicate provider GET.
+        async with self.cache_lock:
+            entry = await asyncio.to_thread(self.store.get_cache, key)
+            if entry and entry["expiresAt"] > time.time():
+                return entry["data"]
+            task = self.inflight.get(key)
+            if task is None:
+                if len(self.inflight) >= 24:
+                    raise ProviderError("Episode lookup queue is full")
 
-            async def refresh():
-                async with asyncio.timeout(20):
-                    async with self.limit:
-                        data = await loader()
-                await asyncio.to_thread(self.store.put_cache, key, data, ttl, 0)
-                return data
+                async def refresh():
+                    async with asyncio.timeout(20):
+                        async with self.limit:
+                            data = await loader()
+                    await asyncio.to_thread(self.store.put_cache, key, data, ttl, 0)
+                    return data
 
-            task = asyncio.create_task(refresh())
-            self.inflight[key] = task
+                task = asyncio.create_task(refresh())
+                self.inflight[key] = task
 
-            def cleanup(done):
-                self.inflight.pop(key, None)
-                if not done.cancelled():
-                    done.exception()
+                def cleanup(done):
+                    self.inflight.pop(key, None)
+                    if not done.cancelled():
+                        done.exception()
 
-            task.add_done_callback(cleanup)
+                task.add_done_callback(cleanup)
         return await asyncio.shield(task)
 
     async def _source_page(self, slug, page=1):
@@ -231,18 +275,24 @@ class EpisodeCatalog:
                 try:
                     async with asyncio.timeout(8):
                         html = await self.scraper.get_html(url)
+                    self.provider_manager.mark_available("anime4up")
                     break
                 except Exception as exc:
-                    last_error = exc
+                    error = Anime4upProvider.public_error(exc)
+                    if isinstance(error, ProviderUnavailable):
+                        self.provider_manager.mark_unavailable("anime4up", error)
+                    last_error = error
 
                     print(
                         f"[catalog episodes] source attempt {attempt}/2 failed "
-                        f"for {url}: {type(exc).__name__}: {exc}",
+                        f"for {url}: {type(error).__name__}: {error}",
                         flush=True,
                     )
 
-                    if attempt >= 2:
-                        raise
+                    # A public 403/429 must allow the fallback immediately;
+                    # only short transient failures receive one retry.
+                    if not isinstance(error, ProviderUnavailable) or not error.retryable or attempt >= 2:
+                        raise error from exc
 
                     await asyncio.sleep(0.25 * attempt)
             else:
@@ -301,7 +351,14 @@ class EpisodeCatalog:
         choices = []
         for term in queries:
             async def search(term=term):
-                return await self.scraper.search(term)
+                provider = Anime4upProvider(self.scraper)
+                try:
+                    rows = await provider.search_anime(term)
+                    self.provider_manager.mark_available("anime4up")
+                    return rows
+                except ProviderUnavailable as error:
+                    self.provider_manager.mark_unavailable("anime4up", error)
+                    raise
             rows = await self._cached("search:" + term.casefold(), search, 600)
             for row in rows:
                 candidate = source_slug(row.get("url", ""))
@@ -343,24 +400,27 @@ class EpisodeCatalog:
         fallback = [m for m in anime["sourceMappings"] if m["source"] == "witanime"]
         if fallback and query is None:
             choices = [{"provider": "witanime", "slug": m["slug"], "title": anime["title"], "verified": True} for m in fallback]
-            return {"sources": choices, "selectedSource": choices[0]["slug"] if len(choices) == 1 else None}
+            return self._sources_response(choices, choices[0]["slug"] if len(choices) == 1 else None)
         try:
             primary = await self._anime4up_sources(anime, query)
-        except Exception:
+        except ProviderUnavailable:
             # A search/identity failure is itself a strict-fallback condition.
-            # Re-raise only when WitAnime cannot provide a usable public list.
             resolved = await self._witanime_fallback(anime, query)
             if resolved:
                 candidate, _ = resolved
-                return {"sources": [candidate], "selectedSource": candidate["slug"]}
+                return self._sources_response([candidate], candidate["slug"])
+            return self._sources_response([], None)
+        except Exception:
+            # Parsing or catalog programming errors remain visible rather than
+            # being mislabeled as a provider access denial.
             raise
         if primary["sources"]:
-            return primary
+            return self._sources_response(primary["sources"], primary["selectedSource"])
         resolved = await self._witanime_fallback(anime, query)
         if resolved:
             candidate, _ = resolved
-            return {"sources": [candidate], "selectedSource": candidate["slug"]}
-        return primary
+            return self._sources_response([candidate], candidate["slug"])
+        return self._sources_response(primary["sources"], primary["selectedSource"])
 
     @staticmethod
     def _witanime_page(items, page, offset):
@@ -385,8 +445,7 @@ class EpisodeCatalog:
         rows = await self.provider_manager.episodes_for("witanime", candidate["slug"])
         return self._witanime_page(rows, page, offset) if rows else None
 
-    @staticmethod
-    def _response(candidate, data, page, offset):
+    def _response(self, candidate, data, page, offset):
         chunk = data["items"]
         return {
             "sourceSlug": candidate["slug"], "sourceTitle": candidate["title"],
@@ -397,6 +456,8 @@ class EpisodeCatalog:
                 {"provider": candidate["provider"], "sourceSlug": candidate["slug"], "episodeUrl": e["url"]}
             ]} for e in chunk],
             "page": page, "offset": offset, "totalPages": data["pages"], "next": data.get("next"),
+            "availability": self._availability(),
+            "externalUnavailable": self._both_external_providers_unavailable(),
         }
 
     async def episodes(self, slug, selected, page=1, offset=0, query=None, provider=None):
@@ -412,6 +473,8 @@ class EpisodeCatalog:
                 if fallback:
                     candidate, rows = fallback
                     return self._response(candidate, self._witanime_page(rows, page, offset), page, offset)
+            if self._both_external_providers_unavailable():
+                return self._unavailable_response(None, page, offset)
             raise HTTPException(409, "Choose a source title from this anime's candidates")
         if candidate["provider"] == "witanime":
             data = await self._witanime_data(candidate, page, offset)
@@ -419,7 +482,10 @@ class EpisodeCatalog:
                 return self._response(candidate, data, page, offset)
             # The mapped provider may be transiently unavailable; then return
             # to strict Anime4Up primary rather than retrying WitAnime search.
-            primary = await self._anime4up_sources(anime, query)
+            try:
+                primary = await self._anime4up_sources(anime, query)
+            except ProviderUnavailable:
+                return self._unavailable_response(candidate, page, offset)
             primary_selected = primary["selectedSource"]
             candidate = next((item for item in primary["sources"] if item["slug"] == primary_selected), None)
             if not candidate:
@@ -449,6 +515,8 @@ class EpisodeCatalog:
         if fallback:
             fallback_candidate, rows = fallback
             return self._response(fallback_candidate, self._witanime_page(rows, page, offset), page, offset)
+        if isinstance(primary_error, ProviderUnavailable):
+            return self._unavailable_response(candidate, page, offset)
         if primary_error:
             raise primary_error
         return self._response(candidate, {"items": [], "pages": 1, "next": None}, page, offset)

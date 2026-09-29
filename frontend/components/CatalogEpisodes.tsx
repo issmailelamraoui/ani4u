@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { catalogEpisodeHref, parseEpisodes, parseSources, type EpisodeCursor, type EpisodeList, type EpisodeSource } from "@/lib/episode-model";
+import { catalogEpisodeHref, externalProvidersUnavailable, parseEpisodes, parseSources, type EpisodeCursor, type EpisodeList, type EpisodeSource } from "@/lib/episode-model";
 
-type EpisodeStatus = "loading" | "ready" | "empty" | "choose-source" | "error";
+type EpisodeStatus = "loading" | "ready" | "empty" | "unavailable" | "choose-source" | "error";
 const REQUEST_TIMEOUT_MS = 60_000;
 const sourceKey = (source: EpisodeSource) => `${source.provider}:${source.slug}`;
 
@@ -62,7 +62,7 @@ export default function CatalogEpisodes({ slug, title }: { slug: string; title: 
           || choices.sources.find((item) => sourceKey(item) === remembered || item.slug === remembered);
         setSelected(source ? sourceKey(source) : "");
         if (!choices.sources.length) {
-          if (!controller.signal.aborted) setStatus("empty");
+          if (!controller.signal.aborted) setStatus(externalProvidersUnavailable(choices.availability) ? "unavailable" : "empty");
           return;
         }
         if (!source) {
@@ -72,8 +72,8 @@ export default function CatalogEpisodes({ slug, title }: { slug: string; title: 
         if (source) {
           const list = parseEpisodes(await request({ slug, mode: "episodes", source: source.slug, provider: source.provider, ...(query ? { q: query } : {}) }, controller), source);
           if (!controller.signal.aborted) {
-            setData(list);
-            setStatus(list.items.length ? "ready" : "empty");
+            setData(list.externalUnavailable ? null : list);
+            setStatus(list.externalUnavailable ? "unavailable" : list.items.length ? "ready" : "empty");
           }
         }
       } catch {
@@ -102,6 +102,12 @@ export default function CatalogEpisodes({ slug, title }: { slug: string; title: 
     try {
       const list = parseEpisodes(await request({ slug, mode: "episodes", source: source.slug, provider: source.provider, page: String(cursor.page), offset: String(cursor.offset), ...(query ? { q: query } : {}) }, controller), source);
       if (controller.signal.aborted) return;
+      if (list.externalUnavailable) {
+        setData(null);
+        setFailedCursor(null);
+        setStatus("unavailable");
+        return;
+      }
       if (action === "forward" && data) setHistory((previous) => [...previous, { page: data.page, offset: data.offset }]);
       if (action === "back") setHistory((previous) => previous.slice(0, -1));
       setData(list);
@@ -121,6 +127,7 @@ export default function CatalogEpisodes({ slug, title }: { slug: string; title: 
     <div className="nova-section-heading"><div><span className="nova-kicker" dir="ltr">YOUR STORY STARTS HERE</span><h2 id="episodes-heading">حلقات الأنمي</h2><p>اختر حلقة للانتقال إلى المشاهدة.</p></div>{data && <span className="nova-episode-range">{data.items.length ? `${data.items[0].episode} – ${data.items.at(-1)!.episode}` : ""}</span>}</div>
     {sources.length > 0 && <div className="nova-source-picker"><label htmlFor="episode-source">{selected ? "العنوان المرتبط بالحلقات" : "اختر العنوان والموسم المطابق"}</label><select id="episode-source" value={selected} disabled={hydrated && status === "loading"} onChange={(event) => { const source = sources.find((item) => sourceKey(item) === event.target.value); if (source) void load(source, { page: 1, offset: 0 }, "reset"); }}><option value="" disabled>اختر عنوانًا لعرض حلقاته</option>{sources.map((source) => <option key={sourceKey(source)} value={sourceKey(source)}>{source.title}{source.verified ? " — مطابق" : ""}</option>)}</select></div>}
     {status === "loading" && <p className="nova-episode-message" role="status">جارٍ تحميل قائمة الحلقات…</p>}
+    {status === "unavailable" && <p className="nova-episode-message" role="status">سيرفرات الحلقات الخارجية غير متاحة حالياً.</p>}
     {status === "error" && <div className="nova-episode-error" role="alert"><p>تعذّر تحميل الحلقات. حاول مرة أخرى.</p><button className="nova-secondary" type="button" onClick={() => {
       if (failedCursor && selectedSource) void load(selectedSource, failedCursor, "retry");
       else { setStatus("loading"); setRevision((value) => value + 1); }

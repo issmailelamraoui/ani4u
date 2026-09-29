@@ -9,7 +9,7 @@ from catalog_episodes import EpisodeCatalog
 from catalog_store import CatalogStore
 from provider_manager import ProviderManager
 from providers.anime4up import Anime4upProvider
-from providers.base import SourceUnavailable
+from providers.base import ProviderUnavailable, SourceUnavailable
 
 
 SLUG = "one-piece-21"
@@ -109,6 +109,15 @@ class CatalogProviderFallbackTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(self.scraper.get_html.await_count, 2)
         self.assertEqual(wit.search_anime.await_count, 1)
 
+    async def test_anime4up_403_does_not_retry_and_uses_witanime_once(self):
+        self.scraper.get_html = AsyncMock(side_effect=RuntimeError("Anime4up returned HTTP 403"))
+        wit = FakeWitAnime([{"episode": 6, "url": "https://witanime.site/watch/one-piece/6/"}])
+        await self.make_service(wit)
+        response = await self.service.episodes(SLUG, None)
+        self.assertEqual(response["sourceProvider"], "witanime")
+        self.assertEqual(self.scraper.get_html.await_count, 1)
+        self.assertEqual(wit.search_anime.await_count, 1)
+
     async def test_anime4up_timeout_falls_back_to_witanime(self):
         self.scraper.get_html = AsyncMock(side_effect=asyncio.TimeoutError())
         wit = FakeWitAnime([{"episode": 4, "url": "https://witanime.site/watch/one-piece/4/"}])
@@ -133,13 +142,31 @@ class CatalogProviderFallbackTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(response["sourceProvider"], "anime4up")
         self.assertEqual(response["items"], [])
 
-    async def test_both_provider_failures_return_an_error_state(self):
-        self.scraper.get_html = AsyncMock(side_effect=RuntimeError("HTTP 502"))
+    async def test_both_403_providers_return_a_safe_unavailable_response(self):
+        self.scraper.get_html = AsyncMock(side_effect=RuntimeError("HTTP 403"))
         wit = FakeWitAnime([])
-        wit.search_anime = AsyncMock(side_effect=SourceUnavailable("HTTP 503"))
+        wit.search_anime = AsyncMock(side_effect=ProviderUnavailable("HTTP 403", status=403))
         await self.make_service(wit)
-        with self.assertRaises(RuntimeError):
-            await self.service.episodes(SLUG, None)
+        response = await self.service.episodes(SLUG, None)
+        self.assertEqual(response["items"], [])
+        self.assertTrue(response["externalUnavailable"])
+        self.assertEqual(response["availability"]["anime4up"], {"status": "unavailable", "last_status": 403})
+        self.assertEqual(response["availability"]["witanime"], {"status": "unavailable", "last_status": 403})
+        self.assertEqual(self.scraper.get_html.await_count, 1)
+        self.assertEqual(wit.search_anime.await_count, 1)
+
+    async def test_mapped_witanime_403_can_fall_through_to_safe_unavailable_state(self):
+        self.store.remove_mapping(21, SOURCE)
+        self.store.set_mapping(21, "one-piece", "Existing WitAnime mapping", "witanime")
+        self.scraper.search = AsyncMock(side_effect=RuntimeError("HTTP 403"))
+        wit = FakeWitAnime([])
+        wit.get_episodes = AsyncMock(side_effect=ProviderUnavailable("HTTP 403", status=403))
+        await self.make_service(wit)
+        response = await self.service.episodes(SLUG, None)
+        self.assertTrue(response["externalUnavailable"])
+        self.assertEqual(response["sourceProvider"], "witanime")
+        self.assertEqual(self.scraper.search.await_count, 1)
+        self.scraper.get_html.assert_not_awaited()
 
 
 if __name__ == "__main__":

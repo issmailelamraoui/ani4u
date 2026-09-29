@@ -2,7 +2,7 @@ import unittest
 
 import httpx
 
-from providers.base import SourceUnavailable
+from providers.base import ProviderUnavailable, SourceUnavailable
 from providers.witanime import WitAnimeProvider
 
 
@@ -33,8 +33,11 @@ class WitAnimeHttpProviderTests(unittest.IsolatedAsyncioTestCase):
     async def test_cloudflare_response_is_unavailable_not_bypassed(self):
         client = self.client(lambda request: httpx.Response(403, headers={"server": "cloudflare", "cf-ray": "test"}))
         provider = WitAnimeProvider(client)
-        with self.assertRaises(SourceUnavailable):
+        with self.assertRaises(SourceUnavailable) as error:
             await provider.search_anime("One Piece")
+        self.assertIsInstance(error.exception, ProviderUnavailable)
+        self.assertEqual(error.exception.status, 403)
+        self.assertFalse(error.exception.retryable)
         await client.aclose()
 
     async def test_servers_only_return_unique_public_playback_urls(self):

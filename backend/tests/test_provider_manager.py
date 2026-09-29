@@ -78,6 +78,15 @@ class ProviderManagerTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(witanime.get_episodes.await_count, 1)
         self.assertEqual(store.mappings, [])
 
+    async def test_403_is_recorded_and_never_retried(self):
+        anime4up = FakeProvider("anime4up")
+        witanime = FakeProvider("witanime")
+        witanime.search_anime = AsyncMock(side_effect=SourceUnavailable("HTTP 403", status=403))
+        manager = ProviderManager(Store(), [anime4up, witanime])
+        self.assertIsNone(await manager.fallback_source(self.anime(), ["One Piece"], lambda title: True))
+        self.assertEqual(witanime.search_anime.await_count, 1)
+        self.assertEqual(manager.availability()["witanime"], {"status": "unavailable", "last_status": 403})
+
     async def test_server_deduplication_uses_normalized_public_url_not_name(self):
         anime4up = FakeProvider("anime4up", servers=[
             {"name": "same name", "embed_url": "https://player.test/e/one#x"},

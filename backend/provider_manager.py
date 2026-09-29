@@ -7,7 +7,7 @@ import time
 from typing import Callable
 from urllib.parse import urlparse, urlunparse
 
-from providers.base import PublicSourceProvider, SourceNotFound, SourceProviderError, SourceUnavailable
+from providers.base import ProviderUnavailable, PublicSourceProvider, SourceNotFound, SourceProviderError
 
 
 PRIMARY_PROVIDER = "anime4up"
@@ -37,6 +37,10 @@ class ProviderManager:
         if PRIMARY_PROVIDER not in self.providers:
             raise ValueError("Anime4Up provider is required")
         self._failure_cache: dict[tuple[str, str], float] = {}
+        self._availability: dict[str, dict[str, str | int | None]] = {
+            name: {"status": "unknown", "last_status": None}
+            for name in self.providers
+        }
 
     async def start(self) -> None:
         for provider in self.providers.values():
@@ -51,20 +55,54 @@ class ProviderManager:
             raise ValueError("Unsupported source provider")
         return provider
 
+    def mark_available(self, provider_name: str) -> None:
+        if provider_name in self._availability:
+            self._availability[provider_name] = {"status": "available", "last_status": 200}
+
+    def mark_unavailable(self, provider_name: str, error: ProviderUnavailable) -> None:
+        if provider_name in self._availability:
+            self._availability[provider_name] = {
+                "status": "unavailable",
+                "last_status": error.status,
+            }
+
+    def availability(self) -> dict[str, dict[str, str | int | None]]:
+        """Return only operational state; never request or credential details."""
+        return {name: dict(state) for name, state in self._availability.items()}
+
     async def _call(self, provider_name: str, operation: str, *args):
         provider = self.provider(provider_name)
-        last_error: Exception | None = None
+        last_error: ProviderUnavailable | None = None
         for attempt in range(2):
             try:
                 async with asyncio.timeout(PROVIDER_TIMEOUT_SECONDS):
-                    return await getattr(provider, operation)(*args)
+                    result = await getattr(provider, operation)(*args)
+                self.mark_available(provider_name)
+                return result
             except SourceNotFound:
                 raise
-            except (SourceUnavailable, SourceProviderError, TimeoutError, ValueError) as exc:
+            except ProviderUnavailable as exc:
+                self.mark_unavailable(provider_name, exc)
                 last_error = exc
+                if exc.retryable and attempt == 0:
+                    await asyncio.sleep(RETRY_DELAY_SECONDS)
+                    continue
+                raise
+            except TimeoutError as exc:
+                unavailable = ProviderUnavailable(
+                    f"{provider_name} {operation} timed out", retryable=True
+                )
+                self.mark_unavailable(provider_name, unavailable)
+                last_error = unavailable
                 if attempt == 0:
                     await asyncio.sleep(RETRY_DELAY_SECONDS)
-        raise SourceUnavailable(f"{provider_name} {operation} is temporarily unavailable") from last_error
+                    continue
+                raise unavailable from exc
+            except (SourceProviderError, ValueError):
+                # Invalid input and ordinary source parsing errors are neither
+                # a provider outage nor a reason to retry.
+                raise
+        raise ProviderUnavailable(f"{provider_name} {operation} is temporarily unavailable") from last_error
 
     @staticmethod
     def _valid_episodes(provider: str, source_slug: str, rows: object) -> list[dict]:

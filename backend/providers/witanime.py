@@ -13,7 +13,7 @@ from urllib.parse import quote, quote_plus, unquote, urljoin, urlparse, urlunpar
 import httpx
 from bs4 import BeautifulSoup, Tag
 
-from .base import SourceNotFound, SourceProviderError, SourceUnavailable
+from .base import ProviderUnavailable, SourceNotFound, SourceProviderError
 
 
 BASE_URL = "https://witanime.site"
@@ -101,28 +101,34 @@ class WitAnimeProvider:
         try:
             response = await self._client.get(url)
         except httpx.TimeoutException as exc:
-            raise SourceUnavailable("WitAnime public HTTP request timed out") from exc
+            raise ProviderUnavailable("WitAnime public HTTP request timed out", retryable=True) from exc
         except httpx.HTTPError as exc:
-            raise SourceUnavailable("WitAnime public HTTP request failed") from exc
+            raise ProviderUnavailable("WitAnime public HTTP request failed", retryable=True) from exc
 
-        challenge = (
-            response.status_code in {403, 429, 503}
-            and ("cloudflare" in response.headers.get("server", "").lower()
-                 or "cf-ray" in response.headers)
-        )
-        if challenge:
-            raise SourceUnavailable("WitAnime requires a Cloudflare challenge; no bypass is attempted")
+        # A public 403/429 is unavailable regardless of the upstream's
+        # implementation details.  We intentionally do not inspect or evade
+        # any challenge mechanism.
+        if response.status_code in {403, 429}:
+            raise ProviderUnavailable(
+                f"WitAnime returned HTTP {response.status_code}",
+                status=response.status_code,
+                retryable=False,
+            )
         if response.status_code == 404:
             raise SourceNotFound("WitAnime page was not found")
         if response.status_code >= 500:
-            raise SourceUnavailable(f"WitAnime returned HTTP {response.status_code}")
+            raise ProviderUnavailable(
+                f"WitAnime returned HTTP {response.status_code}",
+                status=response.status_code,
+                retryable=True,
+            )
         if response.status_code >= 400:
             raise SourceProviderError(f"WitAnime returned HTTP {response.status_code}")
 
         body = response.text
         lowered = body.lower()
         if "just a moment" in lowered or "challenges.cloudflare.com" in lowered:
-            raise SourceUnavailable("WitAnime returned a Cloudflare challenge; no bypass is attempted")
+            raise ProviderUnavailable("WitAnime returned a challenge page; no bypass is attempted", retryable=False)
         return body
 
     def anime_url(self, source_slug: str) -> str:

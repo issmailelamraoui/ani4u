@@ -9,8 +9,24 @@ class SourceProviderError(RuntimeError):
     """A provider response could not be used safely."""
 
 
-class SourceUnavailable(SourceProviderError):
-    """The public source is unavailable, rate-limited, or challenged."""
+class ProviderUnavailable(SourceProviderError):
+    """A public provider cannot be reached from this runtime.
+
+    This deliberately represents an upstream availability problem, rather
+    than a missing anime or an empty episode grid.  ``retryable`` is reserved
+    for short-lived failures such as a timeout or 5xx response; access denials
+    (403/429) must be handed to the fallback immediately.
+    """
+
+    def __init__(self, message: str, *, status: int | None = None, retryable: bool = False):
+        super().__init__(message)
+        self.status = status
+        self.retryable = retryable
+
+
+# Kept as an alias for existing callers while the explicit name documents the
+# contract used by the provider manager and health endpoint.
+SourceUnavailable = ProviderUnavailable
 
 
 class SourceNotFound(SourceProviderError):

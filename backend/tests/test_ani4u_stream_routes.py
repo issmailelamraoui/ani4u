@@ -32,6 +32,9 @@ class StreamCatalogTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(iframe.json()["default_server"]["type"], "iframe")
         direct = await self.http.get("/api/stream-catalog/watch/jujutsu-kaisen/3/1")
         self.assertEqual(direct.json()["default_server"]["type"], "direct")
+        hls = await self.http.get("/api/stream-catalog/watch/yu-gi-oh-duel-monsters/1/1")
+        self.assertEqual(hls.json()["default_server"]["type"], "hls")
+        self.assertTrue(hls.json()["default_server"]["url"].endswith("/master.m3u8"))
         multiple = await self.http.get("/api/stream-catalog/watch/pokemon-xy/1/17")
         self.assertEqual(multiple.json()["server_count"], 2)
 
