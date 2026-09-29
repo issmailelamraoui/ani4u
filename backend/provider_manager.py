@@ -157,7 +157,6 @@ class ProviderManager:
         if provider is None:
             return None
 
-        anilist_id = anime.get("providerIds", {}).get("anilist")
         mappings = anime.get("sourceMappings", [])
         for mapping in mappings:
             if mapping.get("source") != FALLBACK_PROVIDER:
@@ -168,6 +167,11 @@ class ProviderManager:
             episodes = await self.episodes_for(FALLBACK_PROVIDER, source_slug)
             if episodes:
                 return ({"provider": FALLBACK_PROVIDER, "slug": source_slug, "title": anime["title"], "verified": True}, episodes)
+            if self._availability[FALLBACK_PROVIDER]["status"] == "unavailable":
+                # A failed stored mapping already established a provider
+                # outage. Do not turn that 403 into "available" merely
+                # because a redundant title search endpoint responds later.
+                return None
 
         for query in queries:
             try:
@@ -183,14 +187,9 @@ class ProviderManager:
                 episodes = await self.episodes_for(FALLBACK_PROVIDER, source_slug)
                 if not episodes:
                     continue
-                if isinstance(anilist_id, int):
-                    await asyncio.to_thread(
-                        self.store.set_mapping,
-                        anilist_id,
-                        source_slug,
-                        "Matched public WitAnime title and a non-empty public episode list",
-                        FALLBACK_PROVIDER,
-                    )
+                # Discovery success is runtime evidence, not an explicitly
+                # verified durable mapping. Persisting it here can create a
+                # same-slug WitAnime row that later shadows Anime4Up.
                 return ({"provider": FALLBACK_PROVIDER, "slug": source_slug, "title": title, "verified": True}, episodes)
         return None
 

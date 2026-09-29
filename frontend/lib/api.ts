@@ -141,7 +141,7 @@ function parseList<T>(data: Record<string, unknown>, key: string, parse: (v: unk
 async function request<T>(path: string, params: Record<string, string>, parse: (v: unknown) => T): Promise<T> {
   let endpoint = path;
   try {
-    const base = (process.env.ANI4U_BACKEND_URL || process.env.API_BASE_URL || "http://127.0.0.1:8000").replace(/\/+$/, "");
+    const base = (process.env.ANI4U_EXTERNAL_BACKEND_URL || process.env.ANI4U_BACKEND_URL || process.env.API_BASE_URL || "http://127.0.0.1:8000").replace(/\/+$/, "");
     const url = new URL(`${base}${path}`);
     url.search = new URLSearchParams(params).toString();
     endpoint = url.href;

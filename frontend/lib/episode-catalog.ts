@@ -20,7 +20,7 @@ export async function getEpisodeCatalog(params: URLSearchParams, requestSignal?:
       || !Number.isInteger(page) || page < 1 || page > 1000
       || !Number.isInteger(offset) || offset < 0 || offset > 30000 || offset % 30 !== 0
       || (query !== undefined && (query.length < 2 || query.length > 100))) throw new CatalogError(422);
-  const url = new URL(`/api/catalog/${mode === "sources" ? "sources" : "episode-list"}`, process.env.ANI4U_BACKEND_URL || process.env.API_BASE_URL || "http://127.0.0.1:8000");
+  const url = new URL(`/api/catalog/${mode === "sources" ? "sources" : "episode-list"}`, process.env.ANI4U_EXTERNAL_BACKEND_URL || process.env.ANI4U_BACKEND_URL || process.env.API_BASE_URL || "http://127.0.0.1:8000");
   url.searchParams.set("slug", slug);
   if (query) url.searchParams.set("q", query);
   if (mode === "episodes") {

@@ -226,7 +226,7 @@ class EpisodeTests(unittest.IsolatedAsyncioTestCase):
         self.scraper.search.return_value = []
         response = await self.client.get(f'/api/catalog/sources?slug={SLUG}')
         self.assertEqual(response.json(), {
-            "sources": [], "selectedSource": None,
+            "sources": [], "selectedSource": None, "selectedProvider": None,
             "availability": {
                 "anime4up": {"status": "available", "last_status": 200},
             },

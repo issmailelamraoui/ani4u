@@ -201,10 +201,48 @@ class EpisodeCatalog:
             for name in ("anime4up", "witanime")
         )
 
-    def _sources_response(self, sources, selected_source):
+    @staticmethod
+    def _stored_candidate(anime, selected, provider):
+        """Resolve a verified mapping by its full provider/slug identity.
+
+        Source slugs are provider-local identifiers.  When a fallback happens
+        to use the same text as Anime4Up, it must not shadow the primary
+        mapping or make an explicit ``provider=anime4up`` request fail.
+        """
+        if not selected or not provider:
+            return None
+        matches = [
+            mapping for mapping in anime.get("sourceMappings", [])
+            if mapping.get("slug") == selected
+            and mapping.get("source") == provider
+        ]
+        if not matches:
+            return None
+        mapping = matches[0]
+        return {
+            "provider": mapping["source"],
+            "slug": mapping["slug"],
+            "title": anime["title"],
+            "verified": True,
+        }
+
+    def _sources_response(self, sources, selected_source, selected_provider=None):
+        if selected_source is None:
+            selected_provider = None
+        else:
+            matches = [
+                item for item in sources
+                if item["slug"] == selected_source
+                and item["verified"]
+                and (selected_provider is None or item["provider"] == selected_provider)
+            ]
+            if len(matches) != 1:
+                raise ProviderError("Selected episode source identity is ambiguous")
+            selected_provider = matches[0]["provider"]
         return {
             "sources": sources,
             "selectedSource": selected_source,
+            "selectedProvider": selected_provider,
             "availability": self._availability(),
         }
 
@@ -364,7 +402,19 @@ class EpisodeCatalog:
                 except ProviderUnavailable as error:
                     self.provider_manager.mark_unavailable("anime4up", error)
                     raise
-            rows = await self._cached("search:" + term.casefold(), search, 600)
+            try:
+                rows = await self._cached("search:" + term.casefold(), search, 600)
+            except ProviderUnavailable:
+                if verified:
+                    # A query endpoint outage cannot erase a durable Anime4Up
+                    # identity. Keep it selected and let the exact episode-page
+                    # request establish whether that mapping is usable.
+                    verified = list({item["slug"]: item for item in verified}.values())
+                    return {
+                        "sources": verified,
+                        "selectedSource": verified[0]["slug"] if len(verified) == 1 else None,
+                    }
+                raise
             for row in rows:
                 candidate = source_slug(row.get("url", ""))
                 if candidate:
@@ -400,12 +450,9 @@ class EpisodeCatalog:
 
     async def sources(self, slug, query=None):
         anime = (await self.catalog.detail_by_slug(slug))["data"]
-        # A previously successful WitAnime mapping is tried before a new
-        # Anime4Up search. It is a mapping cache, not a cached failure.
-        fallback = [m for m in anime["sourceMappings"] if m["source"] == "witanime"]
-        if fallback and query is None:
-            choices = [{"provider": "witanime", "slug": m["slug"], "title": anime["title"], "verified": True} for m in fallback]
-            return self._sources_response(choices, choices[0]["slug"] if len(choices) == 1 else None)
+        # Always resolve the Anime4Up primary first.  A stored WitAnime result
+        # is fallback evidence, not permission to replace a verified primary
+        # mapping merely because this request omitted ``q``.
         try:
             primary = await self._anime4up_sources(anime, query)
         except ProviderUnavailable:
@@ -413,18 +460,21 @@ class EpisodeCatalog:
             resolved = await self._witanime_fallback(anime, query)
             if resolved:
                 candidate, _ = resolved
-                return self._sources_response([candidate], candidate["slug"])
+                return self._sources_response([candidate], candidate["slug"], candidate["provider"])
             return self._sources_response([], None)
         except Exception:
             # Parsing or catalog programming errors remain visible rather than
             # being mislabeled as a provider access denial.
             raise
         if primary["sources"]:
-            return self._sources_response(primary["sources"], primary["selectedSource"])
+            return self._sources_response(
+                primary["sources"], primary["selectedSource"],
+                "anime4up" if primary["selectedSource"] else None,
+            )
         resolved = await self._witanime_fallback(anime, query)
         if resolved:
             candidate, _ = resolved
-            return self._sources_response([candidate], candidate["slug"])
+            return self._sources_response([candidate], candidate["slug"], candidate["provider"])
         return self._sources_response(primary["sources"], primary["selectedSource"])
 
     @staticmethod
@@ -483,19 +533,35 @@ class EpisodeCatalog:
 
     async def episodes(self, slug, selected, page=1, offset=0, query=None, provider=None):
         anime = (await self.catalog.detail_by_slug(slug))["data"]
-        resolved = await self.sources(slug, query)
-        selected = selected or resolved["selectedSource"]
-        candidate = next((item for item in resolved["sources"] if item["slug"] == selected and (provider is None or item["provider"] == provider)), None)
+        # An explicit provider/source pair is authoritative when that verified
+        # mapping exists.  Do not re-resolve it through a provider-agnostic
+        # slug list where a same-slug fallback mapping could shadow it.
+        candidate = self._stored_candidate(anime, selected, provider)
+        if candidate is None:
+            resolved = await self.sources(slug, query)
+            selected = selected or resolved["selectedSource"]
+            selected_provider = provider or resolved.get("selectedProvider")
+            candidate = next((
+                item for item in resolved["sources"]
+                if item["slug"] == selected
+                and (selected_provider is None or item["provider"] == selected_provider)
+            ), None)
         if not candidate:
-            # A missing Anime4Up match is a fallback condition only for the
-            # automatic path. A user-selected unknown slug remains a 409.
-            if selected is None:
-                fallback = await self._witanime_fallback(anime, query)
-                if fallback:
-                    candidate, rows = fallback
-                    return self._response(candidate, self._witanime_page(rows, page, offset), page, offset)
+            # ``sources()`` already exhausted primary then fallback discovery.
+            # Do not run fallback twice: a second search can overwrite the
+            # availability state that explains why no candidate was usable.
             if self._both_external_providers_unavailable():
-                return self._unavailable_response(None, page, offset)
+                mappings = sorted(
+                    anime.get("sourceMappings", []),
+                    key=lambda item: (item.get("source") != "anime4up", item.get("source", "")),
+                )
+                unavailable_candidate = None
+                if mappings:
+                    mapping = mappings[0]
+                    unavailable_candidate = self._stored_candidate(
+                        anime, mapping.get("slug"), mapping.get("source")
+                    )
+                return self._unavailable_response(unavailable_candidate, page, offset)
             raise HTTPException(409, "Choose a source title from this anime's candidates")
         requested_candidate = candidate
         print(

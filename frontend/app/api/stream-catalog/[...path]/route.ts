@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 const BACKEND =
+  process.env.ANI4U_EXTERNAL_BACKEND_URL?.replace(/\/+$/, "") ||
   process.env.ANI4U_BACKEND_URL?.replace(/\/+$/, "") ||
   process.env.API_BASE_URL?.replace(/\/+$/, "") ||
   "http://127.0.0.1:8000";

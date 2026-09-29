@@ -4,8 +4,11 @@ import unittest
 from pathlib import Path
 from unittest.mock import AsyncMock
 
+import httpx
+from fastapi import FastAPI
+
 from anime4up_scraper import Anime4up, BASE_URL
-from catalog_episodes import EpisodeCatalog
+from catalog_episodes import EpisodeCatalog, router
 from catalog_store import CatalogStore
 from provider_manager import ProviderManager
 from providers.anime4up import Anime4upProvider
@@ -14,6 +17,8 @@ from providers.base import ProviderUnavailable, SourceUnavailable
 
 SLUG = "one-piece-21"
 SOURCE = "one-piece"
+MUSHOKU_SLUG = "mushoku-tensei-jobless-reincarnation-season-3-178789"
+MUSHOKU_SOURCE = "mushoku-tensei-iii-isekai-ittara-honki-dasu"
 
 
 def anime4up_page(numbers):
@@ -101,7 +106,76 @@ class CatalogProviderFallbackTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(ref, {"provider": "witanime", "sourceSlug": "one-piece", "episodeUrl": "https://witanime.site/watch/one-piece/7/"})
         servers = await self.service.episode_servers(ref["provider"], ref["episodeUrl"])
         self.assertEqual(servers["servers"][0]["embed_url"], "https://player.example/e/7")
-        self.assertEqual(self.store.mappings([self.anime["id"]])[self.anime["id"]][-1]["source"], "witanime")
+        mappings = self.store.mappings([self.anime["id"]])[self.anime["id"]]
+        self.assertEqual([(item["source"], item["slug"]) for item in mappings], [
+            ("anime4up", SOURCE),
+        ])
+        # A transient fallback must not change the next default source.
+        choices = await self.service.sources(SLUG)
+        self.assertEqual(choices["selectedProvider"], "anime4up")
+
+    async def test_mushoku_same_slug_mappings_always_resolve_verified_anime4up(self):
+        self.store.remove_mapping(21, SOURCE)
+        self.store.set_mapping(21, MUSHOKU_SOURCE, "Verified Mushoku Anime4Up mapping")
+        # Reproduce the stale row created by the old automatic fallback logic.
+        self.store.set_mapping(21, MUSHOKU_SOURCE, "Old WitAnime fallback row", "witanime")
+        self.anime = {
+            **self.anime,
+            "title": "Mushoku Tensei: Jobless Reincarnation Season 3",
+            "alternativeTitles": ["Mushoku Tensei III: Isekai Ittara Honki Dasu"],
+        }
+        self.scraper.get_html.return_value = (
+            f'<div id="episodesList"><a href="{BASE_URL}/episode/{MUSHOKU_SOURCE}-1/">'
+            "الحلقة 1</a></div>"
+        )
+        self.scraper.search = AsyncMock(side_effect=RuntimeError("HTTP 403"))
+        await self.make_service(FakeWitAnime([
+            {"episode": 1, "url": f"https://witanime.site/watch/{MUSHOKU_SOURCE}/1/"},
+        ]))
+
+        app = FastAPI()
+        app.state.catalog_episodes = self.service
+        app.include_router(router)
+        async with httpx.AsyncClient(
+            transport=httpx.ASGITransport(app=app), base_url="http://test"
+        ) as client:
+            without_response = await client.get(
+                "/api/catalog/sources", params={"slug": MUSHOKU_SLUG}
+            )
+            with_response = await client.get(
+                "/api/catalog/sources",
+                params={"slug": MUSHOKU_SLUG, "q": "Mushoku Tensei"},
+            )
+            episode_response = await client.get(
+                "/api/catalog/episode-list",
+                params={
+                    "slug": MUSHOKU_SLUG,
+                    "source": MUSHOKU_SOURCE,
+                    "provider": "anime4up",
+                    "page": 1,
+                    "offset": 0,
+                },
+            )
+
+        self.assertEqual(without_response.status_code, 200)
+        self.assertEqual(with_response.status_code, 200)
+        without_query = without_response.json()
+        with_query = with_response.json()
+        for choices in (without_query, with_query):
+            self.assertEqual(choices["selectedSource"], MUSHOKU_SOURCE)
+            self.assertEqual(choices["selectedProvider"], "anime4up")
+            self.assertEqual(
+                [(item["provider"], item["slug"]) for item in choices["sources"]],
+                [("anime4up", MUSHOKU_SOURCE)],
+            )
+
+        self.assertEqual(episode_response.status_code, 200)
+        response = episode_response.json()
+        self.assertEqual(response["sourceProvider"], "anime4up")
+        self.assertEqual([item["episode"] for item in response["items"]], [1])
+        self.assertEqual(self.scraper.search.await_count, 1)
+        self.wit.search_anime.assert_not_awaited()
+        self.wit.get_episodes.assert_not_awaited()
 
     async def test_anime4up_timeout_or_502_falls_back_without_a_concurrent_witanime_request(self):
         self.scraper.get_html = AsyncMock(side_effect=RuntimeError("HTTP 502"))

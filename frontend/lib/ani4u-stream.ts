@@ -54,7 +54,7 @@ export function toAni4uAnime(content: Ani4uCatalogAnime): Anime {
   };
 }
 
-const BACKEND = process.env.ANI4U_BACKEND_URL?.replace(/\/+$/, "") || process.env.API_BASE_URL?.replace(/\/+$/, "") || "http://127.0.0.1:8000";
+const BACKEND = process.env.ANI4U_EXTERNAL_BACKEND_URL?.replace(/\/+$/, "") || process.env.ANI4U_BACKEND_URL?.replace(/\/+$/, "") || process.env.API_BASE_URL?.replace(/\/+$/, "") || "http://127.0.0.1:8000";
 
 async function request<T>(path: string): Promise<T | null> {
   const response = await fetch(`${BACKEND}/api/stream-catalog${path}`, { cache: "no-store", headers: { Accept: "application/json" }, signal: AbortSignal.timeout(12_000) });

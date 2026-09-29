@@ -2,7 +2,7 @@ export type EpisodeProvider = "anime4up" | "witanime";
 export type EpisodeSource = { provider: EpisodeProvider; slug: string; title: string; verified: boolean };
 export type ProviderAvailabilityState = "unknown" | "available" | "unavailable";
 export type ProviderAvailability = Record<EpisodeProvider, { status: ProviderAvailabilityState; lastStatus: number | null }>;
-export type SourceChoices = { sources: EpisodeSource[]; selectedSource: string | null; availability: ProviderAvailability };
+export type SourceChoices = { sources: EpisodeSource[]; selectedSource: string | null; selectedProvider: EpisodeProvider | null; availability: ProviderAvailability };
 export type EpisodeCursor = { page: number; offset: number };
 export type EpisodeReference = { provider: EpisodeProvider; sourceSlug: string; episodeUrl: string };
 export type RequestedEpisodeSource = { provider: EpisodeProvider; sourceSlug: string };
@@ -99,8 +99,18 @@ export function parseSources(value: unknown): SourceChoices {
     return { provider: provider(source.provider), slug: sourceSlug(source.slug), title: text(source.title), verified: source.verified === true };
   });
   const selectedSource = data.selectedSource == null ? null : sourceSlug(data.selectedSource);
-  if (selectedSource && !sources.some((source) => source.slug === selectedSource && source.verified)) throw new Error("Unverified default source");
-  return { sources, selectedSource, availability: availability(data.availability) };
+  let selectedProvider = data.selectedProvider == null ? null : provider(data.selectedProvider);
+  if (selectedSource === null) {
+    if (selectedProvider !== null) throw new Error("Invalid default source identity");
+  } else {
+    const matches = sources.filter((source) => source.slug === selectedSource && source.verified
+      && (selectedProvider === null || source.provider === selectedProvider));
+    // Older responses may omit selectedProvider, but only when the slug maps
+    // to one verified provider. New responses always carry the full identity.
+    if (matches.length !== 1) throw new Error("Ambiguous default source identity");
+    selectedProvider = matches[0].provider;
+  }
+  return { sources, selectedSource, selectedProvider, availability: availability(data.availability) };
 }
 export function parseEpisodes(value: unknown, expectedSource?: EpisodeSource | string): EpisodeList | EpisodeProviderUnavailable | EpisodeUnavailable {
   const data = object(value);

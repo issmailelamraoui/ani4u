@@ -51,7 +51,7 @@ class ProviderManagerTests(unittest.IsolatedAsyncioTestCase):
         witanime.search_anime.assert_not_awaited()
         witanime.get_episodes.assert_not_awaited()
 
-    async def test_witanime_selected_only_after_fallback_and_mapping_is_persisted(self):
+    async def test_witanime_selected_only_after_fallback_without_persisting_mapping(self):
         store = Store()
         anime4up = FakeProvider("anime4up")
         witanime = FakeProvider(
@@ -66,7 +66,7 @@ class ProviderManagerTests(unittest.IsolatedAsyncioTestCase):
         resolved = await manager.fallback_source(self.anime(), ["One Piece"], lambda title: title == "One Piece")
         self.assertEqual(resolved[0]["provider"], "witanime")
         self.assertEqual([row["episode"] for row in resolved[1]], [1])
-        self.assertEqual(store.mappings[0][1:4], ("one-piece", "Matched public WitAnime title and a non-empty public episode list", "witanime"))
+        self.assertEqual(store.mappings, [])
 
     async def test_failure_cache_is_short_lived_and_not_a_mapping(self):
         store = Store()

@@ -168,6 +168,25 @@ test("Episode contracts distinguish public-provider unavailability from an empty
   assert.equal(empty.items.length, 0);
 });
 
+test("Source defaults use provider and slug as one identity", () => {
+  const sharedSlug = "mushoku-tensei-iii-isekai-ittara-honki-dasu";
+  const payload = {
+    sources: [
+      { provider: "anime4up", slug: sharedSlug, title: "Mushoku Tensei III", verified: true },
+      { provider: "witanime", slug: sharedSlug, title: "Mushoku Tensei III", verified: true },
+    ],
+    selectedSource: sharedSlug,
+    availability: {
+      anime4up: { status: "available", last_status: 200 },
+      witanime: { status: "unknown", last_status: null },
+    },
+  };
+  assert.throws(() => episodes.parseSources(payload), /Ambiguous default source identity/);
+  const parsed = episodes.parseSources({ ...payload, selectedProvider: "anime4up" });
+  assert.equal(parsed.selectedSource, sharedSlug);
+  assert.equal(parsed.selectedProvider, "anime4up");
+});
+
 test("WitAnime references retain provider identity through the catalog watch link", () => {
   const source = { provider: "witanime", sourceSlug: "one-piece", episodeUrl: "https://witanime.site/watch/one-piece/7/" };
   const data = { sourceSlug: "one-piece", sourceProvider: "witanime", sourceTitle: "One Piece", verified: true, items: [{ episode: 7, title: "الحلقة 7", sources: [source] }], page: 1, offset: 0, totalPages: 1, next: null };

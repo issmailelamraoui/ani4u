@@ -69,8 +69,12 @@ export default function CatalogEpisodes({ slug, title }: { slug: string; title: 
         setSources(choices.sources);
         let remembered = "";
         try { remembered = localStorage.getItem(storageKey) || ""; } catch { /* Storage is optional. */ }
-        const source = choices.sources.find((item) => item.slug === choices.selectedSource && item.verified)
-          || choices.sources.find((item) => sourceKey(item) === remembered || item.slug === remembered);
+        const rememberedByIdentity = choices.sources.find((item) => sourceKey(item) === remembered);
+        const legacyRemembered = choices.sources.filter((item) => item.slug === remembered);
+        const source = choices.sources.find((item) => item.slug === choices.selectedSource
+          && item.provider === choices.selectedProvider && item.verified)
+          || rememberedByIdentity
+          || (legacyRemembered.length === 1 ? legacyRemembered[0] : undefined);
         setSelected(source ? sourceKey(source) : "");
         if (!choices.sources.length) {
           if (!controller.signal.aborted) setStatus(externalProvidersUnavailable(choices.availability) ? "unavailable" : "empty");
