@@ -5,10 +5,12 @@ export type ProviderAvailability = Record<EpisodeProvider, { status: ProviderAva
 export type SourceChoices = { sources: EpisodeSource[]; selectedSource: string | null; availability: ProviderAvailability };
 export type EpisodeCursor = { page: number; offset: number };
 export type EpisodeReference = { provider: EpisodeProvider; sourceSlug: string; episodeUrl: string };
+export type RequestedEpisodeSource = { provider: EpisodeProvider; sourceSlug: string };
 export type EpisodeList = {
   sourceSlug: string; sourceProvider: EpisodeProvider; sourceTitle: string; verified: boolean;
   items: { episode: number; title: string; sources: EpisodeReference[] }[];
   page: number; offset: number; totalPages: number; next: EpisodeCursor | null;
+  requestedSource: RequestedEpisodeSource | null;
   availability: ProviderAvailability;
   externalUnavailable: false;
 };
@@ -44,6 +46,11 @@ function provider(value: unknown): EpisodeProvider {
   if (value === "witanime") return "witanime";
   throw new Error("Invalid episode provider");
 }
+function requestedSource(value: unknown): RequestedEpisodeSource | null {
+  if (value == null) return null;
+  const source = object(value);
+  return { provider: provider(source.provider), sourceSlug: sourceSlug(source.sourceSlug) };
+}
 function referenceUrl(value: unknown, source: EpisodeProvider): string {
   const url = new URL(text(value));
   const anime4up = source === "anime4up"
@@ -71,7 +78,10 @@ function availability(value: unknown): ProviderAvailability {
   for (const name of ["anime4up", "witanime"] as const) {
     const item = object(data[name]);
     const status = item.status;
-    const lastStatus = item.last_status;
+    // The FastAPI payload uses snake_case. The server-side Next.js adapter
+    // normalizes it to camelCase before the browser validates the same payload
+    // again, so both representations are valid at this boundary.
+    const lastStatus = "last_status" in item ? item.last_status : item.lastStatus;
     if (status !== "unknown" && status !== "available" && status !== "unavailable") throw new Error("Invalid provider availability");
     if (lastStatus !== null && (typeof lastStatus !== "number" || !Number.isInteger(lastStatus) || lastStatus < 100 || lastStatus > 599)) throw new Error("Invalid provider status");
     defaults[name] = { status, lastStatus };
@@ -105,8 +115,13 @@ export function parseEpisodes(value: unknown, expectedSource?: EpisodeSource | s
   }
   const selected = sourceSlug(data.sourceSlug);
   const selectedProvider = provider(data.sourceProvider);
+  const requested = requestedSource(data.requestedSource);
   if (typeof expectedSource === "string" && selected !== expectedSource) throw new Error("Episode source mismatch");
-  if (typeof expectedSource === "object" && (selected !== expectedSource.slug || selectedProvider !== expectedSource.provider)) throw new Error("Episode source mismatch");
+  if (typeof expectedSource === "object") {
+    const selectedMatches = selected === expectedSource.slug && selectedProvider === expectedSource.provider;
+    const fallbackMatches = requested?.sourceSlug === expectedSource.slug && requested.provider === expectedSource.provider;
+    if (!selectedMatches && !fallbackMatches) throw new Error("Episode source mismatch");
+  }
   if (!Array.isArray(data.items) || data.items.length > 30) throw new Error("Invalid episode page size");
   const next = data.next == null ? null : object(data.next);
   const numbers = new Set<number>();
@@ -136,6 +151,7 @@ export function parseEpisodes(value: unknown, expectedSource?: EpisodeSource | s
     }),
     page: integer(data.page, 1, 1000), offset: integer(data.offset, 0, 30000), totalPages: integer(data.totalPages, 1, 1000),
     next: next ? { page: integer(next.page, 1, 1000), offset: integer(next.offset, 0, 30000) } : null,
+    requestedSource: requested,
     availability: providerAvailability,
   };
   // The source identity stays available for a mapped title even when both

@@ -141,6 +141,8 @@ test("Episode contracts distinguish public-provider unavailability from an empty
     },
   });
   assert.equal(episodes.externalProvidersUnavailable(unavailable.availability), true);
+  const roundTrippedSources = episodes.parseSources(unavailable);
+  assert.equal(roundTrippedSources.availability.anime4up.lastStatus, 403);
 
   const blocked = episodes.parseEpisodes({
     items: [], sources: [], selectedSource: null, page: 1, offset: 0, totalPages: 1, next: null,
@@ -152,6 +154,7 @@ test("Episode contracts distinguish public-provider unavailability from an empty
   });
   assert.equal(blocked.externalUnavailable, true);
   assert.equal(blocked.items.length, 0);
+  assert.equal(episodes.parseEpisodes(blocked).externalUnavailable, true);
 
   const empty = episodes.parseEpisodes({
     sourceSlug: "one-piece", sourceProvider: "anime4up", sourceTitle: "One Piece", verified: true,
@@ -176,6 +179,31 @@ test("WitAnime references retain provider identity through the catalog watch lin
   );
   assert.throws(() => episodes.parseEpisodes({ ...data, sourceProvider: "anime4up" }));
   assert.throws(() => episodes.parseEpisodes({ ...data, items: [{ ...data.items[0], sources: [source, source] }] }));
+});
+
+test("An intentional WitAnime fallback satisfies the original Anime4Up request", () => {
+  const requested = { provider: "anime4up", slug: "mushoku-tensei-iii-isekai-ittara-honki-dasu", title: "Mushoku Tensei Season 3", verified: true };
+  const fallback = {
+    sourceSlug: "mushoku-tensei-iii-isekai-ittara-honki-dasu", sourceProvider: "witanime",
+    sourceTitle: "Mushoku Tensei III", verified: true,
+    requestedSource: { provider: "anime4up", sourceSlug: requested.slug },
+    items: [{ episode: 1, title: "الحلقة 1", sources: [{
+      provider: "witanime", sourceSlug: requested.slug,
+      episodeUrl: "https://witanime.site/watch/mushoku-tensei-iii-isekai-ittara-honki-dasu/1",
+    }] }],
+    page: 1, offset: 0, totalPages: 1, next: null,
+    availability: {
+      anime4up: { status: "unavailable", last_status: 403 },
+      witanime: { status: "available", last_status: 200 },
+    },
+    externalUnavailable: false,
+  };
+  const parsed = episodes.parseEpisodes(fallback, requested);
+  assert.equal(parsed.items.length, 1);
+  assert.equal(parsed.sourceProvider, "witanime");
+  assert.throws(() => episodes.parseEpisodes({ ...fallback, requestedSource: undefined }, requested));
+  // The Next route and browser intentionally validate this response twice.
+  assert.equal(episodes.parseEpisodes(parsed, requested).items.length, 1);
 });
 
 test("Invalid mapping paths cannot become source links", () => {

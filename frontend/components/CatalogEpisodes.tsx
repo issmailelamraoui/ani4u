@@ -14,9 +14,18 @@ async function request(params: Record<string, string>, controller: AbortControll
   const abort = () => timeout.abort();
   controller.signal.addEventListener("abort", abort, { once: true });
   try {
-    const response = await fetch(`/api/catalog/episodes?${new URLSearchParams(params)}`, { signal: timeout.signal, cache: "no-store" });
-    if (!response.ok) throw new Error("Episode lookup failed");
-    return response.json();
+    const url = `/api/catalog/episodes?${new URLSearchParams(params)}`;
+    console.info(`[catalog episodes] frontend request ${url}`);
+    const response = await fetch(url, { signal: timeout.signal, cache: "no-store" });
+    const payload = await response.json();
+    console.info(`[catalog episodes] frontend response status=${response.status}`, payload);
+    if (!response.ok) {
+      const detail = payload && typeof payload === "object" && typeof payload.detail === "string"
+        ? payload.detail
+        : "Episode lookup failed";
+      throw new Error(`HTTP ${response.status}: ${detail}`);
+    }
+    return payload;
   } finally {
     window.clearTimeout(timer);
     controller.signal.removeEventListener("abort", abort);
@@ -28,6 +37,7 @@ export default function CatalogEpisodes({ slug, title }: { slug: string; title: 
   const [selected, setSelected] = useState("");
   const [data, setData] = useState<EpisodeList | null>(null);
   const [status, setStatus] = useState<EpisodeStatus>("loading");
+  const [errorMessage, setErrorMessage] = useState("");
   const [query, setQuery] = useState("");
   const [revision, setRevision] = useState(0);
   const [history, setHistory] = useState<EpisodeCursor[]>([]);
@@ -53,6 +63,7 @@ export default function CatalogEpisodes({ slug, title }: { slug: string; title: 
         await Promise.resolve();
         if (controller.signal.aborted) return;
         setStatus("loading");
+        setErrorMessage("");
         const choices = parseSources(await request({ slug, mode: "sources", ...(query ? { q: query } : {}) }, controller));
         if (controller.signal.aborted) return;
         setSources(choices.sources);
@@ -70,14 +81,25 @@ export default function CatalogEpisodes({ slug, title }: { slug: string; title: 
           return;
         }
         if (source) {
-          const list = parseEpisodes(await request({ slug, mode: "episodes", source: source.slug, provider: source.provider, ...(query ? { q: query } : {}) }, controller), source);
+          const list = parseEpisodes(await request({
+            slug,
+            mode: "episodes",
+            source: source.slug,
+            provider: source.provider,
+            page: "1",
+            offset: "0",
+            ...(query ? { q: query } : {}),
+          }, controller), source);
           if (!controller.signal.aborted) {
             setData(list.externalUnavailable ? null : list);
             setStatus(list.externalUnavailable ? "unavailable" : list.items.length ? "ready" : "empty");
           }
         }
-      } catch {
-        if (!controller.signal.aborted) setStatus("error");
+      } catch (error) {
+        if (!controller.signal.aborted) {
+          setErrorMessage(error instanceof Error ? error.message : "Unknown episode error");
+          setStatus("error");
+        }
       } finally {
         // A future parser or transport failure must never strand this panel in
         // its loading copy. Aborted stale effects are owned by their successor.
@@ -97,6 +119,7 @@ export default function CatalogEpisodes({ slug, title }: { slug: string; title: 
     pending.current = controller;
     setSelected(sourceKey(source));
     setStatus("loading");
+    setErrorMessage("");
     setFailedCursor(cursor);
     if (direction === "reset") { setData(null); setHistory([]); }
     try {
@@ -114,8 +137,11 @@ export default function CatalogEpisodes({ slug, title }: { slug: string; title: 
       setFailedCursor(null);
       setStatus(list.items.length ? "ready" : "empty");
       try { localStorage.setItem(storageKey, sourceKey(source)); } catch { /* Storage is optional. */ }
-    } catch {
-      if (!controller.signal.aborted) setStatus("error");
+    } catch (error) {
+      if (!controller.signal.aborted) {
+        setErrorMessage(error instanceof Error ? error.message : "Unknown episode error");
+        setStatus("error");
+      }
     } finally {
       if (!controller.signal.aborted) setStatus((current) => current === "loading" ? "error" : current);
     }
@@ -128,9 +154,9 @@ export default function CatalogEpisodes({ slug, title }: { slug: string; title: 
     {sources.length > 0 && <div className="nova-source-picker"><label htmlFor="episode-source">{selected ? "العنوان المرتبط بالحلقات" : "اختر العنوان والموسم المطابق"}</label><select id="episode-source" value={selected} disabled={hydrated && status === "loading"} onChange={(event) => { const source = sources.find((item) => sourceKey(item) === event.target.value); if (source) void load(source, { page: 1, offset: 0 }, "reset"); }}><option value="" disabled>اختر عنوانًا لعرض حلقاته</option>{sources.map((source) => <option key={sourceKey(source)} value={sourceKey(source)}>{source.title}{source.verified ? " — مطابق" : ""}</option>)}</select></div>}
     {status === "loading" && <p className="nova-episode-message" role="status">جارٍ تحميل قائمة الحلقات…</p>}
     {status === "unavailable" && <p className="nova-episode-message" role="status">سيرفرات الحلقات الخارجية غير متاحة حالياً.</p>}
-    {status === "error" && <div className="nova-episode-error" role="alert"><p>تعذّر تحميل الحلقات. حاول مرة أخرى.</p><button className="nova-secondary" type="button" onClick={() => {
+    {status === "error" && <div className="nova-episode-error" role="alert"><p>تعذّر تحميل الحلقات. {errorMessage && <small dir="ltr">{errorMessage}</small>}</p><button className="nova-secondary" type="button" onClick={() => {
       if (failedCursor && selectedSource) void load(selectedSource, failedCursor, "retry");
-      else { setStatus("loading"); setRevision((value) => value + 1); }
+      else { setStatus("loading"); setErrorMessage(""); setRevision((value) => value + 1); }
     }}>حاول مجددًا</button></div>}
     {status === "choose-source" && <p className="nova-episode-message">وجدنا هذه العناوين. اختر الموسم المقصود لعرض حلقاته.</p>}
     {status === "empty" && !data && <p className="nova-episode-message">لم نعثر على مصدر حلقات مطابق لهذا الأنمي. جرّب اسمًا بديلًا أدناه.</p>}

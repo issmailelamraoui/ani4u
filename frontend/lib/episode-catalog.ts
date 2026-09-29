@@ -35,10 +35,27 @@ export async function getEpisodeCatalog(params: URLSearchParams, requestSignal?:
     const signal = requestSignal
       ? AbortSignal.any([requestSignal, AbortSignal.timeout(EPISODE_LOOKUP_TIMEOUT_MS)])
       : AbortSignal.timeout(EPISODE_LOOKUP_TIMEOUT_MS);
+    console.info(`[catalog episodes proxy] request ${url.pathname}${url.search}`);
     const response = await fetch(url, { cache: "no-store", headers: { Accept: "application/json" }, signal });
-    if (!response.ok) throw new CatalogError(response.status);
     const data = await response.json();
-    return mode === "sources" ? parseSources(data) : parseEpisodes(data);
+    console.info(`[catalog episodes proxy] response status=${response.status} mode=${mode}`);
+    if (!response.ok) {
+      console.error("[catalog episodes proxy] backend error response", data);
+      const detail = data && typeof data === "object" && "detail" in data && typeof data.detail === "string"
+        ? data.detail
+        : `Backend returned HTTP ${response.status}`;
+      throw new CatalogError(response.status, detail);
+    }
+    try {
+      const parsed = mode === "sources" ? parseSources(data) : parseEpisodes(data);
+      console.info(
+        `[catalog episodes proxy] parsed mode=${mode} items=${"items" in parsed ? parsed.items.length : 0}`,
+      );
+      return parsed;
+    } catch (error) {
+      console.error("[catalog episodes proxy] rejected backend response", data, error);
+      throw error;
+    }
   } catch (error) {
     unstable_rethrow(error);
     if (error instanceof CatalogError) throw error;

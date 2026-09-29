@@ -95,6 +95,9 @@ class CatalogProviderFallbackTests(unittest.IsolatedAsyncioTestCase):
         response = await self.service.episodes(SLUG, None)
         self.assertEqual(response["sourceProvider"], "witanime")
         ref = response["items"][0]["sources"][0]
+        self.assertEqual(response["requestedSource"], {
+            "provider": "anime4up", "sourceSlug": SOURCE,
+        })
         self.assertEqual(ref, {"provider": "witanime", "sourceSlug": "one-piece", "episodeUrl": "https://witanime.site/watch/one-piece/7/"})
         servers = await self.service.episode_servers(ref["provider"], ref["episodeUrl"])
         self.assertEqual(servers["servers"][0]["embed_url"], "https://player.example/e/7")

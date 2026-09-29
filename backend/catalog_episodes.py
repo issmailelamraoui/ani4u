@@ -273,6 +273,11 @@ class EpisodeCatalog:
 
             for attempt in range(1, 3):
                 try:
+                    print(
+                        f"[catalog episodes] requesting source page "
+                        f"provider=anime4up source={slug} page={page}",
+                        flush=True,
+                    )
                     async with asyncio.timeout(8):
                         html = await self.scraper.get_html(url)
                     self.provider_manager.mark_available("anime4up")
@@ -445,9 +450,9 @@ class EpisodeCatalog:
         rows = await self.provider_manager.episodes_for("witanime", candidate["slug"])
         return self._witanime_page(rows, page, offset) if rows else None
 
-    def _response(self, candidate, data, page, offset):
+    def _response(self, candidate, data, page, offset, requested_candidate=None):
         chunk = data["items"]
-        return {
+        response = {
             "sourceSlug": candidate["slug"], "sourceTitle": candidate["title"],
             "sourceProvider": candidate["provider"], "verified": candidate["verified"],
             # Episode identity always carries its provider. The watch route
@@ -459,6 +464,22 @@ class EpisodeCatalog:
             "availability": self._availability(),
             "externalUnavailable": self._both_external_providers_unavailable(),
         }
+        if requested_candidate and (
+            requested_candidate["provider"] != candidate["provider"]
+            or requested_candidate["slug"] != candidate["slug"]
+        ):
+            # Let the frontend verify that a provider/source mismatch is an
+            # intentional backend fallback, not an unrelated response.
+            response["requestedSource"] = {
+                "provider": requested_candidate["provider"],
+                "sourceSlug": requested_candidate["slug"],
+            }
+        print(
+            f"[catalog episodes] parsed {len(chunk)} episodes "
+            f"provider={candidate['provider']} source={candidate['slug']}",
+            flush=True,
+        )
+        return response
 
     async def episodes(self, slug, selected, page=1, offset=0, query=None, provider=None):
         anime = (await self.catalog.detail_by_slug(slug))["data"]
@@ -476,6 +497,15 @@ class EpisodeCatalog:
             if self._both_external_providers_unavailable():
                 return self._unavailable_response(None, page, offset)
             raise HTTPException(409, "Choose a source title from this anime's candidates")
+        requested_candidate = candidate
+        print(
+            f"[catalog episodes] selected source={candidate['slug']}",
+            flush=True,
+        )
+        print(
+            f"[catalog episodes] provider={candidate['provider']}",
+            flush=True,
+        )
         if candidate["provider"] == "witanime":
             data = await self._witanime_data(candidate, page, offset)
             if data:
@@ -505,7 +535,7 @@ class EpisodeCatalog:
                 item_count = len(data["items"])
                 chunk = data["items"][offset:offset + 30]
                 data = {**data, "items": chunk, "next": {"page": page, "offset": offset + 30} if offset + 30 < item_count else ({"page": page + 1, "offset": 0} if page < total_pages else None)}
-                return self._response(candidate, data, page, offset)
+                return self._response(candidate, data, page, offset, requested_candidate)
         except HTTPException:
             raise
         except Exception as exc:
@@ -514,7 +544,13 @@ class EpisodeCatalog:
         fallback = await self._witanime_fallback(anime, query)
         if fallback:
             fallback_candidate, rows = fallback
-            return self._response(fallback_candidate, self._witanime_page(rows, page, offset), page, offset)
+            return self._response(
+                fallback_candidate,
+                self._witanime_page(rows, page, offset),
+                page,
+                offset,
+                requested_candidate,
+            )
         if isinstance(primary_error, ProviderUnavailable):
             return self._unavailable_response(candidate, page, offset)
         if primary_error:
