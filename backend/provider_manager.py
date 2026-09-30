@@ -193,16 +193,23 @@ class ProviderManager:
                 return ({"provider": FALLBACK_PROVIDER, "slug": source_slug, "title": title, "verified": True}, episodes)
         return None
 
-    async def get_episode_servers(self, provider_name: str, episode_url: str) -> list[dict]:
+    async def episode_server_candidates(
+        self, provider_name: str, episode_url: str
+    ) -> tuple[list[dict], list[dict]]:
+        """Return provider rows and the validated public playback subset.
+
+        The first list is useful for watch diagnostics.  It is still data from
+        the provider adapter (never raw HTML or private tokens); the second list
+        contains only unique public HTTPS playback URLs accepted by NOVA.
+        """
         provider = self.provider(provider_name)
         if not provider.valid_episode_url(episode_url):
             raise ValueError("Unsupported provider episode URL")
         rows = await self._call(provider_name, "get_episode_servers", episode_url)
+        candidates = [dict(row) for row in rows if isinstance(row, dict)] if isinstance(rows, list) else []
         servers: list[dict] = []
         seen_urls: set[str] = set()
-        for row in rows if isinstance(rows, list) else []:
-            if not isinstance(row, dict):
-                continue
+        for row in candidates:
             embed_url = row.get("embed_url")
             if not isinstance(embed_url, str):
                 continue
@@ -215,4 +222,8 @@ class ProviderManager:
                 continue
             seen_urls.add(key)
             servers.append(dict(row))
+        return candidates, servers
+
+    async def get_episode_servers(self, provider_name: str, episode_url: str) -> list[dict]:
+        _, servers = await self.episode_server_candidates(provider_name, episode_url)
         return servers

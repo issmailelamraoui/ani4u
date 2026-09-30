@@ -10,7 +10,7 @@ import {
   getAnimeEpisodes,
   getAnimeHref,
   getEpisodePlayer,
-  getCatalogEpisodeServers,
+  getCatalogWatchServers,
   getEpisodeServers,
   getEpisodeDownloads,
   type Anime,
@@ -270,13 +270,30 @@ export default async function WatchPage({ params, searchParams }: Props) {
   let serverError: string | undefined;
   const legacyEpisodeExists = !providerContext && legacyEpisodes?.episodes.some((item) => item.episode === episodeNumber) === true;
 
-  // A catalog reference always retains its source provider. Legacy links keep
-  // their original Anime4Up resolver and response shape.
+  // Episode discovery and playback are separate decisions. A catalog link
+  // retains its episode reference, while the backend independently tries the
+  // verified Anime4Up mapping before that reference can act as a fallback.
   if (providerContext) {
     try {
-      const resolved = await getCatalogEpisodeServers(providerContext.provider, providerContext.episodeUrl);
-      if (resolved.provider === "witanime") witanimeServers = { ...resolved, cached: true };
-      else servers = { ...resolved, cached: true };
+      const resolved = await getCatalogWatchServers(slug, episodeNumber, {
+        provider: providerContext.provider,
+        episodeUrl: providerContext.episodeUrl,
+        sourceSlug: requestedSource,
+        requestedAnime4upSource: originalProvider === "anime4up" ? originalSource : null,
+        allowEpisodeFallback: !(catalogStream?.servers.length),
+      });
+      const anime4up = resolved.attempts.find((attempt) => attempt.provider === "anime4up");
+      const witanime = resolved.attempts.find((attempt) => attempt.provider === "witanime");
+      if (anime4up?.episodeUrl) {
+        servers = { url: anime4up.episodeUrl, count: anime4up.count, cached: false, servers: anime4up.servers };
+      }
+      if (witanime?.episodeUrl) {
+        witanimeServers = { url: witanime.episodeUrl, count: witanime.count, cached: false, servers: witanime.servers };
+      }
+      if (!anime4up?.count && !witanime?.count
+        && resolved.attempts.some((attempt) => attempt.status === "unavailable" || attempt.status === "error")) {
+        serverError = "سيرفرات المشاهدة غير متاحة حالياً.";
+      }
     } catch (error) {
       serverError = message(error);
     }
@@ -290,18 +307,18 @@ export default async function WatchPage({ params, searchParams }: Props) {
 
   const unifiedServers = mergeStreamServers(catalogStream?.servers ?? [], servers?.servers ?? [], witanimeServers?.servers ?? []);
   const selectedUnified = selectStreamServer(unifiedServers, requestedServer);
-  const selectedLegacy = selectedUnified?.source === "legacy" ? selectedUnified.server : undefined;
+  const selectedAnime4up = selectedUnified?.source === "anime4up" ? selectedUnified.server : undefined;
 
   let player: PlayerResponse | undefined;
   let playerError: string | undefined;
 
-  if (selectedLegacy && selectedUnified?.type === "iframe" && !providerContext) {
+  if (selectedAnime4up && selectedUnified?.type === "iframe" && !providerContext) {
     try {
       player = await getEpisodePlayer(
         slug,
         episodeNumber,
-        selectedLegacy.name,
-        selectedLegacy.id || undefined,
+        selectedAnime4up.name,
+        selectedAnime4up.id || undefined,
       );
     } catch (error) {
       playerError = message(error);

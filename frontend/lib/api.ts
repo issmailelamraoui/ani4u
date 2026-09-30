@@ -24,6 +24,22 @@ export type EpisodeServer = {
 export type ServersResponse = { url: string; count: number; cached: boolean; servers: EpisodeServer[] };
 export type EpisodeProvider = "anime4up" | "witanime";
 export type ProviderServersResponse = { provider: EpisodeProvider; url: string; count: number; servers: EpisodeServer[] };
+export type WatchServerAttempt = {
+  provider: EpisodeProvider;
+  sourceSlug: string | null;
+  episodeUrl: string | null;
+  status: "available" | "empty" | "unavailable" | "error" | "not_found" | "not_mapped";
+  upstreamStatus: number | null;
+  rawCandidateCount: number;
+  count: number;
+  servers: EpisodeServer[];
+};
+export type CatalogWatchServersResponse = {
+  animeSlug: string;
+  episode: number;
+  selectedProvider: EpisodeProvider | null;
+  attempts: WatchServerAttempt[];
+};
 export type EpisodeDownload = { url: string; server: string; quality: string | null; language: string | null };
 export type DownloadsResponse = { url: string; downloads: EpisodeDownload[] };
 export type PlayerResponse = {
@@ -99,6 +115,18 @@ function providerEpisodeUrl(provider: EpisodeProvider, value: string): URL {
     throw new Error(`Unsupported ${provider} episode URL: ${url.href}`);
   }
   return url;
+}
+
+function episodeProvider(value: unknown): EpisodeProvider {
+  if (value !== "anime4up" && value !== "witanime") throw new Error("Invalid episode provider");
+  return value;
+}
+
+function optionalSourceSlug(value: unknown): string | null {
+  if (value === null || value === undefined) return null;
+  const slug = string(value, "source slug");
+  if (!/^[\p{L}\p{N}_-]{1,220}$/u.test(slug)) throw new Error("Invalid source slug");
+  return slug;
 }
 
 function playbackType(value: unknown, url: URL): PlaybackType {
@@ -316,6 +344,73 @@ export async function getCatalogEpisodeServers(provider: EpisodeProvider, episod
     const servers = parseList(data, "servers", (item): EpisodeServer => episodeServer(item, true))
       .filter((server) => provider !== "witanime" || publicWitAnimePlayer(server.embedUrl!));
     return { provider, url: validated.href, count: servers.length, servers };
+  });
+}
+
+/** Resolve playback independently from episode discovery: Anime4Up first, then the episode reference. */
+export async function getCatalogWatchServers(
+  animeSlug: string,
+  episode: number,
+  selected: {
+    provider: EpisodeProvider;
+    episodeUrl: string;
+    sourceSlug?: string | null;
+    requestedAnime4upSource?: string | null;
+    allowEpisodeFallback?: boolean;
+  },
+): Promise<CatalogWatchServersResponse> {
+  if (!/^[a-z0-9-]{1,220}$/.test(animeSlug)) throw new Error("Invalid catalog anime slug");
+  if (!Number.isFinite(episode) || episode < 0 || episode > 100000) throw new Error("Invalid episode number");
+  const validatedUrl = providerEpisodeUrl(selected.provider, selected.episodeUrl);
+  const sourceSlug = optionalSourceSlug(selected.sourceSlug);
+  const requestedSource = optionalSourceSlug(selected.requestedAnime4upSource);
+  return request("/api/catalog/watch-servers", {
+    slug: animeSlug,
+    episode: String(episode),
+    provider: selected.provider,
+    url: validatedUrl.href,
+    ...(sourceSlug ? { source: sourceSlug } : {}),
+    ...(requestedSource ? { requested_source: requestedSource } : {}),
+    ...(selected.allowEpisodeFallback === false ? { fallback: "false" } : {}),
+  }, (value) => {
+    const data = object(value);
+    if (data.animeSlug !== animeSlug || data.episode !== episode) throw new Error("Watch request mismatch");
+    const selectedProvider = data.selectedProvider === null ? null : episodeProvider(data.selectedProvider);
+    if (selectedProvider !== selected.provider) throw new Error("Selected watch provider mismatch");
+    const attempts = parseList(data, "attempts", (value): WatchServerAttempt => {
+      const item = object(value);
+      const provider = episodeProvider(item.provider);
+      const sourceSlug = optionalSourceSlug(item.sourceSlug);
+      const episodeUrl = item.episodeUrl == null
+        ? null
+        : providerEpisodeUrl(provider, string(item.episodeUrl, "watch episode URL")).href;
+      const statuses = new Set(["available", "empty", "unavailable", "error", "not_found", "not_mapped"]);
+      if (typeof item.status !== "string" || !statuses.has(item.status)) throw new Error("Invalid watch attempt status");
+      const upstreamStatus = item.upstreamStatus == null ? null : Number(item.upstreamStatus);
+      if (upstreamStatus !== null && (!Number.isInteger(upstreamStatus) || upstreamStatus < 100 || upstreamStatus > 599)) {
+        throw new Error("Invalid upstream status");
+      }
+      const rawCandidateCount = Number(item.rawCandidateCount);
+      if (!Number.isInteger(rawCandidateCount) || rawCandidateCount < 0) throw new Error("Invalid raw server count");
+      const servers = parseList(item, "servers", (row): EpisodeServer => episodeServer(row, true))
+        .filter((server) => provider !== "witanime" || publicWitAnimePlayer(server.embedUrl!));
+      if (servers.length && episodeUrl === null) throw new Error("Servers require an episode URL");
+      return {
+        provider,
+        sourceSlug,
+        episodeUrl,
+        status: item.status as WatchServerAttempt["status"],
+        upstreamStatus,
+        rawCandidateCount,
+        count: servers.length,
+        servers,
+      };
+    });
+    if (!attempts.length || attempts[0].provider !== "anime4up"
+      || new Set(attempts.map((attempt) => attempt.provider)).size !== attempts.length) {
+      throw new Error("Invalid watch provider priority");
+    }
+    return { animeSlug, episode, selectedProvider, attempts };
   });
 }
 

@@ -264,7 +264,7 @@ test("Fansub servers are first, then Anime4Up, then WitAnime; public URLs dedupl
     { source: "asahi", host: "dl.dropboxusercontent.com", type: "direct", url: "https://video.test/a.mp4", tested: true, working: true },
     { source: "omarhidan", host: "google-drive", type: "iframe", url: "https://drive.google.com/file/d/abc/preview", tested: true, working: true },
   ];
-  const legacy = [
+  const anime4up = [
     { name: "Dropbox mirror", id: "1", attributes: {}, embedUrl: "https://video.test/a.mp4", type: "direct" },
     { name: "Vidmoly", id: "2", attributes: {}, embedUrl: "https://vidmoly.test/e/abc", type: "iframe" },
     { name: "Vidmoly", id: "3", attributes: {}, embedUrl: "https://vidmoly.test/e/def", type: "iframe" },
@@ -273,10 +273,11 @@ test("Fansub servers are first, then Anime4Up, then WitAnime; public URLs dedupl
     { name: "same display name", id: "w1", attributes: {}, embedUrl: "https://vidmoly.test/e/abc#ignored", type: "iframe" },
     { name: "Wit player", id: "w2", attributes: {}, embedUrl: "https://streamwish.test/e/xyz", type: "iframe" },
   ];
-  const merged = streamServers.mergeStreamServers(fansub, legacy, witanime);
-  assert.equal(merged.map((server) => server.source).join(","), "fansub,fansub,legacy,legacy,witanime");
+  const merged = streamServers.mergeStreamServers(fansub, anime4up, witanime);
+  assert.equal(merged.map((server) => server.source).join(","), "fansub,fansub,anime4up,anime4up,witanime");
   assert.equal(merged[0].type, "direct");
   assert.equal(merged[2].server.id, "2");
+  assert.equal(streamServers.selectStreamServer(merged, "anime4up:Vidmoly:3").server.id, "3");
   assert.equal(streamServers.selectStreamServer(merged, "legacy:Vidmoly:3").server.id, "3");
   assert.equal(streamServers.selectStreamServer(merged, "Vidmoly").server.id, "2");
 });

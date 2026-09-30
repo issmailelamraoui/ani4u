@@ -114,6 +114,157 @@ class CatalogProviderFallbackTests(unittest.IsolatedAsyncioTestCase):
         choices = await self.service.sources(SLUG)
         self.assertEqual(choices["selectedProvider"], "anime4up")
 
+    async def test_watch_uses_verified_anime4up_mapping_before_witanime_reference(self):
+        anime4up_episode = f"{BASE_URL}/episode/one-piece-1/"
+        self.scraper.servers = AsyncMock(return_value=[
+            {
+                "name": "megamax", "id": "1", "attributes": {},
+                "embed_url": "https://share4max.com/iframe/one-piece",
+            },
+        ])
+        wit = FakeWitAnime(
+            [{"episode": 1, "url": "https://witanime.site/watch/one-piece/1/"}],
+            servers=[{
+                "name": "Wit player", "id": "1", "attributes": {},
+                "embed_url": "https://player.example/e/one-piece",
+            }],
+        )
+        await self.make_service(wit)
+
+        result = await self.service.watch_servers(
+            SLUG,
+            1,
+            "witanime",
+            "https://witanime.site/watch/one-piece/1/",
+            "one-piece",
+            SOURCE,
+        )
+
+        self.assertEqual([item["provider"] for item in result["attempts"]], ["anime4up"])
+        primary = result["attempts"][0]
+        self.assertEqual(primary["episodeUrl"], anime4up_episode)
+        self.assertEqual(primary["upstreamStatus"], 200)
+        self.assertEqual(primary["rawCandidateCount"], 1)
+        self.assertEqual(primary["count"], 1)
+        self.assertEqual(primary["servers"][0]["type"], "iframe")
+        self.scraper.servers.assert_awaited_once_with(anime4up_episode)
+        wit.get_episode_servers.assert_not_awaited()
+
+    async def test_watch_falls_back_only_after_anime4up_source_page_403(self):
+        self.scraper.get_html = AsyncMock(side_effect=RuntimeError("Anime4up returned HTTP 403"))
+        wit = FakeWitAnime(
+            [{"episode": 1, "url": "https://witanime.site/watch/one-piece/1/"}],
+            servers=[{
+                "name": "Wit player", "id": "1", "attributes": {},
+                "embed_url": "https://player.example/e/one-piece",
+            }],
+        )
+        await self.make_service(wit)
+
+        result = await self.service.watch_servers(
+            SLUG,
+            1,
+            "witanime",
+            "https://witanime.site/watch/one-piece/1/",
+            "one-piece",
+            SOURCE,
+        )
+
+        self.assertEqual([item["provider"] for item in result["attempts"]], ["anime4up", "witanime"])
+        primary, fallback = result["attempts"]
+        self.assertEqual(primary["status"], "unavailable")
+        self.assertEqual(primary["upstreamStatus"], 403)
+        self.assertIsNone(primary["episodeUrl"])
+        self.assertEqual(fallback["status"], "available")
+        self.assertEqual(fallback["count"], 1)
+        wit.get_episode_servers.assert_awaited_once()
+
+    async def test_watch_skips_witanime_when_validated_fansub_already_covers_episode(self):
+        self.scraper.get_html = AsyncMock(side_effect=RuntimeError("Anime4up returned HTTP 403"))
+        wit = FakeWitAnime(
+            [{"episode": 1, "url": "https://witanime.site/watch/one-piece/1/"}],
+            servers=[{
+                "name": "Wit player", "id": "1", "attributes": {},
+                "embed_url": "https://player.example/e/one-piece",
+            }],
+        )
+        await self.make_service(wit)
+
+        result = await self.service.watch_servers(
+            SLUG,
+            1,
+            "witanime",
+            "https://witanime.site/watch/one-piece/1/",
+            "one-piece",
+            SOURCE,
+            False,
+        )
+
+        self.assertEqual([item["provider"] for item in result["attempts"]], ["anime4up"])
+        wit.get_episode_servers.assert_not_awaited()
+
+    async def test_watch_falls_back_after_anime4up_episode_page_403(self):
+        self.scraper.servers = AsyncMock(side_effect=RuntimeError("Anime4up returned HTTP 403"))
+        wit = FakeWitAnime(
+            [{"episode": 1, "url": "https://witanime.site/watch/one-piece/1/"}],
+            servers=[{
+                "name": "Wit player", "id": "1", "attributes": {},
+                "embed_url": "https://player.example/e/one-piece",
+            }],
+        )
+        await self.make_service(wit)
+
+        result = await self.service.watch_servers(
+            SLUG,
+            1,
+            "witanime",
+            "https://witanime.site/watch/one-piece/1/",
+            "one-piece",
+            SOURCE,
+        )
+
+        primary, fallback = result["attempts"]
+        self.assertEqual(primary["episodeUrl"], f"{BASE_URL}/episode/one-piece-1/")
+        self.assertEqual(primary["status"], "unavailable")
+        self.assertEqual(primary["upstreamStatus"], 403)
+        self.assertEqual(fallback["provider"], "witanime")
+        self.assertEqual(fallback["count"], 1)
+
+    async def test_watch_finds_a_long_series_episode_with_bounded_page_requests(self):
+        def page(numbers):
+            return anime4up_page(numbers) + (
+                f'<a href="{BASE_URL}/anime/{SOURCE}/page/4/">Last</a>'
+            )
+
+        async def html(url):
+            if url.endswith("/page/3/"):
+                return page(range(60, 30, -1))
+            if url.endswith("/page/4/"):
+                return page(range(30, 0, -1))
+            if url.endswith("/page/2/"):
+                return page(range(90, 60, -1))
+            return page(range(120, 90, -1))
+
+        self.scraper.get_html = AsyncMock(side_effect=html)
+        self.scraper.servers = AsyncMock(return_value=[{
+            "name": "megamax", "id": "1", "attributes": {},
+            "embed_url": "https://share4max.com/iframe/episode-one",
+        }])
+        await self.make_service(FakeWitAnime([
+            {"episode": 1, "url": "https://witanime.site/watch/one-piece/1/"},
+        ]))
+
+        result = await self.service.watch_servers(
+            SLUG, 1, "witanime", "https://witanime.site/watch/one-piece/1/",
+            "one-piece", SOURCE,
+        )
+
+        self.assertEqual(result["attempts"][0]["episodeUrl"], f"{BASE_URL}/episode/one-piece-1/")
+        requested = [call.args[0] for call in self.scraper.get_html.await_args_list]
+        self.assertEqual(len(requested), 2)
+        self.assertTrue(requested[1].endswith("/page/4/"))
+        self.assertFalse(any(url.endswith("/page/2/") for url in requested))
+
     async def test_mushoku_same_slug_mappings_always_resolve_verified_anime4up(self):
         self.store.remove_mapping(21, SOURCE)
         self.store.set_mapping(21, MUSHOKU_SOURCE, "Verified Mushoku Anime4Up mapping")

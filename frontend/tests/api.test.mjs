@@ -121,6 +121,38 @@ test("provider-aware catalog server requests preserve a public WitAnime episode 
   await assert.rejects(api.getCatalogEpisodeServers("witanime", episode.url));
 });
 
+test("watch resolution keeps Anime4Up primary when episode discovery used WitAnime", async () => {
+  const slug = "frieren-beyond-journey-s-end-154587";
+  const witEpisode = "https://witanime.site/watch/sousou-no-frieren/1";
+  const anime4upEpisode = "https://w1.anime4up.rest/episode/sousou-no-frieren-الحلقة-1/";
+  const { api, calls } = client([{
+    animeSlug: slug,
+    episode: 1,
+    selectedProvider: "witanime",
+    attempts: [{
+      provider: "anime4up",
+      sourceSlug: "sousou-no-frieren-jfgt",
+      episodeUrl: anime4upEpisode,
+      status: "available",
+      upstreamStatus: 200,
+      rawCandidateCount: 1,
+      count: 1,
+      servers: [{ name: "megamax", id: "1", attributes: {}, embed_url: "https://share4max.com/iframe/frieren", type: "iframe" }],
+    }],
+  }]);
+  const result = await api.getCatalogWatchServers(slug, 1, {
+    provider: "witanime",
+    episodeUrl: witEpisode,
+    sourceSlug: "sousou-no-frieren",
+    requestedAnime4upSource: "sousou-no-frieren-jfgt",
+  });
+  assert.equal(calls[0].url.pathname, "/api/catalog/watch-servers");
+  assert.equal(calls[0].url.searchParams.get("provider"), "witanime");
+  assert.equal(calls[0].url.searchParams.get("requested_source"), "sousou-no-frieren-jfgt");
+  assert.equal(result.attempts[0].provider, "anime4up");
+  assert.equal(result.attempts[0].servers[0].embedUrl, "https://share4max.com/iframe/frieren");
+});
+
 test("provider server parsing hides WitAnime ads and blocked watch pages", async () => {
   const witEpisode = "https://witanime.site/watch/mushoku-tensei-iii-isekai-ittara-honki-dasu/1";
   const { api } = client([{

@@ -1,6 +1,7 @@
-"""Catalog-to-source title matching and bounded episode lists. No server lookup."""
+"""Catalog source matching, bounded episode lists, and provider-aware watch lookup."""
 
 import asyncio
+import json
 import re
 import time
 import unicodedata
@@ -13,7 +14,7 @@ from anilist_provider import AnimeNotFound, ProviderError
 from anime4up_scraper import BASE_URL, SOURCE_HOST_SUFFIX
 from provider_manager import ProviderManager
 from providers.anime4up import Anime4upProvider
-from providers.base import ProviderUnavailable
+from providers.base import ProviderUnavailable, SourceProviderError
 
 
 def title_key(value):
@@ -120,6 +121,22 @@ def _episode_series_key(url):
     if slug == original:
         slug = re.sub(r"[-_\s]+\d+(?:\.\d+)?$", "", slug)
     return title_key(slug)
+
+
+def _playback_type(url):
+    path = urlparse(url).path.lower()
+    if path.endswith(".m3u8"):
+        return "hls"
+    if path.endswith((".mp4", ".m4v", ".webm", ".ogv", ".ogg")):
+        return "direct"
+    return "iframe"
+
+
+def _upstream_status(error):
+    if isinstance(error, ProviderUnavailable):
+        return error.status
+    match = re.search(r"\bHTTP\s+(\d{3})\b", str(error), flags=re.I)
+    return int(match.group(1)) if match else None
 
 
 def _fallback_episode_grid(soup, scraper, base):
@@ -623,6 +640,293 @@ class EpisodeCatalog:
             raise primary_error
         return self._response(candidate, {"items": [], "pages": 1, "next": None}, page, offset)
 
+    @staticmethod
+    def _anime4up_watch_source(
+        anime, selected_provider=None, selected_source=None, requested_source=None
+    ):
+        """Choose only a verified Anime4Up mapping for playback lookup."""
+        mappings = [
+            item for item in anime.get("sourceMappings", [])
+            if item.get("source") == "anime4up"
+            and isinstance(item.get("slug"), str)
+        ]
+        preferred = []
+        if requested_source:
+            preferred.append(requested_source)
+        if selected_provider == "anime4up" and selected_source:
+            preferred.append(selected_source)
+        for source_slug in preferred:
+            if any(item["slug"] == source_slug for item in mappings):
+                return source_slug
+        return mappings[0]["slug"] if len(mappings) == 1 else None
+
+    async def _anime4up_watch_episode_url(self, source_slug, episode):
+        """Find one exact public episode URL without crawling a long series."""
+        target = float(episode)
+
+        def match(data):
+            for item in data.get("items", []):
+                number = item.get("episode")
+                episode_url = item.get("url")
+                if (
+                    isinstance(number, (int, float))
+                    and not isinstance(number, bool)
+                    and float(number) == target
+                    and isinstance(episode_url, str)
+                ):
+                    return episode_url
+            return None
+
+        print(
+            f"[catalog watch] requesting Anime4Up source page "
+            f"source={source_slug} episode={episode}",
+            flush=True,
+        )
+        first = await self._source_page(source_slug, 1)
+        episode_url = match(first)
+        if episode_url:
+            return episode_url
+
+        total_pages = int(first.get("pages") or 1)
+        if total_pages <= 1:
+            return None
+
+        # Physical Anime4Up pages are monotonic. Estimate by the first page's
+        # range, then retain a binary-search fallback. This keeps One Piece
+        # bounded instead of downloading every historical page merely to open
+        # one episode.
+        descending = bool(first.get("descending"))
+        first_numbers = [
+            float(item["episode"]) for item in first.get("items", [])
+            if isinstance(item.get("episode"), (int, float))
+            and not isinstance(item.get("episode"), bool)
+        ]
+        if first_numbers:
+            page_size = max(1, len(first_numbers))
+            boundary = max(first_numbers) if descending else min(first_numbers)
+            distance = boundary - target if descending else target - boundary
+            estimated_page = max(2, min(total_pages, int(distance // page_size) + 1))
+            estimated = await self._source_page(source_slug, estimated_page)
+            episode_url = match(estimated)
+            if episode_url:
+                return episode_url
+
+        low, high = 2, total_pages
+        while low <= high:
+            page = (low + high) // 2
+            data = await self._source_page(source_slug, page)
+            episode_url = match(data)
+            if episode_url:
+                return episode_url
+            numbers = [
+                float(item["episode"]) for item in data.get("items", [])
+                if isinstance(item.get("episode"), (int, float))
+                and not isinstance(item.get("episode"), bool)
+            ]
+            if not numbers:
+                break
+            minimum, maximum = min(numbers), max(numbers)
+            if minimum <= target <= maximum:
+                return None
+            if descending:
+                if target < minimum:
+                    low = page + 1
+                else:
+                    high = page - 1
+            elif target > maximum:
+                low = page + 1
+            else:
+                high = page - 1
+        return None
+
+    @staticmethod
+    def _watch_attempt(
+        provider, source_slug, episode_url, status, upstream_status=None,
+        raw_count=0, servers=None,
+    ):
+        normalized = []
+        for row in servers or []:
+            embed_url = row.get("embed_url")
+            if not isinstance(embed_url, str):
+                continue
+            playback_type = row.get("type")
+            normalized.append({
+                **row,
+                "type": playback_type
+                if playback_type in {"iframe", "direct", "hls"}
+                else _playback_type(embed_url),
+            })
+        return {
+            "provider": provider,
+            "sourceSlug": source_slug,
+            "episodeUrl": episode_url,
+            "status": status,
+            "upstreamStatus": upstream_status,
+            "rawCandidateCount": raw_count,
+            "count": len(normalized),
+            "servers": normalized,
+        }
+
+    @staticmethod
+    def _log_watch_attempt(attempt):
+        provider = attempt["provider"]
+        print(
+            f"[catalog watch] provider={provider} upstream HTTP status="
+            f"{attempt['upstreamStatus']}",
+            flush=True,
+        )
+        print(
+            f"[catalog watch] provider={provider} raw server candidates="
+            f"{attempt['rawCandidateCount']}",
+            flush=True,
+        )
+        print(
+            f"[catalog watch] provider={provider} accepted servers="
+            f"{attempt['count']}",
+            flush=True,
+        )
+        print(
+            f"[catalog watch] provider={provider} server names="
+            f"{json.dumps([item.get('name') for item in attempt['servers']], ensure_ascii=False)}",
+            flush=True,
+        )
+        print(
+            f"[catalog watch] provider={provider} server types="
+            f"{json.dumps([item.get('type') for item in attempt['servers']])}",
+            flush=True,
+        )
+        print(
+            f"[catalog watch] provider={provider} final playable URLs="
+            f"{json.dumps([item.get('embed_url') for item in attempt['servers']])}",
+            flush=True,
+        )
+
+    async def _provider_watch_attempt(self, provider, source_slug, episode_url):
+        try:
+            raw, accepted = await self.provider_manager.episode_server_candidates(
+                provider, episode_url
+            )
+            attempt = self._watch_attempt(
+                provider,
+                source_slug,
+                episode_url,
+                "available" if accepted else "empty",
+                200,
+                len(raw),
+                accepted,
+            )
+        except ProviderUnavailable as error:
+            attempt = self._watch_attempt(
+                provider, source_slug, episode_url, "unavailable", error.status
+            )
+            print(
+                f"[catalog watch] provider={provider} request failed: "
+                f"{type(error).__name__}: {error}",
+                flush=True,
+            )
+        except (SourceProviderError, ValueError) as error:
+            attempt = self._watch_attempt(
+                provider, source_slug, episode_url, "error", _upstream_status(error)
+            )
+            print(
+                f"[catalog watch] provider={provider} request failed: "
+                f"{type(error).__name__}: {error}",
+                flush=True,
+            )
+        except Exception as error:
+            attempt = self._watch_attempt(
+                provider, source_slug, episode_url, "error", _upstream_status(error)
+            )
+            print(
+                f"[catalog watch] provider={provider} request failed: "
+                f"{type(error).__name__}: {error}",
+                flush=True,
+            )
+        self._log_watch_attempt(attempt)
+        return attempt
+
+    async def watch_servers(
+        self, slug, episode, selected_provider=None, selected_url=None,
+        selected_source=None, requested_source=None, allow_fallback=True,
+    ):
+        if bool(selected_provider) != bool(selected_url):
+            raise HTTPException(422, "Selected provider and episode URL must be supplied together")
+        if selected_provider:
+            provider = self.provider_manager.provider(selected_provider)
+            if not provider.valid_episode_url(selected_url):
+                raise HTTPException(422, "Selected episode URL does not match its provider")
+
+        anime = (await self.catalog.detail_by_slug(slug))["data"]
+        anime4up_source = self._anime4up_watch_source(
+            anime, selected_provider, selected_source, requested_source
+        )
+        print(f"[catalog watch] requested anime slug={slug}", flush=True)
+        print(f"[catalog watch] episode number={episode}", flush=True)
+        print(f"[catalog watch] selected provider={selected_provider}", flush=True)
+        print(f"[catalog watch] Anime4Up source slug={anime4up_source}", flush=True)
+
+        attempts = []
+        anime4up_url = selected_url if selected_provider == "anime4up" else None
+        anime4up_resolution_error = None
+        if anime4up_url is None and anime4up_source:
+            try:
+                anime4up_url = await self._anime4up_watch_episode_url(
+                    anime4up_source, episode
+                )
+            except Exception as error:
+                anime4up_resolution_error = error
+
+        print(f"[catalog watch] Anime4Up episode URL={anime4up_url}", flush=True)
+        if anime4up_url:
+            anime4up_attempt = await self._provider_watch_attempt(
+                "anime4up", anime4up_source or selected_source, anime4up_url
+            )
+        elif anime4up_resolution_error is not None:
+            status = _upstream_status(anime4up_resolution_error)
+            anime4up_attempt = self._watch_attempt(
+                "anime4up",
+                anime4up_source,
+                None,
+                "unavailable" if isinstance(anime4up_resolution_error, ProviderUnavailable) else "error",
+                status,
+            )
+            print(
+                f"[catalog watch] provider=anime4up episode resolution failed: "
+                f"{type(anime4up_resolution_error).__name__}: {anime4up_resolution_error}",
+                flush=True,
+            )
+            self._log_watch_attempt(anime4up_attempt)
+        else:
+            anime4up_attempt = self._watch_attempt(
+                "anime4up",
+                anime4up_source,
+                None,
+                "not_found" if anime4up_source else "not_mapped",
+                200 if anime4up_source else None,
+            )
+            self._log_watch_attempt(anime4up_attempt)
+        attempts.append(anime4up_attempt)
+
+        # The episode reference is a fallback input, not the playback priority.
+        # Do not contact WitAnime when Anime4Up already supplied playable URLs.
+        if (
+            anime4up_attempt["count"] == 0
+            and allow_fallback
+            and selected_provider
+            and selected_provider != "anime4up"
+        ):
+            attempts.append(await self._provider_watch_attempt(
+                selected_provider, selected_source, selected_url
+            ))
+
+        return {
+            "animeSlug": slug,
+            "episode": episode,
+            "selectedProvider": selected_provider,
+            "attempts": attempts,
+            "availability": self._availability(),
+        }
+
     async def episode_servers(self, provider, episode_url):
         servers = await self.provider_manager.get_episode_servers(provider, episode_url)
         return {"provider": provider, "url": episode_url, "count": len(servers), "servers": servers}
@@ -672,3 +976,29 @@ async def episode_list(request: Request, response: Response, slug: str = Query(m
 @router.get("/episode-servers")
 async def episode_servers(request: Request, response: Response, provider: str = Query(pattern=r"^(anime4up|witanime)$"), url: str = Query(min_length=12, max_length=2048)):
     return await run(request, response, "episode_servers", provider, url)
+
+
+@router.get("/watch-servers")
+async def watch_servers(
+    request: Request,
+    response: Response,
+    slug: str = Query(min_length=1, max_length=220, pattern=r"^[a-z0-9-]+$"),
+    episode: float = Query(ge=0, le=100000),
+    provider: str | None = Query(None, pattern=r"^(anime4up|witanime)$"),
+    url: str | None = Query(None, min_length=12, max_length=2048),
+    source: str | None = Query(None, min_length=1, max_length=220, pattern=r"^[\w-]+$"),
+    requested_source: str | None = Query(None, min_length=1, max_length=220, pattern=r"^[\w-]+$"),
+    fallback: bool = Query(True),
+):
+    return await run(
+        request,
+        response,
+        "watch_servers",
+        slug,
+        episode,
+        provider,
+        url,
+        source,
+        requested_source,
+        fallback,
+    )
