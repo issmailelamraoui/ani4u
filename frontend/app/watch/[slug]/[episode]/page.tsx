@@ -26,7 +26,15 @@ import { mergeStreamServers, selectStreamServer } from "@/lib/stream-server-merg
 
 type Props = {
   params: Promise<{ slug: string; episode: string }>;
-  searchParams: Promise<{ server?: string | string[]; downloads?: string; provider?: string | string[]; source?: string | string[]; episode_url?: string | string[] }>;
+  searchParams: Promise<{
+    server?: string | string[];
+    downloads?: string;
+    provider?: string | string[];
+    source?: string | string[];
+    episode_url?: string | string[];
+    requested_provider?: string | string[];
+    requested_source?: string | string[];
+  }>;
 };
 
 type PlayerReferrerPolicy =
@@ -74,6 +82,11 @@ function episodeHref(slug: string, episode: number) {
 
 function provider(value: string | undefined): EpisodeProvider | null {
   return value === "anime4up" || value === "witanime" ? value : null;
+}
+
+function sourceSlug(value: string | undefined): string | null {
+  const source = value?.trim();
+  return source && /^[\p{L}\p{N}_-]{1,220}$/u.test(source) ? source : null;
 }
 
 async function catalogWatchAnime(slug: string): Promise<Anime | null> {
@@ -139,9 +152,22 @@ export default async function WatchPage({ params, searchParams }: Props) {
   const providerContext = requestedProvider && requestedEpisodeUrl
     ? { provider: requestedProvider, episodeUrl: requestedEpisodeUrl }
     : null;
-  const requestedSource = first(options.source)?.trim();
+  const requestedSource = sourceSlug(first(options.source));
+  const originalProvider = provider(first(options.requested_provider)?.trim());
+  const originalSource = sourceSlug(first(options.requested_source));
+  const originalRequest = originalProvider && originalSource
+    ? { provider: originalProvider, source: originalSource }
+    : null;
   const providerQuery = providerContext
-    ? { provider: providerContext.provider, episode_url: providerContext.episodeUrl, ...(requestedSource ? { source: requestedSource } : {}) }
+    ? {
+      provider: providerContext.provider,
+      episode_url: providerContext.episodeUrl,
+      ...(requestedSource ? { source: requestedSource } : {}),
+      ...(originalRequest ? {
+        requested_provider: originalRequest.provider,
+        requested_source: originalRequest.source,
+      } : {}),
+    }
     : {};
   const currentWatchHref = `${episodeHref(slug, Number(episode))}${Object.keys(providerQuery).length ? `?${new URLSearchParams(providerQuery)}` : ""}`;
   const showDownloads = options.downloads === "1";
@@ -170,7 +196,7 @@ export default async function WatchPage({ params, searchParams }: Props) {
         local = await getAni4uCatalogAnime(slug);
         anime = local ? toAni4uAnime(local) : null;
       } catch {
-        return <div className="page-shell route-message"><h1>تعذّر تحميل الحلقة</h1><ApiErrorState message={message(error)} retryHref={episodeHref(slug, episodeNumber)} /></div>;
+        return <div className="page-shell route-message"><h1>تعذّر تحميل الحلقة</h1><ApiErrorState message={message(error)} retryHref={currentWatchHref} /></div>;
       }
     }
   }
@@ -269,7 +295,7 @@ export default async function WatchPage({ params, searchParams }: Props) {
   let player: PlayerResponse | undefined;
   let playerError: string | undefined;
 
-  if (selectedLegacy && !providerContext) {
+  if (selectedLegacy && selectedUnified?.type === "iframe" && !providerContext) {
     try {
       player = await getEpisodePlayer(
         slug,
@@ -288,7 +314,11 @@ export default async function WatchPage({ params, searchParams }: Props) {
     try { downloads = await getEpisodeDownloads(slug, episodeNumber); }
     catch (error) { downloadError = message(error); }
   }
-  const downloadHref = `${episodeHref(slug, episodeNumber)}?${new URLSearchParams({ downloads: "1", ...(selectedUnified ? { server: selectedUnified.id } : {}) })}#downloads`;
+  const downloadHref = `${episodeHref(slug, episodeNumber)}?${new URLSearchParams({
+    ...providerQuery,
+    downloads: "1",
+    ...(selectedUnified ? { server: selectedUnified.id } : {}),
+  })}#downloads`;
   const watchLabel = local?.content_type === "movie"
     ? "الفيلم"
     : local?.content_type === "special"
@@ -355,7 +385,22 @@ export default async function WatchPage({ params, searchParams }: Props) {
             allowFullScreen
             loading="eager"
           />
-        ) : selectedUnified && selectedUnified.server.embedUrl ? (
+        ) : selectedUnified && selectedUnified.type === "direct" && selectedUnified.server.embedUrl ? (
+          <video
+            className="watch-player"
+            src={selectedUnified.server.embedUrl}
+            title={`${anime.title} — ${watchLabel}`}
+            controls
+            playsInline
+            preload="metadata"
+          />
+        ) : selectedUnified && selectedUnified.type === "hls" && selectedUnified.server.embedUrl ? (
+          <HlsPlayer
+            className="watch-player"
+            src={selectedUnified.server.embedUrl}
+            title={`${anime.title} — ${watchLabel}`}
+          />
+        ) : selectedUnified && selectedUnified.type === "iframe" && selectedUnified.server.embedUrl ? (
           <iframe
             className="watch-player"
             src={selectedUnified.server.embedUrl}

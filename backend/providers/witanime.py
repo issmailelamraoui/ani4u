@@ -58,6 +58,50 @@ def _normalized_playback_url(value: str) -> str:
     return urlunparse(("https", host + port, parsed.path or "/", "", parsed.query, ""))
 
 
+_AD_HOST_SUFFIXES = (
+    "a-ads.com",
+    "doubleclick.net",
+    "googlesyndication.com",
+)
+_PLAYER_PATH = re.compile(
+    r"(?:^|/)(?:e|embed|iframe|player|video[_-]?ext)(?:$|[/._-])",
+    flags=re.I,
+)
+
+
+def _playback_type(value: str) -> str:
+    path = urlparse(value).path.lower()
+    if path.endswith(".m3u8"):
+        return "hls"
+    if path.endswith((".mp4", ".m4v", ".webm", ".ogv", ".ogg")):
+        return "direct"
+    return "iframe"
+
+
+def _public_playback_url(value: str | None, base: str) -> str | None:
+    """Accept only explicit external players, never ads or a watch page.
+
+    WitAnime's current HTML contains advertising iframes and an in-page
+    ``#watch-servers`` navigation link, while its real players are loaded later
+    from session-bound opaque tokens.  Neither false candidate is a public
+    player URL that another origin can safely embed.
+    """
+    url = _public_url(value, base)
+    if not url:
+        return None
+    parsed = urlparse(url)
+    host = (parsed.hostname or "").lower().strip(".")
+    if _source_host(host) or any(
+        host == suffix or host.endswith("." + suffix)
+        for suffix in _AD_HOST_SUFFIXES
+    ):
+        return None
+    playback_type = _playback_type(url)
+    if playback_type != "iframe" or _PLAYER_PATH.search(unquote(parsed.path)):
+        return url
+    return None
+
+
 def get_episode_number(text: str, url: str = "") -> int | float | None:
     value = f"{text} {url}".lower().replace("٫", ".")
     patterns = (
@@ -228,7 +272,7 @@ class WitAnimeProvider:
         seen_urls: set[str] = set()
 
         def add(name: str | None, raw_url: str | None, server_id: str | None = None, attributes: dict | None = None):
-            embed_url = _public_url(raw_url, episode_url)
+            embed_url = _public_playback_url(raw_url, episode_url)
             if not embed_url:
                 return
             key = _normalized_playback_url(embed_url)
@@ -240,6 +284,7 @@ class WitAnimeProvider:
                 "id": server_id or str(len(servers) + 1),
                 "attributes": attributes or {},
                 "embed_url": embed_url,
+                "type": _playback_type(embed_url),
             })
 
         for index, frame in enumerate(soup.select("iframe[src], iframe[data-src]"), start=1):
@@ -252,4 +297,11 @@ class WitAnimeProvider:
             if not any(token in marker for token in ("سيرفر", "server", "مشغل", "player")):
                 continue
             add(text, anchor.get("href"), anchor.get("data-server") or anchor.get("data-id"))
+
+        for index, media in enumerate(soup.select("video[src], source[src]"), start=1):
+            add(
+                media.get("title") or media.get("aria-label") or f"WitAnime media {index}",
+                media.get("src"),
+                media.get("data-server") or media.get("id"),
+            )
         return servers

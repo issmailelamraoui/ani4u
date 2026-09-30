@@ -220,6 +220,10 @@ test("An intentional WitAnime fallback satisfies the original Anime4Up request",
   const parsed = episodes.parseEpisodes(fallback, requested);
   assert.equal(parsed.items.length, 1);
   assert.equal(parsed.sourceProvider, "witanime");
+  assert.equal(
+    episodes.catalogEpisodeHref("mushoku-tensei-jobless-reincarnation-season-3-178789", 1, parsed.items[0].sources[0], parsed.requestedSource),
+    "/watch/mushoku-tensei-jobless-reincarnation-season-3-178789/1?provider=witanime&source=mushoku-tensei-iii-isekai-ittara-honki-dasu&episode_url=https%3A%2F%2Fwitanime.site%2Fwatch%2Fmushoku-tensei-iii-isekai-ittara-honki-dasu%2F1&requested_provider=anime4up&requested_source=mushoku-tensei-iii-isekai-ittara-honki-dasu",
+  );
   assert.throws(() => episodes.parseEpisodes({ ...fallback, requestedSource: undefined }, requested));
   // The Next route and browser intentionally validate this response twice.
   assert.equal(episodes.parseEpisodes(parsed, requested).items.length, 1);
@@ -261,13 +265,13 @@ test("Fansub servers are first, then Anime4Up, then WitAnime; public URLs dedupl
     { source: "omarhidan", host: "google-drive", type: "iframe", url: "https://drive.google.com/file/d/abc/preview", tested: true, working: true },
   ];
   const legacy = [
-    { name: "Dropbox mirror", id: "1", attributes: {}, embedUrl: "https://video.test/a.mp4" },
-    { name: "Vidmoly", id: "2", attributes: {}, embedUrl: "https://vidmoly.test/e/abc" },
-    { name: "Vidmoly", id: "3", attributes: {}, embedUrl: "https://vidmoly.test/e/def" },
+    { name: "Dropbox mirror", id: "1", attributes: {}, embedUrl: "https://video.test/a.mp4", type: "direct" },
+    { name: "Vidmoly", id: "2", attributes: {}, embedUrl: "https://vidmoly.test/e/abc", type: "iframe" },
+    { name: "Vidmoly", id: "3", attributes: {}, embedUrl: "https://vidmoly.test/e/def", type: "iframe" },
   ];
   const witanime = [
-    { name: "same display name", id: "w1", attributes: {}, embedUrl: "https://vidmoly.test/e/abc#ignored" },
-    { name: "Wit player", id: "w2", attributes: {}, embedUrl: "https://streamwish.test/e/xyz" },
+    { name: "same display name", id: "w1", attributes: {}, embedUrl: "https://vidmoly.test/e/abc#ignored", type: "iframe" },
+    { name: "Wit player", id: "w2", attributes: {}, embedUrl: "https://streamwish.test/e/xyz", type: "iframe" },
   ];
   const merged = streamServers.mergeStreamServers(fansub, legacy, witanime);
   assert.equal(merged.map((server) => server.source).join(","), "fansub,fansub,legacy,legacy,witanime");

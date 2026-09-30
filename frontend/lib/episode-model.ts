@@ -175,12 +175,21 @@ export function episodeHref(source: string, episode: number) {
   return `/watch/${encodeURIComponent(source)}/${encodeURIComponent(String(episode))}`;
 }
 
-export function catalogEpisodeHref(catalogSlug: string, episode: number, reference?: EpisodeReference) {
+export function catalogEpisodeHref(
+  catalogSlug: string,
+  episode: number,
+  reference?: EpisodeReference,
+  requested?: RequestedEpisodeSource | null,
+) {
   if (!reference) return episodeHref(catalogSlug, episode);
   const query = new URLSearchParams({
     provider: reference.provider,
     source: reference.sourceSlug,
     episode_url: reference.episodeUrl,
+    ...(requested ? {
+      requested_provider: requested.provider,
+      requested_source: requested.sourceSlug,
+    } : {}),
   });
   return `${episodeHref(catalogSlug, episode)}?${query}`;
 }

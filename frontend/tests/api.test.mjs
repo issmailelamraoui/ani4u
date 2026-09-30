@@ -115,9 +115,37 @@ test("provider-aware catalog server requests preserve a public WitAnime episode 
   const result = await api.getCatalogEpisodeServers("witanime", witEpisode);
   assert.equal(result.provider, "witanime");
   assert.equal(result.servers[0].embedUrl, "https://player.example/e/7");
+  assert.equal(result.servers[0].type, "iframe");
   assert.equal(calls[0].url.pathname, "/api/catalog/episode-servers");
   assert.equal(calls[0].url.searchParams.get("provider"), "witanime");
   await assert.rejects(api.getCatalogEpisodeServers("witanime", episode.url));
+});
+
+test("provider server parsing hides WitAnime ads and blocked watch pages", async () => {
+  const witEpisode = "https://witanime.site/watch/mushoku-tensei-iii-isekai-ittara-honki-dasu/1";
+  const { api } = client([{
+    provider: "witanime", url: witEpisode, count: 2,
+    servers: [
+      { name: "WitAnime 1", id: "1", attributes: {}, embed_url: "https://acceptable.a-ads.com/2455748/?size=Adaptive" },
+      { name: "تخطي إلى السيرفرات", id: "2", attributes: {}, embed_url: `${witEpisode}#watch-servers` },
+    ],
+  }]);
+  const result = await api.getCatalogEpisodeServers("witanime", witEpisode);
+  assert.equal(result.count, 0);
+  assert.equal(result.servers.length, 0);
+});
+
+test("provider servers retain direct and HLS playback types", async () => {
+  const episodeUrl = "https://w1.anime4up.rest/episode/one-piece-1/";
+  const { api } = client([{
+    provider: "anime4up", url: episodeUrl, count: 2,
+    servers: [
+      { name: "Direct", id: "1", attributes: {}, embed_url: "https://media.example/one.mp4" },
+      { name: "HLS", id: "2", attributes: {}, embed_url: "https://media.example/one.m3u8" },
+    ],
+  }]);
+  const result = await api.getCatalogEpisodeServers("anime4up", episodeUrl);
+  assert.equal(result.servers.map((server) => server.type).join(","), "direct,hls");
 });
 
 test("home feed parses latest and featured anime", async () => {

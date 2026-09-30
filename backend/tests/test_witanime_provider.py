@@ -46,6 +46,8 @@ class WitAnimeHttpProviderTests(unittest.IsolatedAsyncioTestCase):
                 <iframe title="Vidmoly" src="https://player.example/e/one#fragment"></iframe>
                 <iframe title="Duplicate name is irrelevant" src="https://player.example/e/one"></iframe>
                 <a data-server="two" href="https://other.example/embed/two">مشغل السيرفر الثاني</a>
+                <video title="Direct" src="https://media.example/episode.mp4"></video>
+                <source src="https://media.example/episode.m3u8">
             ''')
 
         client = self.client(handler)
@@ -54,7 +56,26 @@ class WitAnimeHttpProviderTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual([server["embed_url"] for server in servers], [
             "https://player.example/e/one#fragment",
             "https://other.example/embed/two",
+            "https://media.example/episode.mp4",
+            "https://media.example/episode.m3u8",
         ])
+        self.assertEqual([server["type"] for server in servers], [
+            "iframe", "iframe", "direct", "hls",
+        ])
+        await client.aclose()
+
+    async def test_ad_iframes_and_same_page_navigation_are_not_servers(self):
+        async def handler(request):
+            return httpx.Response(200, text='''
+                <iframe src="//acceptable.a-ads.com/2455748/?size=Adaptive"></iframe>
+                <a href="#watch-servers">تخطي إلى السيرفرات</a>
+                <a href="https://witanime.site/watch/one-piece/1">مشغل الصفحة</a>
+            ''')
+
+        client = self.client(handler)
+        provider = WitAnimeProvider(client)
+        servers = await provider.get_episode_servers("https://witanime.site/watch/one-piece/1/")
+        self.assertEqual(servers, [])
         await client.aclose()
 
 

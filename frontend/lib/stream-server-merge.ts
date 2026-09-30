@@ -1,9 +1,9 @@
 import type { Ani4uStreamServer } from "@/lib/ani4u-stream";
-import type { EpisodeServer } from "@/lib/api";
+import type { EpisodeServer, PlaybackType } from "@/lib/api";
 
 export type UnifiedServer =
   | { id: string; name: string; source: "fansub"; type: "direct" | "iframe" | "hls"; url: string; server: Ani4uStreamServer }
-  | { id: string; name: string; source: "legacy" | "witanime"; type: "legacy"; server: EpisodeServer };
+  | { id: string; name: string; source: "legacy" | "witanime"; type: PlaybackType; server: EpisodeServer };
 
 function fansubId(server: Ani4uStreamServer) {
   // Two Google Drive files can share source and host, so the validated URL is
@@ -30,13 +30,13 @@ export function mergeStreamServers(fansub: Ani4uStreamServer[], legacy: EpisodeS
   const sourceServers = (servers: EpisodeServer[], source: "legacy" | "witanime") => servers.filter((server) => {
     // Similar server names are never evidence of a duplicate. A normalized
     // exact public URL is the only deduplication key.
-    if (!server.embedUrl) return true;
+    if (!server.embedUrl) return false;
     const key = playbackKey(server.embedUrl);
     if (seenUrls.has(key)) return false;
     seenUrls.add(key);
     return true;
   }).map((server, index): Extract<UnifiedServer, { source: "legacy" | "witanime" }> => ({
-    id: `${source}:${server.name}:${server.id || index}`, name: server.name, source, type: "legacy", server,
+    id: `${source}:${server.name}:${server.id || index}`, name: server.name, source, type: server.type || "iframe", server,
   }));
   return [...preferred, ...sourceServers(legacy, "legacy"), ...sourceServers(witanime, "witanime")];
 }

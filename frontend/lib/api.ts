@@ -13,11 +13,13 @@ export type Anime = {
 export type SearchResponse = { query: string; count: number; cached: boolean; results: Anime[] };
 export type Episode = { episode: number; title: string; url: string };
 export type EpisodesResponse = { url: string; count: number; cached: boolean; episodes: Episode[] };
+export type PlaybackType = "iframe" | "direct" | "hls";
 export type EpisodeServer = {
   name: string;
   id: string | null;
   attributes: Record<string, string>;
   embedUrl: string | null;
+  type: PlaybackType;
 };
 export type ServersResponse = { url: string; count: number; cached: boolean; servers: EpisodeServer[] };
 export type EpisodeProvider = "anime4up" | "witanime";
@@ -97,6 +99,45 @@ function providerEpisodeUrl(provider: EpisodeProvider, value: string): URL {
     throw new Error(`Unsupported ${provider} episode URL: ${url.href}`);
   }
   return url;
+}
+
+function playbackType(value: unknown, url: URL): PlaybackType {
+  if (value === "iframe" || value === "direct" || value === "hls") return value;
+  const path = url.pathname.toLowerCase();
+  if (path.endsWith(".m3u8")) return "hls";
+  if ([".mp4", ".m4v", ".webm", ".ogv", ".ogg"].some((suffix) => path.endsWith(suffix))) return "direct";
+  return "iframe";
+}
+
+function episodeServer(value: unknown, requireEmbed = false): EpisodeServer {
+  const item = object(value);
+  const attributes = object(item.attributes ?? {});
+  if (Object.values(attributes).some((entry) => typeof entry !== "string")) throw new Error("Invalid server attributes");
+  let embedUrl: URL | null = null;
+  if (item.embed_url != null && item.embed_url !== "") {
+    embedUrl = new URL(string(item.embed_url, "server embed URL"));
+    if (!["http:", "https:"].includes(embedUrl.protocol) || embedUrl.username || embedUrl.password) {
+      throw new Error("Unsupported server embed URL");
+    }
+  }
+  if (requireEmbed && embedUrl === null) throw new Error("Missing server embed URL");
+  return {
+    name: string(item.name, "server name"),
+    id: item.id == null ? null : String(item.id),
+    attributes: attributes as Record<string, string>,
+    embedUrl: embedUrl?.href ?? null,
+    type: playbackType(item.type, embedUrl ?? new URL("https://invalid.local/")),
+  };
+}
+
+function publicWitAnimePlayer(value: string): boolean {
+  const url = new URL(value);
+  const host = url.hostname.toLowerCase();
+  if (witanimeHost(host) || ["a-ads.com", "doubleclick.net", "googlesyndication.com"].some(
+    (suffix) => host === suffix || host.endsWith(`.${suffix}`),
+  )) return false;
+  if (playbackType(undefined, url) !== "iframe") return true;
+  return /(?:^|\/)(?:e|embed|iframe|player|video[_-]?ext)(?:$|[\/._-])/i.test(url.pathname);
 }
 
 function imageUrl(value: unknown): string | null {
@@ -260,23 +301,7 @@ export async function getEpisodeServers(slug: string, episode: number): Promise<
   if (!selected) throw new ApiError(`Episode not found: ${slug}/${episode}`, "هذه الحلقة غير متاحة.", 404);
   return request("/api/servers", { url: selected.url }, (value) => {
     const data = object(value);
-    const servers = parseList(data, "servers", (value): EpisodeServer => {
-      const item = object(value);
-      const attributes = object(item.attributes ?? {});
-      if (Object.values(attributes).some((v) => typeof v !== "string")) throw new Error("Invalid server attributes");
-      let embedUrl: string | null = null;
-      if (item.embed_url != null && item.embed_url !== "") {
-        const embed = new URL(string(item.embed_url, "server embed URL"));
-        if (!['http:', 'https:'].includes(embed.protocol)) throw new Error("Unsupported server embed URL");
-        embedUrl = embed.href;
-      }
-      return {
-        name: string(item.name, "server name"),
-        id: item.id == null ? null : String(item.id),
-        attributes: attributes as Record<string, string>,
-        embedUrl,
-      };
-    });
+    const servers = parseList(data, "servers", (item): EpisodeServer => episodeServer(item));
     return { url: string(data.url, "url"), count: servers.length, cached: data.cached === true, servers };
   });
 }
@@ -288,19 +313,8 @@ export async function getCatalogEpisodeServers(provider: EpisodeProvider, episod
     const data = object(value);
     if (data.provider !== provider) throw new Error("Provider mismatch");
     if (providerEpisodeUrl(provider, string(data.url, "episode URL")).href !== validated.href) throw new Error("Episode URL mismatch");
-    const servers = parseList(data, "servers", (value): EpisodeServer => {
-      const item = object(value);
-      const attributes = object(item.attributes ?? {});
-      if (Object.values(attributes).some((v) => typeof v !== "string")) throw new Error("Invalid server attributes");
-      const embed = new URL(string(item.embed_url, "server embed URL"));
-      if (!['http:', 'https:'].includes(embed.protocol) || embed.username || embed.password) throw new Error("Unsupported server embed URL");
-      return {
-        name: string(item.name, "server name"),
-        id: item.id == null ? null : String(item.id),
-        attributes: attributes as Record<string, string>,
-        embedUrl: embed.href,
-      };
-    });
+    const servers = parseList(data, "servers", (item): EpisodeServer => episodeServer(item, true))
+      .filter((server) => provider !== "witanime" || publicWitAnimePlayer(server.embedUrl!));
     return { provider, url: validated.href, count: servers.length, servers };
   });
 }
